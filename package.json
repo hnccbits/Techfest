@@ -6,12 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint . --fix",
+    "style:all": "npm run style:lint && npm run style:prettier",
+    "style:lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "style:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "make-pretty": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@next/font": "13.1.6",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.3",
+    "tailwindcss": "^3.2.4",
+    "husky": "^8.0.0"
   }
 }
