@@ -13,7 +13,7 @@ body {
 }
 
 .comingSoon {
-  background: url(../../public/img/bg.png);
+  background: url('../../public/img/bg.png');
   min-height: 100vh;
   background-position: center;
   background-size: cover;
