@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squid+Games&display=swap');
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
-  background: url(../../public/img/bg.png);
 }
 
 @font-face {
@@ -13,7 +13,13 @@ body {
   src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Squid Games';
+  src: url(../assets/fonts/Game\ Of\ Squids.ttf);
+}
+
 .comingSoon {
+  background: url(https://res.cloudinary.com/du196ag4l/image/upload/v1675323333/Home_Page_gz1paz.png);
   min-height: 100vh;
   background-position: center;
   background-size: cover;
@@ -31,7 +37,7 @@ body {
 }
 .eventLogo img {
   width: 100%;
-  margin-top: rem;
+  /* margin-top: rem; */
 }
 .comingSoon .eventAbout .heading {
   display: flex;
@@ -39,7 +45,8 @@ body {
   align-items: center;
 }
 .comingSoon .eventAbout .heading span {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Squid Games', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
   font-size: 4rem;
   line-height: 2rem;
 }
@@ -70,6 +77,14 @@ body {
   .comingSoon .eventAbout .subHeading {
     font-size: 1.2rem;
     line-height: 1.5rem;
+  }
+  .eventLogo img {
+    width: 100%;
+    margin-top: -25rem;
+  }
+  .comingSoon .eventAbout img {
+    margin-top: 0.1rem;
+    width: 80%;
   }
 }
 
