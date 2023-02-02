@@ -31,7 +31,7 @@ body {
 }
 .eventLogo img {
   width: 100%;
-  margin-top: rem;
+  /* margin-top: rem; */
 }
 .comingSoon .eventAbout .heading {
   display: flex;
@@ -70,6 +70,10 @@ body {
   .comingSoon .eventAbout .subHeading {
     font-size: 1.2rem;
     line-height: 1.5rem;
+  }
+  .eventLogo img {
+    width: 100%;
+    margin-top: -3rem;
   }
 }
 
