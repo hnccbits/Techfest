@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+.comingSoon{
+    min-height: 100vh;
+    background: url(../../public/img/bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+.comingSoon .eventLogo{
+    margin: 1.5rem 0 5rem 0;
+    width: 150px;
+}
+.eventLogo img{
+    width: 100%;
+}
+.comingSoon .eventAbout .heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comingSoon .eventAbout .heading span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    line-height: 2rem;
+}
+.comingSoon .eventAbout .subHeading{
+    font-size: 1.2rem;
+}
+.comingSoon .eventAbout img{
+    width: 94%;
+}
+@media (max-width: 750px) {
+    .comingSoon .eventAbout .heading span{
+        font-size: 2.8rem;
+    }
+}
+@media (max-width: 550px) {
+    .comingSoon .eventLogo{
+        margin: 1.5rem 0 3.2rem 0;
+        width: 120px;
+    }
+    .comingSoon .eventAbout .heading span{
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+    }
+}
