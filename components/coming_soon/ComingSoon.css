@@ -1,58 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    color: #fff;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background: url(../../public/img/bg.png);
 }
-.comingSoon{
-    min-height: 100vh;
-    background: url(../../public/img/bg.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
+
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
 }
-.comingSoon .eventLogo{
-    margin: 1.5rem 0 5rem 0;
-    width: 150px;
+
+.comingSoon {
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* padding: 0 1rem; */
 }
-.eventLogo img{
-    width: 100%;
+.comingSoon .eventLogo {
+  margin: 1.5rem 0 5rem 0;
+  width: 150px;
 }
-.comingSoon .eventAbout .heading{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.eventLogo img {
+  width: 100%;
+  margin-top: rem;
 }
-.comingSoon .eventAbout .heading span{
-    font-family: 'Poppins', sans-serif;
-    font-size: 4rem;
-    line-height: 2rem;
+.comingSoon .eventAbout .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.comingSoon .eventAbout .subHeading{
-    font-size: 1.2rem;
+.comingSoon .eventAbout .heading span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  line-height: 2rem;
 }
-.comingSoon .eventAbout img{
-    width: 94%;
+.comingSoon .eventAbout .subHeading {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 65px;
+}
+.comingSoon .eventAbout img {
+  margin-top: 1rem;
+  width: 94%;
 }
 @media (max-width: 750px) {
-    .comingSoon .eventAbout .heading span{
-        font-size: 2.8rem;
-    }
+  .comingSoon .eventAbout .heading span {
+    font-size: 2.8rem;
+  }
 }
 @media (max-width: 550px) {
-    .comingSoon .eventLogo{
-        margin: 1.5rem 0 3.2rem 0;
-        width: 120px;
-    }
-    .comingSoon .eventAbout .heading span{
-        font-size: 2.8rem;
-        line-height: 2.8rem;
-    }
+  .comingSoon .eventLogo {
+    margin: 1.5rem 0 3.2rem 0;
+    width: 120px;
+  }
+  .comingSoon .eventAbout .heading span {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+  .comingSoon .eventAbout .subHeading {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
+
+.clock {
+  font-weight: 500;
+  color: #fff;
+  margin-top: 6rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  border: 1px solid #4936a7;
+  padding: 0.71rem;
+  width: 30rem;
+  height: 5rem;
+  font-family: 'Galano Grotesque';
+  font-style: normal;
+  backdrop-filter: blur(2px);
+  background: rgba(73, 54, 167, 0.2);
+}
+
+.clock > section > p {
+  font-size: 1.3rem;
+  line-height: 0.1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.clock > section > span {
+  font-family: 'Galano Grotesque', sans-serif;
+  font-size: 1.21rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+@media screen and (max-width: 550px) {
+  .clock {
+    width: 20rem;
+    height: 4rem;
+    gap: 2rem;
+  }
+  .clock > section > p {
+    font-size: 1rem;
+  }
+  .clock > section > span {
+    font-size: 1rem;
+  }
 }

@@ -1,5 +1,7 @@
 // import './ComingSoon.css'
 
+import Countdown from '../Countdown/Countdown';
+
 export default function ComingSoon() {
   return (
     <div className="comingSoon">
@@ -15,6 +17,7 @@ export default function ComingSoon() {
         </div>
         <div className="subHeading">Coming Soon...</div>
       </div>
+      <Countdown />
     </div>
   );
 }
