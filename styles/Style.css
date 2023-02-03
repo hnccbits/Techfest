@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-text: #fff;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url(https://res.cloudinary.com/du196ag4l/image/upload/v1675338484/bg_rq4rql.svg),
+    rgb(7, 1, 27);
+  color: var(--primary-text);
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2.6rem;
+}
+
+.navbar a {
+  margin: 0 3.4rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary-text);
+}
+
+.event {
+  padding: 0 6rem;
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  display: inline-block;
+}
+
+.heading img {
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 110%;
+}
+
+.subheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 2rem 0;
+}
+
+.eventheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem 0;
+}
+.prizeheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.eventCardSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.eventCard {
+  position: relative;
+  width: 300px;
+  height: 340px;
+  margin: 1rem;
+  border: 1px solid #4936a7;
+  padding: 1.5rem;
+}
+.eventCard img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.eventCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 10, 28, 0.75);
+  z-index: -1;
+}
+.eventCard span {
+  display: block;
+}
+
+.eventCard .prize {
+  margin: 3.2rem 0;
+}
+
+.eventCard .cardBtn {
+  padding: 0.4rem 2rem;
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navbar a {
+    margin: 0 2rem;
+  }
+  .eventCard {
+    width: 270px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .navbar a {
+    margin: 0 2rem;
+  }
+  .eventCard {
+    width: 270px;
+  }
+  .event {
+    padding: 0 3rem;
+  }
+}
