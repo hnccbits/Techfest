@@ -13,7 +13,7 @@ export default function ComingSoon() {
           <span>
             TECH MAHOTSAV<i>&apos;</i> 23
           </span>
-          <img src="img/uline.png" alt="" />
+          <img src="img/uline.svg" alt="" />
         </div>
         <div className="subHeading">Coming Soon...</div>
       </div>
