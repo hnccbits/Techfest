@@ -75,8 +75,8 @@ body {
 
 .eventCard {
   position: relative;
-  width: 300px;
-  height: 340px;
+  width: 370px;
+  height: 400px;
   margin: 1rem;
   border: 1px solid #4936a7;
   padding: 1.5rem;
@@ -104,11 +104,12 @@ body {
 }
 
 .eventCard .prize {
-  margin: 3.2rem 0;
+  margin: 4rem 0;
 }
 
 .eventCard .cardBtn {
-  padding: 0.4rem 2rem;
+  margin-top: 2rem;
+  padding: 0.9rem 2rem;
   background: rgba(73, 54, 167, 0.2);
   border: 1px solid #4936a7;
   display: inline-block;
