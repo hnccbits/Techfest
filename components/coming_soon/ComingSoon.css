@@ -55,22 +55,26 @@ body {
   font-family: 'Galano Grotesque bold', sans-serif;
   /* font-family: 'Poppins', sans-serif; */
   font-size: 5.6rem;
-  line-height: 4rem;
+  line-height: 6.2rem;
+}
+.comingSoon .eventAbout .heading img{
+  width: 100%;
 }
 .comingSoon .eventAbout .subHeading {
   font-size: 1.2rem;
   font-family: 'Galano Grotesque Light', sans-serif;
   font-weight: 300;
   font-size: 48px;
-  line-height: 65px;
+  line-height: 90px;
 }
 .comingSoon .eventAbout img {
   margin-top: 1rem;
   width: 94%;
 }
-@media (max-width: 1008px) {
+@media screen and (max-width: 1008px) {
   .comingSoon .eventAbout .heading span {
     font-size: 5.3rem;
+    line-height: 5rem;
   }
 }
 @media (max-width: 948px) {
@@ -81,7 +85,7 @@ body {
 @media (max-width: 873px) {
   .comingSoon .eventAbout .heading span {
     font-size: 4.2rem;
-    line-height: 3rem;
+    line-height: 4rem;
   }
   .comingSoon .eventAbout .subHeading {
     font-size: 2.4rem;
@@ -103,11 +107,11 @@ body {
   }
   .comingSoon .eventAbout .heading span {
     font-size: 2rem;
-    line-height: 2.8rem;
+    line-height: 1.2rem;
   }
   .comingSoon .eventAbout .subHeading {
     font-size: 1.2rem;
-    line-height: 1.5rem;
+    line-height: 3.8rem;
   }
   .eventLogo img {
     width: 100%;
@@ -127,7 +131,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3.5rem;
+  gap: 3rem;
   border: 1px solid #4936a7;
   padding: 0.71rem;
   width: 30rem;
@@ -139,8 +143,8 @@ body {
 }
 
 .clock > section > p {
-  font-size: 1.3rem;
-  line-height: 0.1rem;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
   font-family: 'Galano Grotesque medium', sans-serif;
 }
 
@@ -155,7 +159,7 @@ body {
   .clock {
     width: 20rem;
     height: 4rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .clock > section > p {
     font-size: 1rem;
