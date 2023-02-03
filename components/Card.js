@@ -1,4 +1,12 @@
+import React from 'react';
+import { useRouter } from 'next/router';
+
 function Card() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/events');
+  };
+
   return (
     <div className="eventCard">
       <img src="img/e1.png" alt="" />
@@ -13,7 +21,9 @@ function Card() {
         <span>Prizes Worth</span>
         <div className="prizeheading">INR 19500</div>
       </div>
-      <div className="cardBtn">Know More</div>
+      <div onClick={handleClick} className="cardBtn">
+        Know More
+      </div>
     </div>
   );
 }

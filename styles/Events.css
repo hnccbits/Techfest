@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squid+Games&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Squid Games';
+  src: url('../assets/fonts/Game\ Of\ Squids.ttf');
+}
+
+.main-container {
+  background: url('https://res.cloudinary.com/du196ag4l/image/upload/v1675323333/Home_Page_gz1paz.png');
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+}
+.title{
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+.title p{
+  text-transform: uppercase;
+}
+.title p span{
+  font-weight: normal;
+  text-transform: none;
+}
+.container{
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  max-width: 85vw;
+}
+.description{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+.description p{
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.cta{
+  font: inherit;
+  color: white;
+  padding: 1rem 1.5rem;
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936A7;
+}
+
+@media (max-width: 1100px){
+  .description p{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width:876px) {
+  .title{
+    font-size: 1.5rem;
+  }
+  img{
+    max-width: 50%;
+    height: auto;
+  }
+}
+@media (max-width:728px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width:576px) {
+  .description p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:365px) {
+  .description p{
+    font-size: 0.8rem;
+  }
+}
