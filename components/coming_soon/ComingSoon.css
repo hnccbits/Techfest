@@ -26,7 +26,7 @@ body {
 }
 
 .comingSoon {
-  background: url("https://res.cloudinary.com/du196ag4l/image/upload/v1675338484/bg_rq4rql.svg");
+  background: url('https://res.cloudinary.com/du196ag4l/image/upload/v1675338484/bg_rq4rql.svg');
   min-height: 100vh;
   background-position: center;
   background-size: cover;
@@ -57,7 +57,7 @@ body {
   font-size: 5.6rem;
   line-height: 6.2rem;
 }
-.comingSoon .eventAbout .heading img{
+.comingSoon .eventAbout .heading img {
   width: 100%;
 }
 .comingSoon .eventAbout .subHeading {
