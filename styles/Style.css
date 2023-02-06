@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squid+Games&display=swap');
 
 * {
   margin: 0;
@@ -16,8 +18,14 @@ body {
     rgb(7, 1, 27);
   color: var(--primary-text);
   background-repeat: no-repeat;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
 }
-
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -31,7 +39,10 @@ body {
   font-weight: 700;
   color: var(--primary-text);
 }
-
+.cardBtn a {
+  text-decoration: none;
+  color: var(--primary-text);
+}
 .event {
   padding: 0 6rem;
 }
@@ -70,16 +81,17 @@ body {
 .eventCardSection {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 80px;
 }
 
 .eventCard {
   position: relative;
-  width: 300px;
-  height: 340px;
   margin: 1rem;
   border: 1px solid #4936a7;
   padding: 1.5rem;
+  max-width: 100%;
+  height: -webkit-fill-available;
 }
 .eventCard img {
   position: absolute;
@@ -133,5 +145,92 @@ body {
   }
   .event {
     padding: 0 3rem;
+  }
+}
+
+
+.main-container {
+  /* background: url('https://res.cloudinary.com/du196ag4l/image/upload/v1675323333/Home_Page_gz1paz.png'); */
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+.event-title{
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 4rem;
+}
+.event-title p{
+  text-transform: uppercase;
+}
+.event-title p span{
+  font-weight: normal;
+  text-transform: none;
+}
+.container{
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  max-width: 85vw;
+}
+.event-description{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+.event-description p{
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.cta{
+  font: inherit;
+  color: white;
+  padding: 1rem 1.5rem;
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936A7;
+}
+
+@media (max-width: 1100px){
+  .event-description p{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width:876px) {
+  .event-title{
+    font-size: 1.5rem;
+  }
+  img{
+    max-width: 50%;
+    height: auto;
+  }
+}
+@media (max-width:728px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width:576px) {
+  .event-description p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:365px) {
+  .event-description p{
+    font-size: 0.8rem;
   }
 }
