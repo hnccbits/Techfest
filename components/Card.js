@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-
 function Card() {
   return (
     <div className="eventCard">
