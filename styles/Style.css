@@ -16,6 +16,7 @@ body {
     rgb(7, 1, 27);
   color: var(--primary-text);
   background-repeat: no-repeat;
+  padding: 0 6rem;
 }
 
 .navbar {
@@ -32,9 +33,9 @@ body {
   color: var(--primary-text);
 }
 
-.event {
+/* .event {
   padding: 0 6rem;
-}
+} */
 
 .heading {
   font-size: 2.8rem;
@@ -113,6 +114,38 @@ body {
   border: 1px solid #4936a7;
   display: inline-block;
   cursor: pointer;
+}
+
+form{
+  background: rgba(73, 54, 167, 0.2);
+  margin: 2rem;
+  padding: 1.5rem;
+}
+form input,
+form select,
+form textarea{
+  display: block;
+  width: 50%;
+  padding: .6rem;
+  margin: 1rem;
+  font-family: Montserrat, 'sans-serif';
+}
+form .fileInput{
+  background: #fff;
+  color: #222;
+  margin: 0 1rem;
+  width: 50%;
+  border-radius: 2px;
+}
+form input[type=submit]{
+  border: none;
+  outline: none;
+  width: 150px;
+  background: #715ae2;
+  cursor: pointer;
+}
+form span{
+  margin: 0 1rem;
 }
 
 @media (max-width: 700px) {
