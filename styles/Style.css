@@ -120,12 +120,14 @@ body {
   margin: 3.2rem 0;
 }
 
-.eventCard .cardBtn {
+.eventCard .cardBtn button{
   padding: 0.4rem 2rem;
   background: rgba(73, 54, 167, 0.2);
   border: 1px solid #4936a7;
   display: inline-block;
   cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
 }
 
 @media (max-width: 700px) {

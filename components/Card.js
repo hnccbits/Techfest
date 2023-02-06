@@ -17,7 +17,7 @@ function Card() {
       </div>
       <div className="cardBtn">
         <Link href="/EventsPage" legacyBehavior>
-          <a>Know More</a>
+          <button type="button">Know More</button>
         </Link>
       </div>
     </div>
