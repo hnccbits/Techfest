@@ -66,7 +66,7 @@ body {
 .subheading {
   font-size: 1.8rem;
   font-weight: 700;
-  margin: 2rem 0;
+  margin: 2.9rem 0 1.8rem 0;
 }
 
 .eventheading {
@@ -88,6 +88,7 @@ body {
 .eventCard {
   position: relative;
   margin: 1rem;
+  width: 280px;
   border: 1px solid #4936a7;
   padding: 1.5rem;
   max-width: 100%;
@@ -161,12 +162,13 @@ body {
   gap: 2rem;
 }
 .event-title {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 4rem;
+  font-weight: bolder;
+  font-size: 1.7rem;
 }
 .event-title p {
+  font-size: 1.9rem;
   text-transform: uppercase;
+  margin: 1.6rem 0 2.4rem 0;
 }
 .event-title p span {
   font-weight: normal;
@@ -178,6 +180,10 @@ body {
   align-items: flex-start;
   max-width: 85vw;
 }
+/* .container img{
+  width: 380px;
+  height: 350px;
+} */
 .event-description {
   display: flex;
   flex-direction: column;
@@ -187,8 +193,9 @@ body {
 .event-description p {
   margin: 0;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 2rem;
+  max-width: 882px;
 }
 .cta {
   font: inherit;
