@@ -147,7 +147,94 @@ form input[type=submit]{
 form span{
   margin: 0 1rem;
 }
-
+.adminEventWrap{
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.adminEventCard {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+  border: 1px solid #4936a7;
+  padding: 1.5rem;
+}
+.adminEventCard img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.adminEventCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 10, 28, 0.75);
+  z-index: -1;
+}
+.adminEventCard .closeBtn{
+  position: absolute;
+  top: 10px; left: 10px;
+}
+.adminEventCard .closeBtn span{
+  margin-left: 5px;
+}
+.adminEventCard .deleteBtn{
+  position: absolute;
+  top: 10px; right: 10px;
+  height: 35px; width: 35px;
+  font-weight: bold;
+  background: #715ae2;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.adminEventCard .editBtn{
+  position: absolute;
+  top: 50px; right: 10px;
+  height: 35px; width: 35px;
+  font-weight: bold;
+  background: #715ae2;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.adminEventCard .bottomBtn{
+  position: absolute;
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .2rem;
+  background: #715ae2;
+  text-align: center;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.adminEventCard .addEventBtn{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background: #715ae2;
+  font-weight: bold;
+  font-size:2.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
 @media (max-width: 700px) {
   .navbar a {
     margin: 0 2rem;
