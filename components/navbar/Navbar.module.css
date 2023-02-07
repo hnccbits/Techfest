@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2.6rem;
+  }
+  
+  .navbar a {
+    margin: 0 3.4rem;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--primary-text);
+  }
+
+  @media (max-width: 700px) {
+    .navbar a {
+      margin: 0 2rem;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .navbar a {
+      margin: 0 2rem;
+    }
+  }

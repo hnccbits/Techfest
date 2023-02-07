@@ -1,12 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Squid+Games&display=swap');
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-}
+
 @font-face {
   font-family: 'Galano Grotesque bold';
   src: url('../assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
@@ -21,22 +16,22 @@ body {
 }
 
 @font-face {
+  font-family: 'Galano Grotesque';
+  src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Squid Games';
   src: url('../assets/fonts/Game\ Of\ Squids.ttf');
 }
 
 .comingSoon {
-  background: url('https://res.cloudinary.com/du196ag4l/image/upload/v1675338484/bg_rq4rql.svg');
   min-height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* padding: 0 1rem; */
 }
 .comingSoon .eventLogo {
   margin: 1.5rem 0 5rem 0;
@@ -52,7 +47,7 @@ body {
   align-items: center;
 }
 .comingSoon .eventAbout .heading span {
-  font-family: 'Galano Grotesque bold', sans-serif;
+  font-family: 'Galano Grotesque medium', sans-serif;
   /* font-family: 'Poppins', sans-serif; */
   font-size: 5.6rem;
   line-height: 6.2rem;
@@ -62,7 +57,7 @@ body {
 }
 .comingSoon .eventAbout .subHeading {
   font-size: 1.2rem;
-  font-family: 'Galano Grotesque Light', sans-serif;
+  font-family: 'Galano Grotesque', sans-serif;
   font-weight: 300;
   font-size: 48px;
   line-height: 90px;
@@ -120,51 +115,5 @@ body {
   .comingSoon .eventAbout img {
     margin-top: 0.1rem;
     width: 80%;
-  }
-}
-
-.clock {
-  font-weight: 500;
-  color: #fff;
-  margin-top: 6rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  border: 1px solid #4936a7;
-  padding: 0.71rem;
-  width: 30rem;
-  height: 5rem;
-
-  font-style: normal;
-  backdrop-filter: blur(2px);
-  background: rgba(73, 54, 167, 0.2);
-}
-
-.clock > section > p {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  font-family: 'Galano Grotesque medium', sans-serif;
-}
-
-.clock > section > span {
-  font-family: 'Galano Grotesque Light', sans-serif;
-  font-size: 1.21rem;
-  font-weight: 300;
-  line-height: 1.5rem;
-}
-
-@media screen and (max-width: 550px) {
-  .clock {
-    width: 20rem;
-    height: 4rem;
-    gap: 1.5rem;
-  }
-  .clock > section > p {
-    font-size: 1rem;
-  }
-  .clock > section > span {
-    font-size: 1rem;
   }
 }
