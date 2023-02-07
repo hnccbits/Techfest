@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 function Card() {
   return (
     <div className="eventCard">
@@ -13,7 +15,11 @@ function Card() {
         <span>Prizes Worth</span>
         <div className="prizeheading">INR 19500</div>
       </div>
-      <div className="cardBtn">Know More</div>
+      <div className="cardBtn">
+        <Link href="/EventsPage" legacyBehavior>
+          <button type="button">Know More</button>
+        </Link>
+      </div>
     </div>
   );
 }
