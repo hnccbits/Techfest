@@ -1,6 +1,7 @@
 import Card from '@/components/card/Card';
 import Navbar from '@/components/navbar/Navbar';
-import Styles from '../components/card/EventCardSection.module.css';
+// import Styles from '../components/card/EventCardSection.module.css';
+import Styles from '../../components/card/EventCardSection.module.css';
 
 const event = () => {
   return (
