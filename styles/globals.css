@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squid+Games&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -109,3 +112,4 @@ a {
     color-scheme: dark;
   }
 }
+

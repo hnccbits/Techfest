@@ -1,12 +1,13 @@
 import React from 'react';
+import Styles from './Clock.module.css';
 // import './CountDown.css';
 
 export default function Clock({ Days, Hours, Minutes, Seconds }) {
   return (
-    <section className="timer-container">
-      <section className="timer">
-        <div className="clock">
-          <section className="text">
+    <section className={Styles.timerContainer}>
+      <section className={Styles.timer}>
+        <div className={Styles.clock}>
+          <section className={Styles.text}>
             <p>{Days}</p>
             <span>Days</span>
           </section>

@@ -1,0 +1,46 @@
+.clock {
+    font-weight: 500;
+    color: #fff;
+    margin-top: 6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    border: 1px solid #4936a7;
+    padding: 0.71rem;
+    width: 30rem;
+    height: 5rem;
+  
+    font-style: normal;
+    backdrop-filter: blur(2px);
+    background: rgba(73, 54, 167, 0.2);
+  }
+  
+  .clock > section > p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-family: 'Galano Grotesque medium', sans-serif;
+  }
+  
+  .clock > section > span {
+    font-family: 'Galano Grotesque Light', sans-serif;
+    font-size: 1.21rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+  }
+  
+  @media screen and (max-width: 550px) {
+    .clock {
+      width: 20rem;
+      height: 4rem;
+      gap: 1.5rem;
+    }
+    .clock > section > p {
+      font-size: 1rem;
+    }
+    .clock > section > span {
+      font-size: 1rem;
+    }
+  }
+  

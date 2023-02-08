@@ -1,0 +1,105 @@
+.cardBtn a {
+  text-decoration: none;
+  color: var(--primary-text);
+}
+.event {
+  padding: 0 6rem;
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  display: inline-block;
+}
+
+.heading img {
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 110%;
+}
+
+.subheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 2.9rem 0 1.8rem 0;
+}
+
+.eventheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem 0;
+}
+.prizeheading {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.eventCardSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 80px;
+}
+.eventCard {
+    position: relative;
+    margin: 1rem;
+    width: 280px;
+    border: 1px solid #4936a7;
+    padding: 1.5rem;
+    max-width: 100%;
+    height: -webkit-fill-available;
+  }
+  .eventCard img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  .eventCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 10, 28, 0.75);
+    z-index: -1;
+  }
+  .eventCard span {
+    display: block;
+  }
+  
+  .eventCard .prize {
+    margin: 4rem 0;
+  }
+  
+  .eventCard .cardBtn button {
+    padding: 0.4rem 2rem;
+    background: rgba(73, 54, 167, 0.2);
+    border: 1px solid #4936a7;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 700px) {
+    .eventCard {
+      width: 270px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .eventCard {
+      width: 270px;
+    }
+    .event {
+      padding: 0 3rem;
+    }
+  }
+  
