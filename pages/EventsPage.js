@@ -1,21 +1,22 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '@/components/navbar/Navbar';
+import Styles from '@/components/eventsPage/EventsPage.module.css';
 
 function EventsPage() {
   return (
     <>
       <Navbar />
-      <main className="main-container">
+      <main className={Styles.mainContainer}>
         <div>
-          <div className="event-title">
+          <div className={Styles.eventTitle}>
             <h1>Spider 3.0</h1>
             <p>
               <span>by</span> ISTE Bits
             </p>
           </div>
-          <div className="container">
+          <div className={Styles.container}>
             <img src="img/e1.png" alt="" />
-            <div className="event-description">
+            <div className={Styles.eventDescription}>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry&apos;s standard
@@ -28,7 +29,7 @@ function EventsPage() {
                 publishing software like Aldus PageMaker including versions of
                 Lorem Ipsum.
               </p>
-              <button type="button" className="cta">
+              <button type="button" className={Styles.cta}>
                 Register Now
               </button>
             </div>
