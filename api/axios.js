@@ -8,7 +8,8 @@ if (typeof window !== 'undefined') {
   token = '';
 }
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5003/api',
+  baseURL:'https://techmahotsav.azurewebsites.net/api'
+ // baseURL: 'http://localhost:5003/api',
 });
 
 axiosInstance.interceptors.request.use(
