@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
 import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
@@ -52,7 +54,7 @@ function AuthProvider(props) {
     if (userData.admin) {
       history.push('/admin/events');
     } else {
-      history.push('/');
+      history.push('/event');
     }
   }
   function logout() {

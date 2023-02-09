@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import FileDownload from 'js-file-download';
-import axiosInstance from '../../api/axios';
 import { useRouter } from 'next/router';
+import axiosInstance from '../../api/axios';
+
 function AdminEventCard({
   deleteEventHandler,
   name,
@@ -65,7 +67,7 @@ function AdminEventCard({
   const handleCloseRegistration = async (e) => {
     try {
       e.preventDefault();
-     
+
       const res = await axiosInstance({
         method: 'patch',
         url: `/admin/toggleacceptresponse/event/${id}`,
@@ -76,7 +78,6 @@ function AdminEventCard({
         withCredentials: false,
       });
       acceptingResponseHandler(id);
-      console.log(res.data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -87,7 +88,7 @@ function AdminEventCard({
       }
     }
   };
-  console.log(registrationopen);
+
   const participantlength = participants.length;
   const img = `https://techmahotsav.blob.core.windows.net/data/${coverimg}`;
   return (

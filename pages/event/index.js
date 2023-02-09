@@ -5,7 +5,7 @@ import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/card/EventCardSection.module.css';
 import axiosInstance from '../../api/axios';
 
-const event = ({ events }) => {
+function Event({ events }) {
   return (
     <>
       <Navbar />
@@ -34,9 +34,9 @@ const event = ({ events }) => {
       </div>
     </>
   );
-};
+}
 
-export default event;
+export default Event;
 
 export async function getStaticProps() {
   const res = await axiosInstance({

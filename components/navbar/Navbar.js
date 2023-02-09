@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AuthContext } from '../../context/AuthContext';
@@ -66,14 +67,12 @@ export default function Navbar() {
 
   useEffect(() => {
     if (user && user.admin) {
-      console.log("admin logged in",user.name)
       setHeader(adminloggedin);
     }
     if (user && !user.admin) {
-      console.log('user logged in');
-
       setHeader(userloggedin);
-    } if(!user) {
+    }
+    if (!user) {
       setHeader(notloggedin);
     }
   }, [user]);

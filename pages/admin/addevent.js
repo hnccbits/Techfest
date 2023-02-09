@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar/Navbar';
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
-const event = () => {
+function AddEvent() {
   const router = useRouter();
   const [value, setValue] = useState({
     name: '',
@@ -24,16 +25,10 @@ const event = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleFileChange = (e) => {
-    setFile({
-      ...file,
-      [e.target.name]: [e.target.files[0]],
-    });
-  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({ ...value });
     try {
       const formData = new FormData();
       formData.append('coverimg', coverimg);
@@ -50,12 +45,7 @@ const event = () => {
           'content-type': 'multipart/form-data',
         },
       };
-      const res = await axiosInstance.post(
-        '/admin/add/event',
-        formData,
-        config,
-      );
-      console.log(res.data);
+      await axiosInstance.post('/admin/add/event', formData, config);
       router.push('/admin/events');
     } catch (err) {
       if (!err?.response) {
@@ -136,6 +126,6 @@ const event = () => {
       </div>
     </>
   );
-};
+}
 
-export default event;
+export default AddEvent;

@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 import Styles from './Card.module.css';
 
-function Card({ name, coverimg, club,registrationopen, desc, id }) {
-  console.log({ name, coverimg, club, registrationopen, desc, id });
+function Card({ name, coverimg, club, registrationopen, desc, id }) {
   const img = `https://techmahotsav.blob.core.windows.net/data/${coverimg}`;
   const url = `/event/${id}`;
   return (

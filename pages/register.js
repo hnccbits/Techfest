@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
-const event = () => {
+function Register() {
   const context = React.useContext(AuthContext);
 
   const [value, setValue] = useState({
@@ -34,13 +35,12 @@ const event = () => {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-      console.log(res.data);
       context.login(res.data.data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
-        console.log(err.response.data.error);
+        setErrMsg(err.response.data.error);
       } else {
         setErrMsg('Unknown Error');
       }
@@ -139,6 +139,6 @@ const event = () => {
       </div>
     </>
   );
-};
+}
 
-export default event;
+export default Register;

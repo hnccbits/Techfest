@@ -1,16 +1,20 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
 import Styles from './Model.module.css';
 import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
 
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
-  const { user } = React.useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [captainname, setCaptainname] = useState('');
   const [teamname, setTeamname] = useState('---');
 
   useEffect(() => {
-    setCaptainname(user.name);
-  }, []);
+    if (user) {
+      setCaptainname(user.name);
+    }
+  }, [user]);
 
   const [participant, setParticipant] = useState([]);
   const [member, setMember] = useState({
@@ -31,7 +35,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       whatsapp: '',
       gender: 'M',
     });
-    console.log(participant);
   };
 
   const handleChange = (e) => {
@@ -53,7 +56,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-      console.log(res.data);
       handleModalToggle();
     } catch (err) {
       if (!err?.response) {
@@ -67,7 +69,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
   };
 
   if (!open) {
-    return <></>;
+    return <> </>;
   }
   return (
     <div className={Styles.modelBg}>

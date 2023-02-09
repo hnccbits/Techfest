@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useState, useContext } from 'react';
 
 import axiosInstance from '../../api/axios';
@@ -6,7 +7,7 @@ import Navbar from '../../components/navbar/Navbar';
 
 import { AuthContext } from '../../context/AuthContext';
 
-const event = () => {
+function Register() {
   const context = useContext(AuthContext);
 
   const [value, setValue] = useState({
@@ -30,8 +31,8 @@ const event = () => {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-      console.log(res.data.data);
-      context.login(res.data.data);
+      const { data } = res.data;
+      context.login(data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -50,7 +51,7 @@ const event = () => {
     });
   };
   if (errMsg) {
-    // console.log(errMsg);
+    //
   }
   return (
     <>
@@ -102,6 +103,6 @@ const event = () => {
       </div>
     </>
   );
-};
+}
 
-export default event;
+export default Register;

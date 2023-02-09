@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -6,7 +8,7 @@ import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
 
-const event = () => {
+function Event() {
   const history = useRouter();
 
   const [clubevent, setClubevent] = useState([]);
@@ -17,7 +19,6 @@ const event = () => {
         url: '/admin/get/event',
       });
       setClubevent(res.data.data.event);
-      console.log(clubevent);
     };
     fetchData();
   }, []);
@@ -37,7 +38,6 @@ const event = () => {
             : item,
         ),
       );
-      console.log(clubevent);
     } catch (error) {
       history.reload();
     }
@@ -59,8 +59,6 @@ const event = () => {
               participants,
               _id: id,
             }) => {
-          
-
               return (
                 <AdminEventCard
                   acceptingResponseHandler={acceptingResponseHandler}
@@ -85,6 +83,6 @@ const event = () => {
       </div>
     </>
   );
-};
+}
 
-export default event;
+export default Event;

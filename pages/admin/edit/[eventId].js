@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar/Navbar';
 import axiosInstance from '../../../api/axios';
 import { AuthContext } from '../../../context/AuthContext';
 
-const eventedit = ({ eventId }) => {
+function Eventedit({ eventId }) {
   const router = useRouter();
   const [errMsg, setErrMsg] = useState('');
   const [coverimg, setCoverimg] = useState();
@@ -22,7 +24,7 @@ const eventedit = ({ eventId }) => {
       setClubevent(d[0]);
     };
     fetchData();
-  }, []);
+  }, [eventId]);
 
   const handleChange = (e) => {
     setClubevent({
@@ -30,11 +32,10 @@ const eventedit = ({ eventId }) => {
       [e.target.name]: e.target.value,
     });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({ ...clubevent });
     try {
       const formData = new FormData();
       if (problemstatement) {
@@ -60,14 +61,13 @@ const eventedit = ({ eventId }) => {
         formData,
         config,
       );
-      console.log(res.data);
+
       router.push('/admin/events');
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
-        console.log(errMsg);
       } else {
         setErrMsg('Unknown Error');
       }
@@ -153,9 +153,9 @@ const eventedit = ({ eventId }) => {
       </div>
     </>
   );
-};
+}
 
-export default eventedit;
+export default Eventedit;
 
 export async function getServerSideProps({ params }) {
   const { eventId } = params;

@@ -1,41 +1,52 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Navbar from '@/components/navbar/Navbar';
-import Styles from '@/components/eventsPage/EventsPage.module.css';
+import { useRouter } from 'next/router';
+import Navbar from '../../components/navbar/Navbar';
+import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
 
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
 function EventsPage({ event }) {
+  const Router = useRouter();
   const [modalopen, setModalopen] = useState(false);
   const { user } = React.useContext(AuthContext);
   const {
     name,
     desc,
     club,
-    coverimg,registrationopen,
+    coverimg,
+    registrationopen,
     rulebook,
     teamsize,
     _id: id,
-    problemstatement
+    problemstatement,
   } = event;
   const img = `https://techmahotsav.blob.core.windows.net/data/${coverimg}`;
   const rulebk = `https://techmahotsav.blob.core.windows.net/data/${rulebook}`;
   const prblmstatement = `https://techmahotsav.blob.core.windows.net/data/${problemstatement}`;
 
+  const handleModalToggle = () => {
+    setModalopen(!modalopen);
+  };
   const handleRegister = (e) => {
     e.preventDefault();
-  handleModalToggle()
+    if (user) {
+      handleModalToggle();
+    } else {
+      Router.push('/register');
+    }
   };
-  const handleModalToggle = () => {
-  setModalopen(!modalopen)
-    
-  }
   return (
     <>
       <Navbar />
-      <Model open={modalopen} teamsize={teamsize} id={id} handleModalToggle={handleModalToggle}/>
+      <Model
+        open={modalopen}
+        teamsize={teamsize}
+        id={id}
+        handleModalToggle={handleModalToggle}
+      />
       <main className={Styles.mainContainer}>
         <div>
           <div className={Styles.eventTitle}>
@@ -48,7 +59,7 @@ function EventsPage({ event }) {
             <img src={img} alt="" />
             <div className={Styles.eventDescription}>
               <p>{desc}</p>
-             
+
               <p> Max Team Size: {teamsize}</p>
 
               <button
@@ -57,7 +68,7 @@ function EventsPage({ event }) {
                 className={Styles.cta}
                 type="button"
               >
-                {registrationopen? 'Register':'Registration Closed'}
+                {registrationopen ? 'Register' : 'Registration Closed'}
               </button>
 
               <Link href={rulebk} target="_blank">
@@ -65,13 +76,15 @@ function EventsPage({ event }) {
                   Rulebook
                 </button>
               </Link>
-              {problemstatement?(
+              {problemstatement ? (
                 <Link href={prblmstatement}>
                   <button className={Styles.cta} type="button">
                     Problem Statement
                   </button>
-                </Link>,
-              ):''}
+                </Link>
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>
