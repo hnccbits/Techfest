@@ -2,23 +2,25 @@ import Link from 'next/link';
 
 import Styles from './Card.module.css';
 
-function Card() {
+function Card({ name, coverimg, club,registrationopen, desc, id }) {
+  console.log({ name, coverimg, club, registrationopen, desc, id });
+  const img = `https://techmahotsav.blob.core.windows.net/data/${coverimg}`;
+  const url = `/event/${id}`;
   return (
     <div className={Styles.eventCard}>
-      <img src="img/e1.png" alt="" />
-      <div className={Styles.eventheading}>Spider 3.0</div>
+      <img src={img} alt="" />
+      <div className={Styles.eventheading}>{name}</div>
       <div className={Styles.des}>
-        <span>lorem ipsum doler sit amet</span>
+        <span>{desc.substring(0, 30)}</span>
         <span>
-          By <b>ISTE</b>
+          By <b>{club}</b>
         </span>
       </div>
-      <div className={Styles.prize}>
-        <span>Prizes Worth</span>
-        <div className={Styles.prizeheading}>INR 19500</div>
-      </div>
+      <span>
+        {registrationopen ? 'Registration open' : 'Registration closed'}
+      </span>
       <div className={Styles.cardBtn}>
-        <Link href="/EventsPage" legacyBehavior>
+        <Link href={url} legacyBehavior>
           <button type="button">Know More</button>
         </Link>
       </div>

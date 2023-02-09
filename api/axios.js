@@ -2,13 +2,13 @@ import axios from 'axios';
 
 let token;
 
-if (window !== undefined) {
-  token = localStorage.getItem('JWTTOKEN');
+if (typeof window !== "undefined") {
+  token = window.localStorage.getItem('JWTTOKEN');
 } else {
   token = '';
 }
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5003/api',
 });
 
 axiosInstance.interceptors.request.use(

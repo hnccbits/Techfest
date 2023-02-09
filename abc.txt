@@ -1,1 +1,18 @@
-Hello from my side.
+checkbox in components/adminEventCard is not changing state
+
+page auth is yet to implement
+
+move all navbar to app inside autprovider
+
+create a state variable to store isLoading and isError whenever and wherever any request is made. 
+
+display isLoading when loading.
+
+diasble = true for all buttons when loading
+
+catch all errors when request is made
+
+proper popup for all errors.
+
+dont change name of any input. only className and id can be changed
+

@@ -1,0 +1,106 @@
+import React, { useState, useContext } from 'react';
+import axiosInstance from '../../api/axios';
+import Navbar from '../../components/navbar/Navbar';
+import { AuthContext } from '../../context/AuthContext';
+
+function AdminLoginPage() {
+  const context = useContext(AuthContext);
+
+  const [value, setValue] = useState({
+    email: '',
+    password: '',
+  });
+  const [errMsg, setErrMsg] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (value.cnfpassword !== value.password) {
+      setErrMsg('Passwords do not match');
+    }
+    try {
+      const res = await axiosInstance({
+        method: 'post',
+        url: '/admin/login',
+        data: value,
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: false,
+      });
+
+      console.log(res.data);
+      context.login(res.data.data);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No Server Response');
+      } else if (err.response?.status === 400) {
+        console.log(err.response.data.error);
+      } else {
+        setErrMsg('Unknown Error');
+      }
+    }
+  };
+
+  const handleChange = (e) => {
+    setValue({
+      ...value,
+      [e.target.name]: e.target.value,
+    });
+  };
+  return (
+    <>
+      <Navbar />
+      <div className="login-body">
+        <div className="login">
+          <div style={{ display: 'flex', gap: '4rem' }}>
+            <div className="image" style={{ flex: 1 }}>
+              {/* Your image component goes here */}
+              <img src="img/login.svg" alt="" />
+            </div>
+            <div className="text" style={{ flex: 1, padding: '20px' }}>
+              <form>
+                <h2>Admin Login</h2>
+                <div>
+                  <input
+                    className="mail"
+                    name="email"
+                    type="email"
+                    value={value.email}
+                    onChange={handleChange}
+                    placeholder="Email id *"
+                    style={{
+                      textAlign: 'left',
+                      padding: '20px',
+                      marginBottom: '10px',
+                      color: '#000',
+                    }}
+                  />
+                </div>
+                <div>
+                  <input
+                    className="mail"
+                    name="password"
+                    type="password"
+                    value={value.password}
+                    onChange={handleChange}
+                    placeholder="Password *"
+                    style={{
+                      textAlign: 'left',
+                      padding: '20px',
+                      marginBottom: '10px',
+                      color: '#000',
+                    }}
+                  />
+                </div>
+                <button onClick={handleSubmit} className="btn" type="submit">
+                  Submit
+                </button>
+              </form>
+              {/* <span></span> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default AdminLoginPage;
