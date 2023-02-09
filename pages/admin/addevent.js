@@ -1,11 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar/Navbar';
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
 function AddEvent() {
+  const { user } = useContext(AuthContext);
+
+  const history = useRouter();
+
+  useEffect(() => {
+    if (!user || (user && !user.admin)) {
+      history.push('/admin/login');
+    } 
+  }, []);
+
   const router = useRouter();
   const [value, setValue] = useState({
     name: '',

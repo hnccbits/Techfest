@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/destructuring-assignment */
-import React, { useState, useContext } from 'react';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect, useContext } from 'react';
 
 import axiosInstance from '../../api/axios';
 
@@ -8,7 +10,16 @@ import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
 
 function Register() {
-  const context = useContext(AuthContext);
+  const history = useRouter();
+  const { user, login } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (user && user.admin) {
+      history.push('/admin/events');
+    } else if (user) {
+      history.push('/event');
+    }
+  }, []);
 
   const [value, setValue] = useState({
     email: '',
@@ -32,7 +43,7 @@ function Register() {
         withCredentials: false,
       });
       const { data } = res.data;
-      context.login(data);
+      login(data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');

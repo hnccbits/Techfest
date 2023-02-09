@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AdminEventCard from '../../components/adminEventCard/AdminEventCard';
@@ -10,8 +11,10 @@ import axiosInstance from '../../api/axios';
 
 function Event() {
   const history = useRouter();
+  const { user } = useContext(AuthContext);
 
   const [clubevent, setClubevent] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await axiosInstance({
@@ -20,8 +23,14 @@ function Event() {
       });
       setClubevent(res.data.data.event);
     };
-    fetchData();
+
+    if (!user || (user && !user.admin)) {
+      history.push('/admin/login');
+    } else {
+      fetchData();
+    }
   }, []);
+
   const deleteEventHandler = async (id) => {
     try {
       setClubevent(clubevent.filter((item) => item._id !== id));

@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar/Navbar';
 import axiosInstance from '../../../api/axios';
@@ -8,6 +9,8 @@ import { AuthContext } from '../../../context/AuthContext';
 
 function Eventedit({ eventId }) {
   const router = useRouter();
+  const { user } = useContext(AuthContext);
+
   const [errMsg, setErrMsg] = useState('');
   const [coverimg, setCoverimg] = useState();
   const [rulebook, setRulebook] = useState();
@@ -23,7 +26,12 @@ function Eventedit({ eventId }) {
       const d = res.data.data.filter((e) => e._id === eventId);
       setClubevent(d[0]);
     };
-    fetchData();
+
+    if (!user || (user && !user.admin)) {
+      router.push('/admin/login');
+    } else {
+      fetchData();
+    }
   }, [eventId]);
 
   const handleChange = (e) => {

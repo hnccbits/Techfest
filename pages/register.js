@@ -1,12 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
 import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
 function Register() {
-  const context = React.useContext(AuthContext);
+  const history = useRouter();
+  const { user, login } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (user && user.admin) {
+      history.push('/admin/events');
+    } else if (user) {
+      history.push('/event');
+    }
+  });
   const [value, setValue] = useState({
     email: '',
     name: '',
@@ -35,14 +44,12 @@ function Register() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-      context.login(res.data.data);
+      login(res.data.data);
     } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Server Response');
-      } else if (err.response?.status === 400) {
+      if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg(err);
       }
     }
   };
@@ -53,6 +60,8 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   };
+
+ 
   return (
     <>
       <Navbar />

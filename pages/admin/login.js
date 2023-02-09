@@ -1,11 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from 'react';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect, useContext } from 'react';
 import axiosInstance from '../../api/axios';
 import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
 
 function AdminLoginPage() {
-  const context = useContext(AuthContext);
+  const history = useRouter();
+  const { user, login } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (user && user.admin) {
+      history.push('/admin/events');
+    } else if (user) {
+      history.push('/event');
+    }
+  }, []);
 
   const [value, setValue] = useState({
     email: '',
@@ -28,7 +39,7 @@ function AdminLoginPage() {
       });
 
       // eslint-disable-next-line react/destructuring-assignment
-      context.login(res.data.data);
+      login(res.data.data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
