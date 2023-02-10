@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar/Navbar';
@@ -11,7 +11,8 @@ import { AuthContext } from '../../context/AuthContext';
 function EventsPage({ event }) {
   const Router = useRouter();
   const [modalopen, setModalopen] = useState(false);
-  const { user } = React.useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  
   const {
     name,
     desc,
@@ -95,7 +96,16 @@ function EventsPage({ event }) {
 
 export default EventsPage;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const d = [];
+
+  return {
+    paths: d,
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps({ params }) {
   const { eventId } = params;
   const res = await axiosInstance({
     method: 'get',
@@ -104,6 +114,11 @@ export async function getServerSideProps({ params }) {
   });
   // eslint-disable-next-line no-underscore-dangle
   const d = res.data.data.filter((e) => e._id === eventId);
+  if (d.length===0) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       event: d[0],
