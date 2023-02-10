@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../../components/navbar/Navbar';
+// import Navbar from '../../components/navbar/Navbar';
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -71,7 +71,7 @@ function AddEvent() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="eventRegister">
         <div className="heading">
           Event Register <img src="img/line.svg" alt="" />

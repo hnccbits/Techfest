@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../components/navbar/Navbar';
+// import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
@@ -63,7 +63,7 @@ function Register() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="adminRegister">
         <div className="heading">
           User Register <img src="img/line.svg" alt="" />

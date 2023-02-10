@@ -1,10 +1,10 @@
-import Navbar from '../components/navbar/Navbar';
+// import Navbar from '../components/navbar/Navbar';
 import Styles from '../components/contactus/contact-us.module.css';
 
 function ContactUs() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className={Styles.outerlayer}>
         <div className={Styles.contactcontainer}>

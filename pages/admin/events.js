@@ -5,7 +5,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AdminEventCard from '../../components/adminEventCard/AdminEventCard';
-import Navbar from '../../components/navbar/Navbar';
+// import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
 
@@ -53,7 +53,7 @@ function Event() {
   };
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="adminEvent">
         <div className="heading">
           Admin Event Page

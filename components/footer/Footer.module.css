@@ -1,0 +1,61 @@
+.footer{
+    margin: 2rem 10rem;
+    display: flex;
+    gap: 10rem;
+}
+.footer .about{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  /* gap: 2rem; */
+}
+.footer .events{
+  flex: 2;
+}
+.footer .contact{
+  flex: 1;
+}
+.heading {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+font-size: 2.25rem;
+line-height: 43px;
+letter-spacing: 0.12em;
+  }
+  
+  .heading img {
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 110%;
+  }
+
+  .about p{
+    font-size: 21px;
+line-height: 151.02%;
+/* or 32px */
+
+
+color: #F3F3F3;
+  }
+  .events ul li{
+    font-weight: 400;
+font-size: 20px;
+line-height: 144%;
+/* or 29px */
+
+
+color: #FFFFFF;
+  }
+  .contact ul li{
+    font-weight: 400;
+font-size: 20px;
+line-height: 144%;
+/* or 29px */
+
+
+color: #FFFFFF;
+  }

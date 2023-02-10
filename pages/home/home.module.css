@@ -1,0 +1,173 @@
+@font-face {
+    font-family: 'Galano Grotesque bold';
+    src: url('../../components/assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
+}
+
+.homeBtn{
+    background: rgba(73, 54, 167, 0.2);
+    border: 1px solid #4936A7;
+    padding: .4rem 2rem;
+    display: inline-block;
+    margin: 2rem 0;
+}
+
+.homeHeading {
+    font-family: 'Galano Grotesque bold';
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
+.homeNeonHeading{
+    font-family: 'Galano Grotesque bold';
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    text-align: center;
+    text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4), 4px 4px 30px rgba(226, 227, 252, 0.4);
+}
+
+.homeHero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(../../public/img/bghero.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    z-index: -1;
+    padding: 6rem 4rem;
+}
+
+.homeHeroBox {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(1px);
+    border-radius: 5px;
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#fff, transparent);
+    border-image-slice: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.homeHeroLogo {
+    width: 100px;
+    height: 100px;
+    margin: 2.8rem 0;
+}
+
+.homeHeroLogo img {
+    width: 100%;
+    height: 100%;
+}
+
+.homeHeroName {
+    font-family: 'Galano Grotesque bold';
+    font-size: 5rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    line-height: 3rem;
+}
+
+.homeHeroLine {
+    position: relative;
+    width: 85%;
+    margin: 1.5rem 0 1.8rem 0;
+}
+
+.homeHeroBtn {
+    padding: .5rem 2rem;
+    background: #0C0B1F;
+    border: 1px solid #FFFFFF;
+    box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12), 4px 4px 18px rgba(226, 227, 252, 0.12);
+    border-radius: 2px;
+}
+
+.homeHeroSocial {
+    margin: 3rem 0;
+}
+
+.homeHeroSocial i {
+    margin: 0 .5rem;
+    padding: 0 .5rem;
+}
+
+.homeHeroFrame {
+    position: absolute;
+    bottom: -4rem;
+    left: 0;
+    width: 100%;
+}
+
+.homeAbout {
+    margin-top: calc(100vh + 4rem);
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.homeRightAbout {
+    background: rgba(11, 10, 28, 0.75);
+    border: 1.31429px solid #4936A7;
+    backdrop-filter: blur(1.98424px);
+    margin-left: 2rem;
+}
+
+.homeRightAboutImg{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center; justify-content: center;
+}
+.homeRightAboutImg img{
+    width: 80%;
+    height: 80%;
+}
+.homeSponser{
+    margin: 4rem 0;
+}
+.homeSponserWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.homeSponserWrapper img{
+    height: 80px;
+    margin: 0 2.2rem;
+}
+.homeSponserTop{
+    display: flex;
+    margin: 1.2rem 0;
+}
+.homeSponserMiddle{
+    display: flex;
+    margin: 1.2rem 0;
+}
+.homeSponserBottom{
+    display: flex;
+    margin: 1.2rem 0;
+}
+.homeEvent{
+    margin: 4rem 0;
+}
+.homeEventTop{
+    text-align: right;
+    font-weight: bold;
+}
+.homeEventMiddle{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.homeEventBottom{
+    display: flex;
+    justify-content: center;
+}

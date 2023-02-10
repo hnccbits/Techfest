@@ -3,8 +3,9 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 import axiosInstance from '../api/axios';
-import Navbar from '../components/navbar/Navbar';
+// import Navbar from '../components/navbar/Navbar';
 import { AuthContext } from '../context/AuthContext';
+import '../components/login/login.module.css';
 
 function LoginPage() {
   const history = useRouter();
@@ -55,7 +56,7 @@ function LoginPage() {
   };
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="login-body">
         <div className="login">
           <div style={{ display: 'flex', gap: '4rem' }}>

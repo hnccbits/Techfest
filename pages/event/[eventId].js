@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Navbar from '../../components/navbar/Navbar';
+// import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
 
@@ -41,7 +41,7 @@ function EventsPage({ event }) {
   };
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Model
         open={modalopen}
         teamsize={teamsize}

@@ -5,7 +5,7 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import axiosInstance from '../../api/axios';
 
-import Navbar from '../../components/navbar/Navbar';
+// import Navbar from '../../components/navbar/Navbar';
 
 import { AuthContext } from '../../context/AuthContext';
 
@@ -66,7 +66,7 @@ function Register() {
   }
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="adminRegister">
         <div className="heading">
           Admin Register <img src="img/line.svg" alt="" />

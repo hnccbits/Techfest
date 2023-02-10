@@ -1,8 +1,8 @@
 checkbox in components/adminEventCard is not changing state
 
-page auth is yet to implement
+page auth is yet to implement :- ✅done
 
-move all navbar to app inside autprovider
+move all navbar to app inside autprovider :- ✅done
 
 create a state variable to store isLoading and isError whenever and wherever any request is made. 
 
