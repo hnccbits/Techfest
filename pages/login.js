@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import axiosInstance from '../api/axios';
 // import Navbar from '../components/navbar/Navbar';
 import { AuthContext } from '../context/AuthContext';
@@ -9,7 +10,7 @@ import '../components/login/login.module.css';
 
 function LoginPage() {
   const history = useRouter();
-  const { user, login } = useContext(AuthContext);
+  const { user, login, message, error } = useContext(AuthContext);
 
   useEffect(() => {
     if (user && user.admin) {
@@ -34,7 +35,7 @@ function LoginPage() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-
+      toast.success('Logged In Successfully');
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
@@ -45,6 +46,7 @@ function LoginPage() {
       } else {
         setErrMsg(err);
       }
+      toast.error(errMsg);
     }
   };
 
@@ -54,6 +56,9 @@ function LoginPage() {
       [e.target.name]: e.target.value,
     });
   };
+
+  // const dispach = useDispatch();
+
   return (
     <>
       {/* <Navbar /> */}
@@ -108,6 +113,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      <Toaster />
     </>
   );
 }

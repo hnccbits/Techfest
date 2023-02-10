@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // import Navbar from '../components/navbar/Navbar';
+import taost, { Toaster } from 'react-hot-toast';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
@@ -51,6 +52,7 @@ function Register() {
       } else {
         setErrMsg(err);
       }
+      // console.log(err.response);
     }
   };
 
@@ -60,6 +62,9 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   };
+  // const show = () => {
+  //   taost.success('Hello');
+  // };
 
   return (
     <>
@@ -145,6 +150,7 @@ function Register() {
             placeholder="Confirm Password"
           />
           <input type="submit" onClick={handleSubmit} />
+          <Toaster />
         </form>
       </div>
     </>
