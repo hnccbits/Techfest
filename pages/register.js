@@ -61,7 +61,6 @@ function Register() {
     });
   };
 
- 
   return (
     <>
       <Navbar />

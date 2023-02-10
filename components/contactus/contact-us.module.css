@@ -1,0 +1,120 @@
+.outerlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+}
+.contactcontainer {
+  background: #0c0b20;
+  width: 1000px;
+  max-width: 1000px;
+  padding: 25px 40px 10px 40px;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+}
+.contactcontainer .headingtext {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+  color: #f3f3ff;
+  text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4),
+    4px 4px 30px rgba(226, 227, 252, 0.4);
+}
+.contactcontainer form {
+  padding: 30px 0 0 0;
+  background: #0c0b20;
+}
+.contactcontainer form .formrow {
+  display: flex;
+  margin: 32px 0;
+  background: #0c0b20;
+}
+form .formrow .inputdata {
+  width: 100%;
+  height: 50px;
+  margin: 0 20px;
+  position: relative;
+}
+form .formrow #textarea {
+  height: 150px;
+}
+.inputdata input,
+#textarea textarea {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 0.8px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 0.95rem;
+  background: #1f1d2e;
+  border-radius: 3px;
+  padding: 16px;
+}
+#textarea textarea {
+  resize: none;
+  padding-top: 10px;
+}
+.inputdata input:focus,
+#textarea textarea:focus {
+  background-color: #0b0a1d;
+  border: 0.8px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 3px;
+}
+#submitbtn .inputdata {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#submitbtn button {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 8px 46px;
+}
+.inputbox::placeholder {
+  color: #f6f6f7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 834px) {
+  .contactcontainer .headingtext {
+    font-size: 2.2rem;
+  }
+  .contactcontainer form {
+    padding: 10px 0 0 0;
+  }
+  .contactcontainer form .formrow {
+    display: block;
+  }
+  form .formrow .inputdata {
+    margin: 35px 0 !important;
+  }
+}
+
+@media (max-width: 533px) {
+  form .inputdata input {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 463px) {
+  .outerlayer {
+    padding: 40px 20px 40px 20px;
+  }
+  .formrow #textarea {
+    height: 400px;
+  }
+}
+@media (max-width: 380px) {
+  .outerlayer {
+    padding: 30px 10px 30px 10px;
+  }
+}

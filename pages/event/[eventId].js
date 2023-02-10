@@ -12,7 +12,7 @@ function EventsPage({ event }) {
   const Router = useRouter();
   const [modalopen, setModalopen] = useState(false);
   const { user } = useContext(AuthContext);
-  
+
   const {
     name,
     desc,
@@ -114,7 +114,7 @@ export async function getStaticProps({ params }) {
   });
   // eslint-disable-next-line no-underscore-dangle
   const d = res.data.data.filter((e) => e._id === eventId);
-  if (d.length===0) {
+  if (d.length === 0) {
     return {
       notFound: true,
     };

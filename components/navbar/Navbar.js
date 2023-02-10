@@ -23,7 +23,7 @@ export default function Navbar() {
       <Link href="/about" legacyBehavior>
         <a>About Us</a>
       </Link>
-      <Link href="/contact" legacyBehavior>
+      <Link href="/ContactUs" legacyBehavior>
         <a>Contact Us</a>
       </Link>
       <a onClick={exit}>Log out</a>
@@ -50,7 +50,7 @@ export default function Navbar() {
       <Link href="/about" legacyBehavior>
         <a>About Us</a>
       </Link>
-      <Link href="/contact" legacyBehavior>
+      <Link href="/ContactUs" legacyBehavior>
         <a>Contact Us</a>
       </Link>
       <Link href="/login" legacyBehavior>

@@ -14,7 +14,7 @@ function AddEvent() {
   useEffect(() => {
     if (!user || (user && !user.admin)) {
       history.push('/admin/login');
-    } 
+    }
   }, []);
 
   const router = useRouter();
