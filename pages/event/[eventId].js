@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
@@ -38,6 +39,9 @@ function EventsPage({ event }) {
     } else {
       Router.push('/register');
     }
+  };
+  const show = () => {
+    toast.success('Logged In Successfully');
   };
   return (
     <>
@@ -79,7 +83,7 @@ function EventsPage({ event }) {
               </Link>
               {problemstatement ? (
                 <Link href={prblmstatement}>
-                  <button className={Styles.cta} type="button">
+                  <button className={Styles.cta} type="button" onClick={show}>
                     Problem Statement
                   </button>
                 </Link>
@@ -90,6 +94,7 @@ function EventsPage({ event }) {
           </div>
         </div>
       </main>
+      <Toaster />
     </>
   );
 }

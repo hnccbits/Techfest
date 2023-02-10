@@ -86,9 +86,15 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
               }}
               type="text"
               placeholder="Team Name*"
+              className={Styles.tn}
             />
             <div className={Styles.th}>Team Captain</div>
-            <input type="text" disabled value={captainname} />
+            <input
+              type="text"
+              disabled
+              value={captainname}
+              className={Styles.cpt}
+            />
           </div>
           {teamsize == 1 ? (
             ''
@@ -105,11 +111,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     onChange={handleChange}
                     type="text"
                     placeholder="Name*"
+                    className={Styles.tn}
                   />
                   <select
                     onChange={handleChange}
                     name="gender"
                     value={member.gender}
+                    className={Styles.tn}
                   >
                     <option value="M">Male</option>
                     <option value="F">Female</option>
@@ -121,6 +129,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     onChange={handleChange}
                     type="number"
                     placeholder="Phone*"
+                    className={Styles.tn}
                   />
                 </div>
                 <div className={Styles.teamMemberBottom}>
@@ -130,6 +139,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     onChange={handleChange}
                     type="email"
                     placeholder="Email Id*"
+                    className={Styles.tn}
                   />
                   <input
                     name="whatsapp"
@@ -137,6 +147,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     onChange={handleChange}
                     type="number"
                     placeholder="Whatsapp Number*"
+                    className={Styles.tn}
                   />
                 </div>
                 {participant.length + 2 !== parseInt(teamsize, 10) ? (
@@ -144,12 +155,14 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     type="submit"
                     onClick={handleAddMember}
                     value="Add Member"
+                    className={Styles.tn}
                   />
                 ) : (
                   <input
                     type="submit"
                     onClick={handleSubmit}
                     value="register"
+                    className={Styles.tn}
                   />
                 )}
               </div>
@@ -160,6 +173,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
             onClick={handleSubmit}
             value="Register"
             className={Styles.regBtn}
+            // className={Styles.tn}
           />
         </form>
       </div>

@@ -1,105 +1,115 @@
 .modelBg {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.1);
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding-top: 15vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 15vh;
 }
 
 .modelBg .modelBox {
-    position: relative;
-    margin: 0 auto;
-    width: 60%;
-    height: 95%;
-    background: #0C0B20;
-    border: 1.05682px solid #A3A3AB;
-    box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12), 4px 4px 18px rgba(226, 227, 252, 0.12);
-    border-radius: 8px;
-    padding: 2rem 0;
+  position: relative;
+  margin: 0 auto;
+  width: 60%;
+  height: 95%;
+  background: #0c0b20;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+  padding: 2rem 0;
 }
 
 .modelBox form {
-    background: none;
-    margin: 0 4rem;
-    position: relative;
-    height: 100%;
-    padding: 0;
-    overflow: auto;
-    padding: 5rem 0 4rem 0;
+  background: none;
+  margin: 0 4rem;
+  position: relative;
+  height: 100%;
+  padding: 0;
+  overflow: auto;
+  padding: 9.5rem 0 4rem 0;
+  color: white;
 }
 
 .modelBox form .teamName {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-bottom: 1px dashed #EDFCFF;
-    position: absolute;
-    top: 0; left: 0; width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px dashed #edfcff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-.modelBox form .th{
-    font-size: 1.1rem;
-    font-weight: bold;
+.modelBox form .th {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 .modelBox form input,
 .modelBox form select {
-    background: #1F1D2E;
-    backdrop-filter: blur(2.11364px);
-    border-radius: 3px;
-    color: #EDFCFF;
-    outline: none;
-    padding: .4rem 1rem;
-    font-size: .9rem;
-    margin: .5rem;
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  outline: none;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  margin: 0.5rem;
 }
-.modelBox form input[type="submit"] {
-    background: rgba(73, 54, 167, 0.2);
-    border: 1px solid #4936A7;
-    border-radius: 0px;
-    outline: none;
-    padding: .4rem;
-    margin: 0;
+.modelBox form input[type='submit'] {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  border-radius: 0px;
+  outline: none;
+  padding: 0.4rem;
+  margin: 0;
 }
-.modelBox form .regBtn{
-    position: absolute;
-    bottom: 0; left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+.modelBox form .regBtn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
-.modelBox .modelCloseBtn{
-    position: absolute;
-    top: 1rem; right: 2rem;
-    transform: rotate(45deg);
-    font-size: 2rem;
-    cursor: pointer;
+.modelBox .modelCloseBtn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  transform: rotate(45deg);
+  font-size: 2rem;
+  cursor: pointer;
 }
-.modelBox form .teamMemberBox{
-    height: 100%;
-    width: 100%;
-    overflow: auto;
+.modelBox form .teamMemberBox {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
-.modelBox form .teamMemberBox::-webkit-scrollbar{
-    width: 2.5px;
+.modelBox form .teamMemberBox::-webkit-scrollbar {
+  width: 2.5px;
 }
-.modelBox form .teamMemberBox::-webkit-scrollbar-track{
-    background: none;
+.modelBox form .teamMemberBox::-webkit-scrollbar-track {
+  background: none;
 }
-.modelBox form .teamMemberBox::-webkit-scrollbar-thumb{
-    background-color: #eee;
+.modelBox form .teamMemberBox::-webkit-scrollbar-thumb {
+  background-color: #eee;
 }
-.modelBox form .teamMemberBox .teamMember{
-    border-bottom: 1px dashed #EDFCFF;
+.modelBox form .teamMemberBox .teamMember {
+  border-bottom: 1px dashed #edfcff;
 }
-.modelBox form .teamMemberBox .teamMemberHeading{
-    margin: 1rem 0 .5rem 0;
-    font-weight: bold;
+.modelBox form .teamMemberBox .teamMemberHeading {
+  margin: 1rem 0 0.5rem 0;
+  font-weight: bold;
 }
-.modelBox form .teamMemberBox .teamMemberTop{
-    display: flex;
+.modelBox form .teamMemberBox .teamMemberTop {
+  display: flex;
 }
-.modelBox form .teamMemberBox .teamMemberBottom{
-    display: flex;
+.modelBox form .teamMemberBox .teamMemberBottom {
+  display: flex;
+}
+.tn,
+.regBtn,
+.cpt {
+  color: white;
 }

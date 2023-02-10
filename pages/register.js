@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // import Navbar from '../components/navbar/Navbar';
-import taost, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
@@ -46,6 +46,7 @@ function Register() {
         withCredentials: false,
       });
       login(res.data.data);
+      toast.success('Logged In Successfully');
     } catch (err) {
       if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
@@ -53,6 +54,7 @@ function Register() {
         setErrMsg(err);
       }
       // console.log(err.response);
+      // toast.error(err.response);
     }
   };
 
@@ -79,42 +81,49 @@ function Register() {
             onChange={handleChange}
             type="text"
             placeholder="Enter your Name"
+            required
           />
           <input
             name="email"
             onChange={handleChange}
             type="email"
             placeholder="Enter your Email"
+            required
           />
           <input
             name="college"
             onChange={handleChange}
             type="text"
             placeholder="Enter your College"
+            required
           />
           <input
             name="branch"
             onChange={handleChange}
             type="text"
             placeholder="Enter your Branch"
+            required
           />
           <input
             name="phone"
             onChange={handleChange}
             type="number"
             placeholder="Enter your Phone Number"
+            required
           />
           <input
             name="whatsapp"
             onChange={handleChange}
             type="number"
             placeholder="Enter your Whatsapp Number"
+            required
           />
           <input
             name="city"
             onChange={handleChange}
             type="text"
             placeholder="Enter your city"
+            required
           />
           <span>Enter Gender : </span>
           <select

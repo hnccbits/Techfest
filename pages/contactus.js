@@ -1,7 +1,14 @@
 // import Navbar from '../components/navbar/Navbar';
+import toast, { Toaster } from 'react-hot-toast';
 import Styles from '../components/contactus/contact-us.module.css';
 
 function ContactUs() {
+  const show = () => {
+    // toast.success('Logged In Successfully');
+    toast('Message Sent Sucessfully', {
+      icon: '🚀',
+    });
+  };
   return (
     <>
       {/* <Navbar /> */}
@@ -63,12 +70,15 @@ function ContactUs() {
             </div>
             <div className={Styles.formrow} id={Styles.submitbtn}>
               <div className={Styles.inputdata}>
-                <button type="submit">Send</button>
+                <button type="submit" onClick={show}>
+                  Send
+                </button>
               </div>
             </div>
           </form>
         </div>
       </main>
+      <Toaster />
     </>
   );
 }
