@@ -1,25 +1,100 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 2.6rem;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2.6rem;
+}
+
+.navbar a {
+  margin: 0 3.4rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary-text);
+}
+
+@media (max-width: 700px) {
   .navbar a {
-    margin: 0 3.4rem;
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--primary-text);
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .navbar a {
+    margin: 0 2rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.bar1Open {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.bar2Open {
+  opacity: 0;
+}
+
+.bar3Open {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navOpen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* a {
+  display: block;
+  padding: 1rem;
+} */
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
   }
 
-  @media (max-width: 700px) {
-    .navbar a {
-      margin: 0 2rem;
-    }
+  .nav {
+    display: none;
   }
-  
-  @media (max-width: 1000px) {
-    .navbar a {
-      margin: 0 2rem;
-    }
+
+  .navOpen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  /* .a {
+    width: 100%;
+    text-align: center;
+  } */
+}

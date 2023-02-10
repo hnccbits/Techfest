@@ -135,6 +135,8 @@ function Register() {
             onChange={handleChange}
             type="password"
             placeholder="Enter Password"
+            pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{9,}$"
+            required
           />
           <input
             name="cnfpassword"
