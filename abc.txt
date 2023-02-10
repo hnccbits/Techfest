@@ -12,7 +12,7 @@ diasble = true for all buttons when loading
 
 catch all errors when request is made
 
-proper popup for all errors.
+proper popup for all the errors.
 
 dont change name of any input. only className and id can be changed
 
