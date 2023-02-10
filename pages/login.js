@@ -79,7 +79,7 @@ function LoginPage() {
                       textAlign: 'left',
                       padding: '20px',
                       marginBottom: '10px',
-                      color: '#000',
+                      color: '#fff',
                     }}
                   />
                 </div>

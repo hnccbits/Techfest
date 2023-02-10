@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Styles from './home.module.css';
-import Card from '../../components/card/Card';
+import Card from '../card/Card';
 
 const home = () => {
   return (
