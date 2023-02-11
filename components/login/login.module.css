@@ -4,3 +4,91 @@
 .login {
   border: 2px solid green;
 }
+
+.RegisterForm {
+  padding: 20px;
+}
+
+.formHeading {
+  font-size: 36px;
+}
+
+.RegisterFormWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formLineBlock {
+  width: 50%;
+}
+
+.mail {
+  width: 100%;
+}
+
+.btn {
+  width: auto;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.Already {
+  font-size: 18px;
+}
+
+/* styles for mobile screens */
+@media only screen and (max-width: 600px) {
+  .RegisterForm {
+    padding: 10px;
+  }
+  .formHeading {
+    font-size: 24px;
+  }
+  .RegisterFormWrapper {
+    flex-direction: column;
+  }
+  .formLineBlock {
+    width: 100%;
+  }
+  .mail {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .Already {
+    font-size: 14px;
+  }
+}
+
+/* styles for larger screens */
+@media only screen and (min-width: 601px) {
+  .RegisterForm {
+    padding: 20px;
+  }
+  .formHeading {
+    font-size: 36px;
+  }
+  .RegisterFormWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .formLineBlock {
+    width: 50%;
+  }
+  .mail {
+    width: 100%;
+  }
+  .btn {
+    width: auto;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  .Already {
+    font-size: 18px;
+  }
+}
