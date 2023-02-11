@@ -55,15 +55,12 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setParticipant([...participant, member]);
-    if (teamname === '---') {
+    if (teamname === '') {
       setErrMsg('Please Enter Team Name');
       return;
     }
-    if (participant.length !== teamsize - 1) {
-      setErrMsg('Please Add All Members');
-      return;
-    }
+    setParticipant([...participant, member]);
+  
 
     try {
       const res = await axiosInstance({
