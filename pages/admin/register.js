@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/destructuring-assignment */
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 
@@ -29,9 +30,18 @@ function Register() {
     name: 'HNCC',
   });
   const [errMsg, setErrMsg] = useState('');
+  // const [isLoading, setIsLoading] = useState(false);
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // setIsLoading(true);
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
     }
@@ -63,7 +73,11 @@ function Register() {
     });
   };
   if (errMsg) {
-    //
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
   }
   return (
     <>

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import axiosInstance from '../../api/axios';
 // import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
@@ -25,6 +26,15 @@ function AdminLoginPage() {
     password: '',
   });
   const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -100,7 +110,7 @@ function AdminLoginPage() {
           </form>
         </div>
       </div>
-      <Toaster />
+      {/* <Toaster /> */}
     </>
   );
 }
