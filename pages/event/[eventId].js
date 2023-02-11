@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
+// import Modal from 'react-modal';
 
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
@@ -36,6 +37,7 @@ function EventsPage({ event }) {
     if (user) {
       handleModalToggle();
     } else {
+      window.alert('You must need to register.');
       Router.push('/register');
     }
   };

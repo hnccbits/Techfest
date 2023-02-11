@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 // import toast, { Toaster } from 'react-hot-toast';
+
 import { toast } from 'react-toastify';
 import axiosInstance from '../../api/axios';
 // import Navbar from '../../components/navbar/Navbar';
@@ -40,6 +41,7 @@ function AdminLoginPage() {
     e.preventDefault();
 
     try {
+      setIsLoading(true);
       const res = await axiosInstance({
         method: 'post',
         url: '/admin/login',
@@ -51,7 +53,6 @@ function AdminLoginPage() {
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
-      setIsLoading(false);
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
@@ -59,7 +60,7 @@ function AdminLoginPage() {
       } else {
         setErrMsg('Unknown Error');
       }
-      toast.error(errMsg);
+      // toast.error(errMsg);
     }
   };
 
@@ -69,6 +70,14 @@ function AdminLoginPage() {
       [e.target.name]: e.target.value,
     });
   };
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
+    setIsLoading(false);
+  }
   return (
     <>
       {/* <Navbar /> */}
