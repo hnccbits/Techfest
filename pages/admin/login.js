@@ -38,9 +38,7 @@ function AdminLoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
+   
     try {
       const res = await axiosInstance({
         method: 'post',
