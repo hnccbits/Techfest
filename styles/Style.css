@@ -17,39 +17,127 @@ body {
   font-family: 'Galano Grotesque';
   src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Galano Grotesque Bold';
+  src: url('../components//assets/fonts/GalanoGrotesqueBold.otf')
+    format('truetype');
+}
 
-form {
-  background: rgba(73, 54, 167, 0.2);
-  margin: 2rem;
-  padding: 1.5rem;
+/* User Register Styling Open*/
+.RegisterForm {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 80vh;
+  background: #0c0b20;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+  padding: 0 2rem 1.5rem 2rem;
 }
-form input,
-form select,
-form textarea {
-  display: block;
-  color: #222;
-  width: 50%;
-  padding: 0.6rem;
-  margin: 1rem;
-  font-family: Montserrat, 'sans-serif';
+
+.formHeading {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-family: 'Galano Grotesque Bold';
+  font-size: 2.5rem;
+  color: #f3f3ff;
+  text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4),
+    4px 4px 30px rgba(226, 227, 252, 0.4);
 }
-form .fileInput {
-  background: #fff;
-  color: #222;
-  margin: 0 1rem;
-  width: 50%;
-  border-radius: 2px;
+
+.RegisterFormWrapper {
+  display: flex;
+  gap: 2rem;
 }
-form input[type='submit'] {
-  border: none;
+
+.RegisterFormWrapper img {
+  width: 400px;
+}
+
+.RegisterFormWrapper form {
+  width: 100%;
+}
+
+.RegisterFormWrapper form .formLine {
+  display: flex;
+  width: 100%;
+}
+
+.RegisterFormWrapper form input,
+.RegisterFormWrapper form select {
+  padding: 0.5rem;
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  margin: 0.4rem;
   outline: none;
-  width: 150px;
-  background: #715ae2;
+}
+
+.RegisterFormWrapper form .line1 input,
+.RegisterFormWrapper form .line1 select {
+  flex: 50%;
+}
+
+.RegisterFormWrapper form .line2 input {
+  flex: 100%;
+}
+
+.RegisterFormWrapper form .line3 input {
+  flex: 50%;
+}
+
+.RegisterFormWrapper form .line4 input {
+  flex: 50%;
+}
+
+.RegisterFormWrapper form .line5 input,
+.RegisterFormWrapper form .line5 select {
+  flex: 50%;
+}
+
+.RegisterFormWrapper form .line6 input {
+  flex: 50%;
+}
+
+.RegisterFormWrapper form .formLineBlock {
+  display: flex;
+  width: 80%;
+}
+
+.RegisterFormWrapper form .formLineBlock input {
+  width: 100%;
+}
+
+.RegisterFormWrapper form .formLineBlock select {
+  width: 100%;
+}
+
+.RegisterFormWrapper form input[type='submit'] {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 0;
   cursor: pointer;
 }
-form span {
-  margin: 0 1rem;
+
+.RegisterFormWrapper form button[type='submit'] {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 0.4rem 1rem;
+  margin: 1rem 0.4rem;
+  outline: none;
+  border-radius: 0;
+  cursor: pointer;
 }
+
+.RegisterFormWrapper form span.Already {
+  font-weight: bold;
+  display: block;
+}
+
+/* User Register Styling Close */
 .adminEventWrap {
   margin: 2rem 0;
   display: flex;

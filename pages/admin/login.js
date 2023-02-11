@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 import axiosInstance from '../../api/axios';
@@ -60,55 +61,36 @@ function AdminLoginPage() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="login-body">
-        <div className="login">
-          <div style={{ display: 'flex', gap: '4rem' }}>
-            <div className="image" style={{ flex: 1 }}>
-              {/* Your image component goes here */}
-              <img src="img/login.svg" alt="" />
+      <div className="RegisterForm">
+        <div className="formHeading">Admin Login</div>
+        <div className="RegisterFormWrapper">
+          <img src="img/formImg.png" alt="" />
+          <form>
+            <div className='formLineBlock'>
+              <input
+                className="mail"
+                name="email"
+                type="email"
+                value={value.email}
+                onChange={handleChange}
+                placeholder="Email id *"
+              />
             </div>
-            <div className="text" style={{ flex: 1, padding: '20px' }}>
-              <form>
-                <h2>Admin Login</h2>
-                <div>
-                  <input
-                    className="mail"
-                    name="email"
-                    type="email"
-                    value={value.email}
-                    onChange={handleChange}
-                    placeholder="Email id *"
-                    style={{
-                      textAlign: 'left',
-                      padding: '20px',
-                      marginBottom: '10px',
-                      color: '#000',
-                    }}
-                  />
-                </div>
-                <div>
-                  <input
-                    className="mail"
-                    name="password"
-                    type="password"
-                    value={value.password}
-                    onChange={handleChange}
-                    placeholder="Password *"
-                    style={{
-                      textAlign: 'left',
-                      padding: '20px',
-                      marginBottom: '10px',
-                      color: '#000',
-                    }}
-                  />
-                </div>
-                <button onClick={handleSubmit} className="btn" type="submit">
-                  Submit
-                </button>
-              </form>
-              {/* <span></span> */}
+            <div className='formLineBlock'>
+              <input
+                className="mail"
+                name="password"
+                type="password"
+                value={value.password}
+                onChange={handleChange}
+                placeholder="Password *"
+              />
             </div>
-          </div>
+            <button onClick={handleSubmit} className="btn" type="submit">
+              Submit
+            </button>
+            <span className="Already">Don&#39;t Have Account? <Link href='/admin/register' legacyBehavior><a>Register</a></Link></span>
+          </form>
         </div>
       </div>
     </>

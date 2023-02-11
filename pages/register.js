@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
+import Link from 'next/link';
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // import Navbar from '../components/navbar/Navbar';
-import toast, { Toaster } from 'react-hot-toast';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
@@ -46,15 +46,12 @@ function Register() {
         withCredentials: false,
       });
       login(res.data.data);
-      toast.success('Logged In Successfully');
     } catch (err) {
       if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
       } else {
         setErrMsg(err);
       }
-      // console.log(err.response);
-      // toast.error(err.response);
     }
   };
 
@@ -64,106 +61,106 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   };
-  // const show = () => {
-  //   taost.success('Hello');
-  // };
 
   return (
     <>
       {/* <Navbar /> */}
-      <div className="adminRegister">
-        <div className="heading">
-          User Register <img src="img/line.svg" alt="" />
+      <div className="RegisterForm">
+        <div className="formHeading">Sign Up</div>
+        <div className="RegisterFormWrapper">
+          <img src="img/formImg.png" alt="" />
+          <form>
+            <div className="line1 formLine">
+              <input
+                name="name"
+                onChange={handleChange}
+                type="text"
+                placeholder="Enter your Name"
+              />
+              <select
+                defaultValue={value.name}
+                name="gender"
+                onChange={handleChange}
+              >
+                <option value="M">Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+              </select>
+            </div>
+            <div className="line2 formLine">
+              <input
+                name="email"
+                onChange={handleChange}
+                type="email"
+                placeholder="Enter your Email"
+              />
+            </div>
+            <div className="line3 formLine">
+              <input
+                name="phone"
+                onChange={handleChange}
+                type="number"
+                placeholder="Enter your Phone Number"
+              />
+              <input
+                name="whatsapp"
+                onChange={handleChange}
+                type="number"
+                placeholder="Enter your Whatsapp Number"
+              />
+            </div>
+            <div className="line4 formLine">
+              <input
+                name="college"
+                onChange={handleChange}
+                type="text"
+                placeholder="Enter your College"
+              />
+              <input
+                name="city"
+                onChange={handleChange}
+                type="text"
+                placeholder="Enter your city"
+              />
+            </div>
+            <div className="line5 formLine">
+              <input
+                name="branch"
+                onChange={handleChange}
+                type="text"
+                placeholder="Enter your Branch"
+              />
+              <select defaultValue={value.name} name="year" onChange={handleChange}>
+                <option value="1">1st year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+                <option value="5">5th Year</option>
+              </select>
+            </div>
+            <div className="line6 formLine">
+              <input
+                name="password"
+                onChange={handleChange}
+                type="password"
+                placeholder="Enter Password"
+              />
+              <input
+                name="cnfpassword"
+                onChange={handleChange}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <input type="submit" onClick={handleSubmit} />
+            <span className="Already">Already Have Account? <Link href='/login' legacyBehavior><a>Login</a></Link></span>
+          </form>
         </div>
-        <form>
-          <input
-            name="name"
-            onChange={handleChange}
-            type="text"
-            placeholder="Enter your Name"
-            required
-          />
-          <input
-            name="email"
-            onChange={handleChange}
-            type="email"
-            placeholder="Enter your Email"
-            required
-          />
-          <input
-            name="college"
-            onChange={handleChange}
-            type="text"
-            placeholder="Enter your College"
-            required
-          />
-          <input
-            name="branch"
-            onChange={handleChange}
-            type="text"
-            placeholder="Enter your Branch"
-            required
-          />
-          <input
-            name="phone"
-            onChange={handleChange}
-            type="number"
-            placeholder="Enter your Phone Number"
-            required
-          />
-          <input
-            name="whatsapp"
-            onChange={handleChange}
-            type="number"
-            placeholder="Enter your Whatsapp Number"
-            required
-          />
-          <input
-            name="city"
-            onChange={handleChange}
-            type="text"
-            placeholder="Enter your city"
-            required
-          />
-          <span>Enter Gender : </span>
-          <select
-            defaultValue={value.name}
-            name="gender"
-            onChange={handleChange}
-          >
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-            <option value="O">Other</option>
-          </select>
-
-          <span>Enter Year : </span>
-          <select defaultValue={value.name} name="year" onChange={handleChange}>
-            <option value="1">1st year</option>
-            <option value="2">2nd Year</option>
-            <option value="3">3rd Year</option>
-            <option value="4">4th Year</option>
-            <option value="5">5th Year</option>
-          </select>
-          <input
-            name="password"
-            onChange={handleChange}
-            type="password"
-            placeholder="Enter Password"
-            pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{9,}$"
-            required
-          />
-          <input
-            name="cnfpassword"
-            onChange={handleChange}
-            type="password"
-            placeholder="Confirm Password"
-          />
-          <input type="submit" onClick={handleSubmit} />
-          <Toaster />
-        </form>
       </div>
     </>
   );
 }
 
 export default Register;
+

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import toast, { Toaster } from 'react-hot-toast';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
@@ -40,9 +39,6 @@ function EventsPage({ event }) {
       Router.push('/register');
     }
   };
-  const show = () => {
-    toast.success('Logged In Successfully');
-  };
   return (
     <>
       {/* <Navbar /> */}
@@ -63,38 +59,40 @@ function EventsPage({ event }) {
           <div className={Styles.container}>
             <img src={img} alt="" />
             <div className={Styles.eventDescription}>
-              <p>{desc}</p>
-
-              <p> Max Team Size: {teamsize}</p>
-
-              <button
-                onClick={handleRegister}
-                disabled={!registrationopen}
-                className={Styles.cta}
-                type="button"
-              >
-                {registrationopen ? 'Register' : 'Registration Closed'}
-              </button>
-
-              <Link href={rulebk} target="_blank">
-                <button className={Styles.cta} type="button">
-                  Rulebook
+              <div className={Styles.eventDesTop}>
+                <div> Max Team Size: {teamsize} </div>
+                <div> Prize pool: 15,000</div>
+              </div>
+              <div className={Styles.eventDesMain}>{desc}</div>
+              <div className={Styles.eventLinkBtn}>
+                <button
+                  onClick={handleRegister}
+                  disabled={!registrationopen}
+                  className={Styles.cta}
+                  type="button"
+                >
+                  {registrationopen ? 'Register' : 'Registration Closed'}
                 </button>
-              </Link>
-              {problemstatement ? (
-                <Link href={prblmstatement}>
-                  <button className={Styles.cta} type="button" onClick={show}>
-                    Problem Statement
+
+                <Link href={rulebk} target="_blank">
+                  <button className={Styles.cta} type="button">
+                    Rulebook
                   </button>
                 </Link>
-              ) : (
-                ''
-              )}
+                {problemstatement ? (
+                  <Link href={prblmstatement}>
+                    <button className={Styles.cta} type="button">
+                      Problem Statement
+                    </button>
+                  </Link>
+                ) : (
+                  ''
+                )}
+              </div>
             </div>
           </div>
         </div>
       </main>
-      <Toaster />
     </>
   );
 }

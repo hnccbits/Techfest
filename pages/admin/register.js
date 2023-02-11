@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/destructuring-assignment */
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 
@@ -67,50 +68,58 @@ function Register() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="adminRegister">
-        <div className="heading">
-          Admin Register <img src="img/line.svg" alt="" />
-        </div>
-        <form>
-          <span>Choose Your Club/Society</span>
-          <select defaultValue={value.name} name="name" onChange={handleChange}>
-            <option value="CES">Chemical Engineering Society</option>
-            <option value="PIES">
-              Production and Industrial Engineering Society
-            </option>
-            <option value="EES">Electrical Engineering Society</option>
-            <option value="HNCC">HnCC</option>
-            <option value="IETE">IETE</option>
-            <option value="ISTE">ISTE</option>
-            <option value="MES">Mechanical Engineering Society</option>
-            <option value="MC">Model Club</option>
-            <option value="SAE">SAE India</option>
-          </select>
-          <input
-            required
-            type="email"
-            name="email"
-            autoComplete="email"
-            onChange={handleChange}
-            placeholder="Enter your Club Email"
-          />
-          <input
-            required
-            type="password"
-            name="password"
-            onChange={handleChange}
-            placeholder="Enter Password"
-          />
-          <input
-            required
-            type="password"
-            name="cnfpassword"
-            onChange={handleChange}
-            placeholder="Confirm Password"
-          />
+      <div className="RegisterForm">
+        <div className="formHeading">Admin Register</div>
+        <div className="RegisterFormWrapper">
+          <img src="img/formImg.png" alt="" />
+          <form>
+            <div className="formLineBlock">
+              <select defaultValue={value.name} name="name" onChange={handleChange}>
+                <option value="CES">Chemical Engineering Society</option>
+                <option value="PIES">
+                  Production and Industrial Engineering Society
+                </option>
+                <option value="EES">Electrical Engineering Society</option>
+                <option value="HNCC">HnCC</option>
+                <option value="IETE">IETE</option>
+                <option value="ISTE">ISTE</option>
+                <option value="MES">Mechanical Engineering Society</option>
+                <option value="MC">Model Club</option>
+                <option value="SAE">SAE India</option>
+              </select>
+            </div>
+            <div className="formLineBlock"><input
+              required
+              type="email"
+              name="email"
+              autoComplete="email"
+              onChange={handleChange}
+              placeholder="Enter your Club Email"
+            /></div>
+            <div className="formLineBlock">
+              <input
+                required
+                type="password"
+                name="password"
+                onChange={handleChange}
+                placeholder="Enter Password"
+              />
+            </div>
+            <div className="formLineBlock">
+              <input
+                required
+                type="password"
+                name="cnfpassword"
+                onChange={handleChange}
+                placeholder="Confirm Password"
+              />
+            </div>
 
-          <input type="submit" onClick={handleSubmit} />
-        </form>
+            <input type="submit" onClick={handleSubmit} />
+            <span className="Already">Already Have Account? <Link href='/admin/login' legacyBehavior><a>Login</a></Link></span>
+
+          </form>
+        </div>
       </div>
     </>
   );
