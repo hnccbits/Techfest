@@ -138,7 +138,7 @@ function Register() {
                 placeholder="Enter Password"
               />
             </div>
-            {/* <div className="formLineBlock">
+            <div className="formLineBlock">
               <input
                 required
                 type="password"
@@ -146,7 +146,7 @@ function Register() {
                 onChange={handleChange}
                 placeholder="Confirm Password"
               />
-            </div> */}
+            </div>
             <button
               onClick={handleSubmit}
               disabled={isLoading}
