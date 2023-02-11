@@ -1,4 +1,5 @@
 // import Navbar from '../components/navbar/Navbar';
+// import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
 import Styles from '../components/contactus/contact-us.module.css';
 
@@ -70,9 +71,11 @@ function ContactUs() {
             </div>
             <div className={Styles.formrow} id={Styles.submitbtn}>
               <div className={Styles.inputdata}>
+                {/* <Link href="/"> */}
                 <button type="submit" onClick={show}>
                   Send
                 </button>
+                {/* </Link> */}
               </div>
             </div>
           </form>

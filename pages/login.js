@@ -50,7 +50,6 @@ function LoginPage() {
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
-      setIsLoading(false);
       if (!err?.response) {
         setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
@@ -76,6 +75,7 @@ function LoginPage() {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>
