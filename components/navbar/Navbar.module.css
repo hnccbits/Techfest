@@ -43,11 +43,17 @@
     display: block;
   }
   .navbar{
+    display: none;
+  }
+  
+  .open{
+    display: flex;
+    width: 100vw;
     flex-direction: column;
     position: absolute;
     right: 0;
-    top: 1rem;
-    align-items: flex-start;
+    top: 2.5rem;
+    align-items: flex-end;
     padding-right: 0;
     gap: 1rem;
     background: rgba(11, 10, 30, 0.4);
@@ -56,7 +62,6 @@
     backdrop-filter: blur(8.6px);
     -webkit-backdrop-filter: blur(8.6px);
     border: 1px solid rgba(11, 10, 30, 0.25);
-    /* min-height: 100vh; */
   }
 }
 /* .bar1,

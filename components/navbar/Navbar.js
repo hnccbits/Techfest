@@ -11,13 +11,14 @@ export default function Navbar() {
     logout();
   };
   const [header, setHeader] = useState();
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const userloggedin = (
     <div className={Styles.navContainer}>
       <div className={Styles.logo}>
         <img src="img/sm_logo.svg" alt="" />
       </div>
-      <div className={Styles.navbar}>
+      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -33,7 +34,16 @@ export default function Navbar() {
         <a onClick={exit}>Log out</a>
       </div>
       <div className={Styles.hamburger}>
-        <img src="img/hamburger.svg" alt="" />
+        {!isNavOpen && (
+          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/hamburger.svg" alt="" />
+          </button>
+        )}
+        {isNavOpen && (
+          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/close.svg" alt="" />
+          </button>
+        )}
       </div>
     </div>
   );
@@ -52,7 +62,7 @@ export default function Navbar() {
       <div className={Styles.logo}>
         <img src="img/sm_logo.svg" alt="" />
       </div>
-      <div className={Styles.navbar}>
+      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -76,7 +86,16 @@ export default function Navbar() {
         </Link>
       </div>
       <div className={Styles.hamburger}>
-        <img src="img/hamburger.svg" alt="" />
+        {!isNavOpen && (
+          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/hamburger.svg" alt="" />
+          </button>
+        )}
+        {isNavOpen && (
+          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/close.svg" alt="" />
+          </button>
+        )}
       </div>
     </div>
   );
