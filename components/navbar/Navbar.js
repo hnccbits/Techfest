@@ -35,12 +35,12 @@ export default function Navbar() {
       </div>
       <div className={Styles.hamburger}>
         {!isNavOpen && (
-          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
             <img src="img/hamburger.svg" alt="" />
           </button>
         )}
         {isNavOpen && (
-          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
             <img src="img/close.svg" alt="" />
           </button>
         )}
@@ -87,12 +87,12 @@ export default function Navbar() {
       </div>
       <div className={Styles.hamburger}>
         {!isNavOpen && (
-          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
             <img src="img/hamburger.svg" alt="" />
           </button>
         )}
         {isNavOpen && (
-          <button type='button' onClick={() => setIsNavOpen(!isNavOpen)}>
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
             <img src="img/close.svg" alt="" />
           </button>
         )}
