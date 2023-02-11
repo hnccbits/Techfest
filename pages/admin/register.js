@@ -74,7 +74,11 @@ function Register() {
           <img src="img/formImg.png" alt="" />
           <form>
             <div className="formLineBlock">
-              <select defaultValue={value.name} name="name" onChange={handleChange}>
+              <select
+                defaultValue={value.name}
+                name="name"
+                onChange={handleChange}
+              >
                 <option value="CES">Chemical Engineering Society</option>
                 <option value="PIES">
                   Production and Industrial Engineering Society
@@ -88,14 +92,16 @@ function Register() {
                 <option value="SAE">SAE India</option>
               </select>
             </div>
-            <div className="formLineBlock"><input
-              required
-              type="email"
-              name="email"
-              autoComplete="email"
-              onChange={handleChange}
-              placeholder="Enter your Club Email"
-            /></div>
+            <div className="formLineBlock">
+              <input
+                required
+                type="email"
+                name="email"
+                autoComplete="email"
+                onChange={handleChange}
+                placeholder="Enter your Club Email"
+              />
+            </div>
             <div className="formLineBlock">
               <input
                 required
@@ -116,8 +122,12 @@ function Register() {
             </div>
 
             <input type="submit" onClick={handleSubmit} />
-            <span className="Already">Already Have Account? <Link href='/admin/login' legacyBehavior><a>Login</a></Link></span>
-
+            <span className="Already">
+              Already Have Account?{' '}
+              <Link href="/admin/login" legacyBehavior>
+                <a>Login</a>
+              </Link>
+            </span>
           </form>
         </div>
       </div>

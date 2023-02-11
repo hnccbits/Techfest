@@ -131,7 +131,11 @@ function Register() {
                 type="text"
                 placeholder="Enter your Branch"
               />
-              <select defaultValue={value.name} name="year" onChange={handleChange}>
+              <select
+                defaultValue={value.name}
+                name="year"
+                onChange={handleChange}
+              >
                 <option value="1">1st year</option>
                 <option value="2">2nd Year</option>
                 <option value="3">3rd Year</option>
@@ -154,7 +158,12 @@ function Register() {
               />
             </div>
             <input type="submit" onClick={handleSubmit} />
-            <span className="Already">Already Have Account? <Link href='/login' legacyBehavior><a>Login</a></Link></span>
+            <span className="Already">
+              Already Have Account?{' '}
+              <Link href="/login" legacyBehavior>
+                <a>Login</a>
+              </Link>
+            </span>
           </form>
         </div>
       </div>
@@ -163,4 +172,3 @@ function Register() {
 }
 
 export default Register;
-

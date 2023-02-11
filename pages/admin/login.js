@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import axiosInstance from '../../api/axios';
 // import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
@@ -38,7 +39,7 @@ function AdminLoginPage() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-
+      toast.success('Logged In Successfully');
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
@@ -49,6 +50,7 @@ function AdminLoginPage() {
       } else {
         setErrMsg('Unknown Error');
       }
+      toast.error(errMsg);
     }
   };
 
@@ -66,7 +68,7 @@ function AdminLoginPage() {
         <div className="RegisterFormWrapper">
           <img src="img/formImg.png" alt="" />
           <form>
-            <div className='formLineBlock'>
+            <div className="formLineBlock">
               <input
                 className="mail"
                 name="email"
@@ -76,7 +78,7 @@ function AdminLoginPage() {
                 placeholder="Email id *"
               />
             </div>
-            <div className='formLineBlock'>
+            <div className="formLineBlock">
               <input
                 className="mail"
                 name="password"
@@ -89,10 +91,16 @@ function AdminLoginPage() {
             <button onClick={handleSubmit} className="btn" type="submit">
               Submit
             </button>
-            <span className="Already">Don&#39;t Have Account? <Link href='/admin/register' legacyBehavior><a>Register</a></Link></span>
+            <span className="Already">
+              Don&#39;t Have Account?{' '}
+              <Link href="/admin/register" legacyBehavior>
+                <a>Register</a>
+              </Link>
+            </span>
           </form>
         </div>
       </div>
+      <Toaster />
     </>
   );
 }
