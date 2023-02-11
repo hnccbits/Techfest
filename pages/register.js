@@ -32,7 +32,7 @@ function Register() {
     cnfpassword: '',
   });
   const [errMsg, setErrMsg] = useState('');
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
       hideProgressBar: false,
@@ -42,7 +42,7 @@ function Register() {
     });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setIsLoading(true);
+    setIsLoading(true);
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
     }
