@@ -93,11 +93,13 @@
 
 .homeHeroSocial {
     margin: 3rem 0;
+    display: flex;
 }
 
 .homeHeroSocial i {
     margin: 0 .5rem;
     padding: 0 .5rem;
+    font-size: 1.5rem;
 }
 
 .homeHeroFrame {

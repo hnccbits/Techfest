@@ -1,6 +1,12 @@
+import { FaFacebookSquare } from 'react-icons/fa';
+import { FaInstagramSquare } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
+import { FaTwitterSquare } from 'react-icons/fa';
+
 import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
+// import { FaFacebookSquare } from 'react-icons/fa';
 
 const home = () => {
   return (
@@ -20,10 +26,18 @@ const home = () => {
             </Link>
           </div>
           <div className={Styles.homeHeroSocial}>
-            <i>F</i>
-            <i>I</i>
-            <i>L</i>
-            <i>T</i>
+            <i>
+              <FaFacebookSquare />
+            </i>
+            <i>
+              <FaInstagramSquare />
+            </i>
+            <i>
+              <FaLinkedin />
+            </i>
+            <i>
+              <FaTwitterSquare />
+            </i>
           </div>
         </div>
         <div className={Styles.homeHeroFrame}>

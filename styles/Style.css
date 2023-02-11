@@ -13,19 +13,21 @@ body {
   background-size: cover;
   padding: 0 6rem;
 }
+
 @media (max-width: 550px) {
-  body{
+  body {
     padding: 0 2rem;
   }
 }
+
 @font-face {
   font-family: 'Galano Grotesque';
   src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Galano Grotesque Bold';
-  src: url('../components//assets/fonts/GalanoGrotesqueBold.otf')
-    format('truetype');
+  src: url('../components//assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
 }
 
 /* User Register Styling Open*/
@@ -149,6 +151,7 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
 .adminEventCard {
   position: relative;
   width: 250px;
@@ -161,6 +164,7 @@ body {
   border: 1px solid #4936a7;
   padding: 1.5rem;
 }
+
 .adminEventCard img {
   position: absolute;
   top: 0;
@@ -169,6 +173,7 @@ body {
   height: 100%;
   z-index: -2;
 }
+
 .adminEventCard::after {
   content: '';
   position: absolute;
@@ -179,14 +184,17 @@ body {
   background: rgba(11, 10, 28, 0.75);
   z-index: -1;
 }
+
 .adminEventCard .closeBtn {
   position: absolute;
   top: 10px;
   left: 10px;
 }
+
 .adminEventCard .closeBtn span {
   margin-left: 5px;
 }
+
 .adminEventCard .deleteBtn {
   position: absolute;
   top: 10px;
@@ -200,6 +208,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .adminEventCard .editBtn {
   position: absolute;
   top: 50px;
@@ -213,6 +222,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .adminEventCard .bottomBtn {
   position: absolute;
   bottom: 10px;
@@ -224,6 +234,7 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
 }
+
 .adminEventCard .addEventBtn {
   width: 50px;
   height: 50px;
@@ -237,6 +248,7 @@ body {
   color: #fff;
   text-decoration: none;
 }
+
 .heading {
   font-size: 2.8rem;
   font-weight: 700;
@@ -245,6 +257,7 @@ body {
   position: relative;
   display: inline-block;
 }
+
 input#pwd {
   width: 180px;
   padding: 3px;
@@ -252,6 +265,7 @@ input#pwd {
   float: left;
   margin-right: 10px;
 }
+
 #pwd_strength_wrap {
   border: 1px solid #d5cec8;
   display: none;
@@ -260,14 +274,17 @@ input#pwd {
   position: relative;
   width: 320px;
 }
+
 #pwd_strength_wrap:before,
 #pwd_strength_wrap:after {
   content: ' ';
   height: 0;
   position: absolute;
   width: 0;
-  border: 10px solid transparent; /* arrow size */
+  border: 10px solid transparent;
+  /* arrow size */
 }
+
 #pwd_strength_wrap:before {
   border-bottom: 7px solid rgba(0, 0, 0, 0);
   border-right: 7px solid rgba(0, 0, 0, 0.1);
@@ -278,6 +295,7 @@ input#pwd {
   position: absolute;
   top: 10px;
 }
+
 #pwd_strength_wrap:after {
   border-bottom: 6px solid rgba(0, 0, 0, 0);
   border-right: 6px solid #fff;
@@ -288,43 +306,159 @@ input#pwd {
   position: absolute;
   top: 11px;
 }
+
 #pswd_info ul {
   list-style-type: none;
   margin: 5px 0 0;
   padding: 0;
 }
+
 #pswd_info ul li {
   /* background: url(icon_pwd_strength.png) no-repeat left 2px; */
   padding: 0 0 0 20px;
 }
+
 #pswd_info ul li.valid {
   background-position: left -42px;
   color: green;
 }
+
 #passwordStrength {
   display: block;
   height: 5px;
   margin-bottom: 10px;
   transition: all 0.4s ease;
 }
+
 .strength0 {
-  background: none; /* too short */
+  background: none;
+  /* too short */
   width: 0px;
 }
+
 .strength1 {
-  background: none repeat scroll 0 0 #ff4545; /* weak */
+  background: none repeat scroll 0 0 #ff4545;
+  /* weak */
   width: 25px;
 }
+
 .strength2 {
-  background: none repeat scroll 0 0 #ffc824; /* good */
+  background: none repeat scroll 0 0 #ffc824;
+  /* good */
   width: 75px;
 }
+
 .strength3 {
-  background: none repeat scroll 0 0 #6699cc; /* strong */
+  background: none repeat scroll 0 0 #6699cc;
+  /* strong */
   width: 100px;
 }
 
 .strength4 {
-  background: none repeat scroll 0 0 #008000; /* best */
+  background: none repeat scroll 0 0 #008000;
+  /* best */
   width: 150px;
 }
+
+
+/* Event Added By Admin CSS */
+
+.adminEventAddForm {
+  padding: 2rem;
+  margin: 2rem 0;
+  background: #0C0B20;
+  border: 1.05682px solid #A3A3AB;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12), 4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.adminEventAddForm input,
+.adminEventAddForm textarea,
+.adminEventAddForm select
+{
+  padding: 0.5rem;
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  margin: 0.5rem;
+  outline: none;
+}
+.adminEventAddLine1{
+  display: flex;
+  gap: .5rem;
+}
+.adminEventAddLine1 input{
+  flex: 50%;
+}
+.adminEventAddLine2{
+  display: flex;
+  gap: .5rem;
+}
+.adminEventAddLine2 .fileInput{
+  position: relative;
+  padding: .5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  margin: 0.4rem;
+  min-width: 150px;
+  height: 150px;
+}
+.adminEventAddLine2 .fileInput input[type="file"]{
+  cursor: pointer;
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+}
+.adminEventAddLine2 textarea{
+  width: 100%;
+}
+.adminEventAddLine3{
+  display: flex;
+}
+.adminEventAddLine3 input{
+  flex: 1;
+}
+.adminEventAddLine3 .fileInput{
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  text-align: center;
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  margin: 0.4rem;
+}
+.adminEventAddLine3 .fileInput input[type="file"]{
+  cursor: pointer;
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+}
+.adminEventAddForm input[type='submit'] {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 0;
+  cursor: pointer;
+  width: 180px;
+}
+/* Event Added By Admin CSS */

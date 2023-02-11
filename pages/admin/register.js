@@ -122,8 +122,8 @@ function Register() {
                 placeholder="Enter your Club Email"
               />
             </div>
-{/* <<<<<<< HEAD */}
-{/* // ======= */}
+            {/* <<<<<<< HEAD */}
+            {/* // ======= */}
             {/* <ul className="field__rules">
                 <li>One lowercase character</li>
                 <li>One uppercase character</li>
@@ -131,7 +131,7 @@ function Register() {
                 <li>One special character</li>
                 <li>9 characters minimum</li>
               </ul> */}
-{/* >>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254 */}
+            {/* >>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254 */}
             <div className="formLineBlock">
               <input
                 required
@@ -159,11 +159,11 @@ function Register() {
               {isLoading ? 'Loading...' : 'Submit'}
             </button>
 
-{/* <<<<<<< HEAD */}
+            {/* <<<<<<< HEAD */}
             {/* <input type="submit" onClick={handleSubmit} /> */}
-{/* ======= */}
+            {/* ======= */}
             {/* <input type="submit" onClick={handleSubmit} /> */}
-{/* >>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254 */}
+            {/* >>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254 */}
             <span className="Already">
               Already Have Account?{' '}
               <Link href="/admin/login" legacyBehavior>

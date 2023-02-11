@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+import { FaUpload } from 'react-icons/fa';
+
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // import Navbar from '../../components/navbar/Navbar';
@@ -74,64 +76,70 @@ function AddEvent() {
       {/* <Navbar /> */}
       <div className="eventRegister">
         <div className="heading">
-          Event Register <img src="img/line.svg" alt="" />
+          Add Your Event <img src="img/line.svg" alt="" />
         </div>
-        <form encType="multipart/form-data">
-          <input
-            onChange={handleChange}
-            name="name"
-            type="text"
-            placeholder="Event Name"
-          />
-          <input
-            onChange={handleChange}
-            name="teamsize"
-            type="number"
-            placeholder="Maximum Team Size"
-          />
-          <span>Event Description : </span>
-          <textarea
-            onChange={handleChange}
-            name="desc"
-            placeholder="Event Description"
-          />
-          <span>Event Date : </span>
-          <select onChange={handleChange} name="dateofevent">
-            <option value="day1">Day 1 (26th Feb)</option>
-            <option value="day2">Day 2 (27th Feb)</option>
-            <option value="day3">Day 3 (28th Feb)</option>
-          </select>
-          <span>Event Poster : </span>
-          <div className="fileInput">
+        <form encType="multipart/form-data" className="adminEventAddForm">
+          <div className="adminEventAddLine1">
             <input
-              onChange={(e) => {
-                setCoverimg(e.target.files[0]);
-              }}
-              name="coverimg"
-              type="file"
+              onChange={handleChange}
+              name="name"
+              type="text"
+              placeholder="Event Name"
+            />
+            <input
+              onChange={handleChange}
+              name="teamsize"
+              type="number"
+              placeholder="Maximum Team Size"
             />
           </div>
-          <span>Event Rulebook : </span>
-          <div className="fileInput">
-            <input
-              onChange={(e) => {
-                setRulebook(e.target.files[0]);
-              }}
-              name="rulebook"
-              type="file"
+          <div className="adminEventAddLine2">
+            <div className="fileInput">
+              <input
+                onChange={(e) => {
+                  setCoverimg(e.target.files[0]);
+                }}
+                name="coverimg"
+                type="file"
+              />
+              <FaUpload />
+              <span>Upload Event Poster</span>
+            </div>
+            <textarea
+              onChange={handleChange}
+              name="desc"
+              placeholder="Event Description"
             />
           </div>
-          <span>Problem Statement if any: </span>
-          <div className="fileInput">
-            <input
-              onChange={(e) => {
-                setProblemstatement(e.target.files[0]);
-              }}
-              name="problemstatement"
-              type="file"
-            />
+          <div className="adminEventAddLine3">
+            <select onChange={handleChange} name="dateofevent">
+              <option value="day1">Day 1 (26th Feb)</option>
+              <option value="day2">Day 2 (27th Feb)</option>
+              <option value="day3">Day 3 (28th Feb)</option>
+            </select>
+            <div className="fileInput">
+              <input
+                onChange={(e) => {
+                  setRulebook(e.target.files[0]);
+                }}
+                name="rulebook"
+                type="file"
+              />
+              <FaUpload />
+              <span>Upload RuleBook</span>
+            </div>
+            <div className="fileInput">
+              <input
+                onChange={(e) => {
+                  setProblemstatement(e.target.files[0]);
+                }}
+                name="problemstatement"
+                type="file"
+              />
+              <FaUpload />
+              <span>Upload Problem Statement</span>
+            </div>
           </div>
-
           <input type="submit" onClick={handleSubmit} value="Register Event" />
         </form>
       </div>
