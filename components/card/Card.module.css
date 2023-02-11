@@ -36,11 +36,6 @@
   margin: 0.5rem 0 0.25rem 0;
 }
 
-.prizeheading {
-  font-family: 'Galano Grotesque bold';
-  font-size: 1.5rem;
-}
-
 .eventCardSection {
   display: flex;
   flex-wrap: wrap;
@@ -77,13 +72,13 @@
 
 .eventCard span {
   display: block;
-  line-height: .8rem;
+  line-height: 1.2rem;
 }
 
-.eventCard .prize {
-  margin: 2rem 0;
+.eventCardBottom{
+  position: absolute;
+  bottom: 2rem;
 }
-
 .eventCard span.regOpen{
   margin: .5rem;
   font-weight: bold;

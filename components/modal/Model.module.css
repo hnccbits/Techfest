@@ -6,24 +6,25 @@
   width: 100vw;
   height: 100vh;
   padding-top: 15vh;
+  z-index: 900;
 }
 
 .modelBg .modelBox {
   position: relative;
   margin: 0 auto;
-  width: 60%;
-  height: 95%;
+  width: 50%;
+  height: 85%;
   background: #0c0b20;
   border: 1.05682px solid #a3a3ab;
   box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
     4px 4px 18px rgba(226, 227, 252, 0.12);
   border-radius: 8px;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .modelBox form {
   background: none;
-  margin: 0 4rem;
+  margin: 0 2rem;
   position: relative;
   height: 100%;
   padding: 0;
@@ -75,8 +76,8 @@
 }
 .modelBox .modelCloseBtn {
   position: absolute;
-  top: 1rem;
-  right: 2rem;
+  top: .5rem;
+  right: 1rem;
   transform: rotate(45deg);
   font-size: 2rem;
   cursor: pointer;

@@ -61,7 +61,6 @@ function EventsPage({ event }) {
             <div className={Styles.eventDescription}>
               <div className={Styles.eventDesTop}>
                 <div> Max Team Size: {teamsize} </div>
-                <div> Prize pool: 15,000</div>
               </div>
               <div className={Styles.eventDesMain}>{desc}</div>
               <div className={Styles.eventLinkBtn}>

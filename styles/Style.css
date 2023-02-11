@@ -13,6 +13,11 @@ body {
   background-size: cover;
   padding: 0 6rem;
 }
+@media (max-width: 550px) {
+  body{
+    padding: 0 2rem;
+  }
+}
 @font-face {
   font-family: 'Galano Grotesque';
   src: url('/fonts/GalanoGrotesque-Regular.ttf') format('truetype');
@@ -138,6 +143,7 @@ body {
 }
 
 /* User Register Styling Close */
+
 .adminEventWrap {
   margin: 2rem 0;
   display: flex;

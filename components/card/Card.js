@@ -15,17 +15,15 @@ function Card({ name, coverimg, club, registrationopen, desc, id }) {
           By <b>{club}</b>
         </span>
       </div>
-      <div className={Styles.prize}>
-        <span>Prizes Worth</span>
-        <div className={Styles.prizeheading}>INR 15000</div>
-      </div>
-      <span className={Styles.regOpen}>
-        {registrationopen ? 'Registration open' : 'Registration closed'}
-      </span>
-      <div className={Styles.cardBtn}>
-        <Link href={url} legacyBehavior>
-          <button type="button">Know More</button>
-        </Link>
+      <div className={Styles.eventCardBottom}>
+        <span className={Styles.regOpen}>
+          {registrationopen ? 'Registration open' : 'Registration closed'}
+        </span>
+        <div className={Styles.cardBtn}>
+          <Link href={url} legacyBehavior>
+            <button type="button">Know More</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

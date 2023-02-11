@@ -3,7 +3,7 @@
     src: url('../../components/assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
 }
 
-.homeBtn{
+.homeBtn {
     background: rgba(73, 54, 167, 0.2);
     border: 1px solid #4936A7;
     padding: .4rem 2rem;
@@ -18,7 +18,7 @@
     margin: 1rem 0;
 }
 
-.homeNeonHeading{
+.homeNeonHeading {
     font-family: 'Galano Grotesque bold';
     font-size: 3.2rem;
     text-transform: uppercase;
@@ -120,54 +120,170 @@
     margin-left: 2rem;
 }
 
-.homeRightAboutImg{
+.homeRightAboutImg {
     width: 300px;
     height: 300px;
     display: flex;
-    align-items: center; justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
-.homeRightAboutImg img{
+
+.homeRightAboutImg img {
     width: 80%;
     height: 80%;
 }
-.homeSponser{
+
+.homeSponser {
     margin: 4rem 0;
 }
-.homeSponserWrapper{
+
+.homeSponserWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.homeSponserWrapper img{
+
+.homeSponserWrapper img {
     height: 80px;
     margin: 0 2.2rem;
 }
-.homeSponserTop{
+
+.homeSponserTop {
     display: flex;
     margin: 1.2rem 0;
 }
-.homeSponserMiddle{
+
+.homeSponserMiddle {
     display: flex;
     margin: 1.2rem 0;
 }
-.homeSponserBottom{
+
+.homeSponserBottom {
     display: flex;
     margin: 1.2rem 0;
 }
-.homeEvent{
+
+.homeEvent {
     margin: 4rem 0;
 }
-.homeEventTop{
+
+.homeEventTop {
     text-align: right;
     font-weight: bold;
 }
-.homeEventMiddle{
+
+.homeEventMiddle {
     display: flex;
     justify-content: center;
     gap: 3rem;
 }
-.homeEventBottom{
+
+.homeEventBottom {
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 550px) {
+    .homeHeading {
+        font-size: 2.2rem;
+    }
+
+    .homeNeonHeading {
+        font-size: 2.2rem;
+    }
+
+    .homeHeroBox {
+        min-height: 70vh;
+    }
+
+    .homeHero {
+        padding: 6rem 2rem;
+    }
+
+    .homeHeroLogo {
+        width: 80px;
+        height: 80px;
+        margin: 2.4rem 0;
+    }
+
+    .homeHeroName {
+        font-size: 1.6rem;
+        line-height: .5rem;
+    }
+
+    .homeHeroLine {
+        margin: .4rem 0 1.8rem 0;
+    }
+
+    .homeHeroBtn {
+        padding: .32rem 1rem;
+        font-size: .9rem;
+    }
+
+    .homeAbout {
+        margin-top: calc(100vh);
+        flex-direction: column;
+    }
+
+    .homeLeftAbout {
+        text-align: center;
+    }
+
+    .homeRightAbout {
+        margin-left: 0rem;
+    }
+
+    .homeSponser {
+        margin: 2rem 0;
+    }
+
+    .homeSponserWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .homeSponserWrapper img {
+        height: 32px;
+        margin: 0 .6rem;
+    }
+
+    .homeSponserTop {
+        display: flex;
+        margin: .6rem 0;
+    }
+
+    .homeSponserMiddle {
+        display: flex;
+        margin: .6rem 0;
+    }
+
+    .homeSponserBottom {
+        display: flex;
+        margin: .6rem 0;
+    }
+
+    .homeEvent {
+        margin: 2rem 0;
+    }
+    
+    .homeEventTop {
+        text-align: right;
+        font-weight: bold;
+    }
+    
+    .homeEventMiddle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .homeEventBottom {
+        display: flex;
+        justify-content: center;
+    }
 }

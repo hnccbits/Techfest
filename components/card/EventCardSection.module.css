@@ -26,11 +26,6 @@
     margin: 0.5rem 0 0.25rem 0;
   }
 
-  .prizeheading {
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
-
   .eventCardSection {
     display: flex;
     flex-wrap: wrap;
