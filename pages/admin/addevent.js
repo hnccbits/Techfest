@@ -5,6 +5,7 @@ import { FaUpload } from 'react-icons/fa';
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // import Navbar from '../../components/navbar/Navbar';
+import { toast } from 'react-toastify';
 import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -32,6 +33,13 @@ function AddEvent() {
   const [rulebook, setRulebook] = useState();
   const [problemstatement, setProblemstatement] = useState();
 
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
   const handleChange = (e) => {
     setValue({
       ...value,
@@ -41,6 +49,10 @@ function AddEvent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (value.name === '' || value.teamsize === '' || value.desc === '') {
+      setErrMsg('All the fields are required');
+      return;
+    }
 
     try {
       const formData = new FormData();
@@ -70,7 +82,13 @@ function AddEvent() {
       }
     }
   };
-
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
+  }
   return (
     <>
       {/* <Navbar /> */}

@@ -38,9 +38,7 @@ function AdminLoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
+
     try {
       const res = await axiosInstance({
         method: 'post',
@@ -53,6 +51,7 @@ function AdminLoginPage() {
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
+      setIsLoading(false);
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {

@@ -79,7 +79,7 @@ function EventsPage({ event }) {
                   </button>
                 </Link>
                 {problemstatement ? (
-                  <Link href={prblmstatement}>
+                  <Link href={prblmstatement} target="_blank">
                     <button className={Styles.cta} type="button">
                       Problem Statement
                     </button>

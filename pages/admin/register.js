@@ -45,26 +45,34 @@ function Register() {
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
     }
-    try {
-      const res = await axiosInstance({
-        method: 'post',
-        url: '/admin/register',
-        data: value,
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: false,
-      });
-      const { data } = res.data;
-      login(data);
-    } catch (err) {
-      setIsLoading(false);
-      if (!err?.response) {
-        setErrMsg('No Internet connection');
-      } else if (err.response?.status === 400) {
-        setErrMsg(err.response.data.error);
-      } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
-      } else {
-        setErrMsg('Registration Failed');
+    if (
+      value.email === '' ||
+      value.password === '' ||
+      value.cnfpassword === ''
+    ) {
+      setErrMsg('All the fields are required');
+    } else {
+      try {
+        const res = await axiosInstance({
+          method: 'post',
+          url: '/admin/register',
+          data: value,
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: false,
+        });
+        const { data } = res.data;
+        login(data);
+      } catch (err) {
+        setIsLoading(false);
+        if (!err?.response) {
+          setErrMsg('No Internet connection');
+        } else if (err.response?.status === 400) {
+          setErrMsg(err.response.data.error);
+        } else if (err.response?.status === 401) {
+          setErrMsg('Unauthorized');
+        } else {
+          setErrMsg('Registration Failed');
+        }
       }
     }
   };

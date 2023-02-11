@@ -1,6 +1,7 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
+import { toast } from 'react-toastify';
 import Styles from './Model.module.css';
 import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
@@ -24,6 +25,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
     whatsapp: '',
     gender: 'M',
   });
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
   const handleAddMember = (e) => {
     e.preventDefault();
 
@@ -47,7 +55,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (teamname === '') {
+      setErrMsg('Please Enter Team Name');
+      return;
+    }
     setParticipant([...participant, member]);
+  
+
     try {
       const res = await axiosInstance({
         method: 'post',
@@ -70,6 +84,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
 
   if (!open) {
     return <> </>;
+  }
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
   }
   return (
     <div className={Styles.modelBg}>
