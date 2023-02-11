@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
+// import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import axiosInstance from '../../api/axios';
 // import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/AuthContext';
@@ -24,6 +26,15 @@ function AdminLoginPage() {
     password: '',
   });
   const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +49,7 @@ function AdminLoginPage() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-
+      toast.success('Logged In Successfully');
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
@@ -49,6 +60,7 @@ function AdminLoginPage() {
       } else {
         setErrMsg('Unknown Error');
       }
+      toast.error(errMsg);
     }
   };
 
@@ -64,7 +76,10 @@ function AdminLoginPage() {
       <div className="RegisterForm">
         <div className="formHeading">Admin Login</div>
         <div className="RegisterFormWrapper">
-          <img src="img/formImg.png" alt="" />
+          <img
+            src="https://res.cloudinary.com/du196ag4l/image/upload/v1676122891/login_iifcfq.svg"
+            alt=""
+          />
           <form>
             <div className="formLineBlock">
               <input
@@ -98,6 +113,7 @@ function AdminLoginPage() {
           </form>
         </div>
       </div>
+      {/* <Toaster /> */}
     </>
   );
 }

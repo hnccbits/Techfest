@@ -1,4 +1,4 @@
-checkbox in components/adminEventCard is not changing state
+checkbox in components/adminEventCard is not changing state:- ✅done
 
 page auth is yet to implement :- ✅done
 
@@ -8,11 +8,15 @@ create a state variable to store isLoading and isError whenever and wherever any
 
 display isLoading when loading.
 
-diasble = true for all buttons when loading
+diasble = true for all buttons when loading:- ✅done
 
+<<<<<<< HEAD
 catch all errors when request is made ok
+=======
+catch all errors when request is made:- ✅done
+>>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254
 
-proper popup for all the errors.    
+proper popup for all the errors:- ✅done    
 
 dont change name of any input. only className and id can be changed:- ✅done
 
