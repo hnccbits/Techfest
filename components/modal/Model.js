@@ -60,7 +60,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       return;
     }
     setParticipant([...participant, member]);
-  
 
     try {
       const res = await axiosInstance({

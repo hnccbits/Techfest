@@ -13,20 +13,28 @@ export default function Navbar() {
   const [header, setHeader] = useState();
 
   const userloggedin = (
-    <div className={Styles.navbar}>
-      <Link href="/" legacyBehavior>
-        <a>Home</a>
-      </Link>
-      <Link href="/event" legacyBehavior>
-        <a>Events</a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a>About Us</a>
-      </Link>
-      <Link href="/contactus" legacyBehavior>
-        <a>Contact Us</a>
-      </Link>
-      <a onClick={exit}>Log out</a>
+    <div className={Styles.navContainer}>
+      <div className={Styles.logo}>
+        <img src="img/sm_logo.svg" alt="" />
+      </div>
+      <div className={Styles.navbar}>
+        <Link href="/" legacyBehavior>
+          <a>Home</a>
+        </Link>
+        <Link href="/event" legacyBehavior>
+          <a>Events</a>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <a>About Us</a>
+        </Link>
+        <Link href="/contactus" legacyBehavior>
+          <a>Contact Us</a>
+        </Link>
+        <a onClick={exit}>Log out</a>
+      </div>
+      <div className={Styles.hamburger}>
+        <img src="img/hamburger.svg" alt="" />
+      </div>
     </div>
   );
 
@@ -40,28 +48,36 @@ export default function Navbar() {
     </div>
   );
   const notloggedin = (
-    <div className={Styles.navbar}>
-      <Link href="/" legacyBehavior>
-        <a>Home</a>
-      </Link>
-      <Link href="/event" legacyBehavior>
-        <a>Events</a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a>About Us</a>
-      </Link>
-      <Link href="/contactus" legacyBehavior>
-        <a>Contact Us</a>
-      </Link>
-      <Link href="/login" legacyBehavior>
-        <a>Login</a>
-      </Link>
-      <Link href="/register" legacyBehavior>
-        <a>Register</a>
-      </Link>
-      <Link href="/admin/login" legacyBehavior>
-        <a>Admin Login</a>
-      </Link>
+    <div className={Styles.navContainer}>
+      <div className={Styles.logo}>
+        <img src="img/sm_logo.svg" alt="" />
+      </div>
+      <div className={Styles.navbar}>
+        <Link href="/" legacyBehavior>
+          <a>Home</a>
+        </Link>
+        <Link href="/event" legacyBehavior>
+          <a>Events</a>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <a>About Us</a>
+        </Link>
+        <Link href="/contactus" legacyBehavior>
+          <a>Contact Us</a>
+        </Link>
+        <Link href="/login" legacyBehavior>
+          <a>Login</a>
+        </Link>
+        <Link href="/register" legacyBehavior>
+          <a>Register</a>
+        </Link>
+        <Link href="/admin/login" legacyBehavior>
+          <a>Admin Login</a>
+        </Link>
+      </div>
+      <div className={Styles.hamburger}>
+        <img src="img/hamburger.svg" alt="" />
+      </div>
     </div>
   );
 
