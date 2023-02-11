@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from 'react';
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 // import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
@@ -31,9 +32,17 @@ function Register() {
     cnfpassword: '',
   });
   const [errMsg, setErrMsg] = useState('');
-
+  const [isLoading, setIsLoading] = useState(false);
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      hideProgressBar: false,
+      position: 'bottom-right',
+      autoClose: 6000,
+      type,
+    });
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
     }
@@ -47,10 +56,15 @@ function Register() {
       });
       login(res.data.data);
     } catch (err) {
-      if (err.response?.status === 400) {
+      setIsLoading(false);
+      if (!err?.response) {
+        setErrMsg('No Internet connection');
+      } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg(err);
+        setErrMsg('Registration Failed');
       }
     }
   };
@@ -62,6 +76,13 @@ function Register() {
     });
   };
 
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
+  }
   return (
     <>
       {/* <Navbar /> */}
@@ -82,7 +103,6 @@ function Register() {
                 name="gender"
                 onChange={handleChange}
               >
-                <option value="M">Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="O">Other</option>
@@ -131,7 +151,11 @@ function Register() {
                 type="text"
                 placeholder="Enter your Branch"
               />
-              <select defaultValue={value.name} name="year" onChange={handleChange}>
+              <select
+                defaultValue={value.name}
+                name="year"
+                onChange={handleChange}
+              >
                 <option value="1">1st year</option>
                 <option value="2">2nd Year</option>
                 <option value="3">3rd Year</option>
@@ -153,8 +177,15 @@ function Register() {
                 placeholder="Confirm Password"
               />
             </div>
-            <input type="submit" onClick={handleSubmit} />
-            <span className="Already">Already Have Account? <Link href='/login' legacyBehavior><a>Login</a></Link></span>
+            <button onClick={handleSubmit} type="submit">
+              {isLoading ? 'Loading...' : 'Register'}
+            </button>
+            <span className="Already">
+              Already Have Account?
+              <Link href="/login" legacyBehavior>
+                <a> Login</a>
+              </Link>
+            </span>
           </form>
         </div>
       </div>
@@ -163,4 +194,3 @@ function Register() {
 }
 
 export default Register;
-
