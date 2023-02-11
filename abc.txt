@@ -10,7 +10,7 @@ display isLoading when loading.
 
 diasble = true for all buttons when loading
 
-catch all errors when request is made
+catch all errors when request is made:- ✅done
 
 proper popup for all the errors.    
 

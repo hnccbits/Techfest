@@ -30,7 +30,7 @@ function Register() {
     name: 'HNCC',
   });
   const [errMsg, setErrMsg] = useState('');
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
       hideProgressBar: false,
@@ -41,7 +41,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setIsLoading(true);
+    setIsLoading(true);
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
     }
@@ -56,12 +56,15 @@ function Register() {
       const { data } = res.data;
       login(data);
     } catch (err) {
+      setIsLoading(false);
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Registration Failed');
       }
     }
   };
@@ -85,7 +88,10 @@ function Register() {
       <div className="RegisterForm">
         <div className="formHeading">Admin Register</div>
         <div className="RegisterFormWrapper">
-          <img src="img/formImg.png" alt="" />
+          <img
+            src="https://res.cloudinary.com/du196ag4l/image/upload/v1676122891/login_iifcfq.svg"
+            alt=""
+          />
           <form>
             <div className="formLineBlock">
               <select
@@ -116,6 +122,13 @@ function Register() {
                 placeholder="Enter your Club Email"
               />
             </div>
+            {/* <ul className="field__rules">
+                <li>One lowercase character</li>
+                <li>One uppercase character</li>
+                <li>One number</li>
+                <li>One special character</li>
+                <li>9 characters minimum</li>
+              </ul> */}
             <div className="formLineBlock">
               <input
                 required
@@ -125,7 +138,7 @@ function Register() {
                 placeholder="Enter Password"
               />
             </div>
-            <div className="formLineBlock">
+            {/* <div className="formLineBlock">
               <input
                 required
                 type="password"
@@ -133,9 +146,17 @@ function Register() {
                 onChange={handleChange}
                 placeholder="Confirm Password"
               />
-            </div>
+            </div> */}
+            <button
+              onClick={handleSubmit}
+              disabled={isLoading}
+              className="btn"
+              type="submit"
+            >
+              {isLoading ? 'Loading...' : 'Submit'}
+            </button>
 
-            <input type="submit" onClick={handleSubmit} />
+            {/* <input type="submit" onClick={handleSubmit} /> */}
             <span className="Already">
               Already Have Account?{' '}
               <Link href="/admin/login" legacyBehavior>

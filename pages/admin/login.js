@@ -76,7 +76,10 @@ function AdminLoginPage() {
       <div className="RegisterForm">
         <div className="formHeading">Admin Login</div>
         <div className="RegisterFormWrapper">
-          <img src="img/formImg.png" alt="" />
+          <img
+            src="https://res.cloudinary.com/du196ag4l/image/upload/v1676122891/login_iifcfq.svg"
+            alt=""
+          />
           <form>
             <div className="formLineBlock">
               <input

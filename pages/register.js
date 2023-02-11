@@ -97,6 +97,7 @@ function Register() {
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your Name"
+                required
               />
               <select
                 defaultValue={value.name}
@@ -114,6 +115,7 @@ function Register() {
                 onChange={handleChange}
                 type="email"
                 placeholder="Enter your Email"
+                required
               />
             </div>
             <div className="line3 formLine">
@@ -122,12 +124,14 @@ function Register() {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter your Phone Number"
+                required
               />
               <input
                 name="whatsapp"
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter your Whatsapp Number"
+                required
               />
             </div>
             <div className="line4 formLine">
@@ -136,12 +140,14 @@ function Register() {
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your College"
+                required
               />
               <input
                 name="city"
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your city"
+                required
               />
             </div>
             <div className="line5 formLine">
@@ -150,6 +156,7 @@ function Register() {
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your Branch"
+                required
               />
               <select
                 defaultValue={value.name}
@@ -169,15 +176,45 @@ function Register() {
                 onChange={handleChange}
                 type="password"
                 placeholder="Enter Password"
+                required
               />
+              {/* <ul className="field__rules">
+                <li>One lowercase character</li>
+                <li>One uppercase character</li>
+                <li>One number</li>
+                <li>One special character</li>
+                <li>9 characters minimum</li>
+              </ul> */}
+              <div id="pwd_strength_wrap">
+                <div id="passwordDescription">Password not entered</div>
+                <div id="passwordStrength" className="strength0" />
+                <div id="pswd_info">
+                  <strong>Strong Password Tips:</strong>
+                  <ul>
+                    <li className="invalid" id="length">
+                      At least 6 characters
+                    </li>
+                    <li className="invalid" id="pnum">
+                      At least one number
+                    </li>
+                    <li className="invalid" id="capital">
+                      At least one lowercase &amp; one uppercase letter
+                    </li>
+                    <li className="invalid" id="spchar">
+                      At least one special character
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <input
                 name="cnfpassword"
                 onChange={handleChange}
                 type="password"
                 placeholder="Confirm Password"
+                required
               />
             </div>
-            <input type="submit" onClick={handleSubmit} />
+            <input type="submit" onClick={handleSubmit} required />
             <span className="Already">
               Already Have Account?{' '}
               <Link href="/login" legacyBehavior>
