@@ -2,22 +2,23 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 import Styles from './Model.module.css';
 import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
 
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
+  const history = useRouter();
   const { user } = useContext(AuthContext);
   const [captainname, setCaptainname] = useState('');
   const [teamname, setTeamname] = useState('---');
 
-  useEffect(() => {
-    if (user) {
-      setCaptainname(user.name);
-    }
-  }, [user]);
+  if (user) {
+    setCaptainname(user.name);
+  }
 
   const [participant, setParticipant] = useState([]);
+  const [errMsg, setErrMsg] = useState('');
   const [member, setMember] = useState({
     name: '',
     phone: '',
@@ -51,7 +52,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       [e.target.name]: e.target.value,
     });
   };
-  const [errMsg, setErrMsg] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
