@@ -37,7 +37,7 @@ function EventsPage({ event }) {
     if (user) {
       handleModalToggle();
     } else {
-      window.alert('You must need to register.');
+      // window.alert('You must need to register.');
       Router.push('/register');
     }
   };
