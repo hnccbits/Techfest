@@ -53,6 +53,7 @@ function AdminLoginPage() {
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
+      setIsLoading(false);
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
