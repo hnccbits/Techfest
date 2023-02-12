@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import axiosInstance from '../../api/axios';
 import Styles from './AdminEventCard.module.css';
 
-function CustomModal(...props) {
-  if (props.isOpen) {
+function CustomModal({ isOpen, onCancel, onConfirm }) {
+  if (!isOpen) {
     return null;
   }
 
@@ -15,14 +15,10 @@ function CustomModal(...props) {
       <div className={Styles.modalContent}>
         <p>Are you sure you want to delete this event?</p>
         <div className={Styles.modalButtons}>
-          <button
-            type="button"
-            className={Styles.b1}
-            onClick={() => props.onConfirm()}
-          >
+          <button type="button" className={Styles.b1} onClick={onConfirm}>
             Yes
           </button>
-          <button type="button" onClick={() => props.onCancel()}>
+          <button type="button" onClick={onCancel}>
             No
           </button>
         </div>
