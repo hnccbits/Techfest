@@ -171,7 +171,7 @@ function AdminEventCard({
       </span>
       <h2>{name}</h2>
 
-      <div onClick={handleCloseRegistration} className="toggleBtn">
+      <div alt='Open/Close Registration' onClick={handleCloseRegistration} className="toggleBtn">
         Toogle
       </div>
 

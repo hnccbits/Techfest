@@ -1,7 +1,7 @@
 .modelBg {
   position: fixed;
   background: rgba(0, 0, 0, 0.1);
-  top: 0;
+  top: 500;
   left: 0;
   width: 100vw;
   height: 100vh;

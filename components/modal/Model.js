@@ -75,28 +75,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (
-      member.name === '' ||
-      member.phone === '' ||
-      member.phone.length !== 10 ||
-      member.whatsapp === '' ||
-      member.whatsapp.length !== 10 ||
-      member.email === ''
-    ) {
-      toast({
-        msg: 'Invalid data entered. please check the input.',
-        type: 'danger',
-      });
-      return;
-    }
-    if (teamname === '') {
-      setErrMsg('Please Enter Team Name');
-      return;
-    }
-    setParticipant([...participant, member]);
-
+  const ahandleSubmit = async (e) => {
     try {
       setIsLoading(true);
       const res = await axiosInstance({
@@ -110,8 +89,8 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         msg: `You have successfully registered for the event`,
         type: 'success',
       });
+      setParticipant([]);
       setIsLoading(false);
-
       handleModalToggle();
     } catch (err) {
       if (!err?.response) {
@@ -123,6 +102,40 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       } else {
         setErrMsg('Registration Failed');
       }
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (teamsize != 1) {
+      if (
+        member.name === '' ||
+        member.phone === '' ||
+        member.whatsapp === '' ||
+        member.email === ''
+      ) {
+        onToast({
+          msg: 'Invalid data entered. please check the input.',
+          type: 'danger',
+        });
+        return;
+      }
+      if (teamname === '') {
+        setErrMsg('Please Enter Team Name');
+        return;
+      }
+      if (member.phone.length !== 10 || member.whatsapp.length !== 10) {
+        onToast({
+          msg: 'Phone/whatsapp number cannot. be more than 10 digit',
+          type: 'warn',
+        });
+        return;
+      }
+      setParticipant([...participant, member]);
+      ahandleSubmit();
+    } else {
+      setTeamname('-----');
+      ahandleSubmit();
     }
   };
 
@@ -145,15 +158,21 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         </div>
         <form>
           <div className={Styles.teamName}>
-            <div className={Styles.th}>Team Name</div>
-            <input
-              onChange={(e) => {
-                setTeamname(e.target.value);
-              }}
-              type="text"
-              placeholder="Team Name*"
-              className={Styles.tn}
-            />
+            {teamsize != 1 ? (
+              <>
+                <div className={Styles.th}>Team Name</div>
+                <input
+                  onChange={(e) => {
+                    setTeamname(e.target.value);
+                  }}
+                  type="text"
+                  placeholder="Team Name*"
+                  className={Styles.tn}
+                />
+              </>
+            ) : (
+              ''
+            )}
             <div className={Styles.th}>Team Captain</div>
             <input
               type="text"
@@ -239,7 +258,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
             className={Styles.regBtn}
             // className={Styles.tn}
           >
-            Register
+            {isLoading ? 'Loading...' : 'Register'}
           </button>
         </form>
       </div>
