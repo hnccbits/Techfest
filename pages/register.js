@@ -45,6 +45,7 @@ function Register() {
     setIsLoading(true);
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
+      return;
     }
     if (
       value.name === '' ||
