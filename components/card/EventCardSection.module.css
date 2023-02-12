@@ -29,8 +29,8 @@
   .eventCardSection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
+    /* justify-content: space-around; */
+    gap: 4rem;
   }
 
   /* @media (max-width: 1000px) {
