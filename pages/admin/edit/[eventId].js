@@ -3,6 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import Navbar from '../../../components/navbar/Navbar';
 import axiosInstance from '../../../api/axios';
 import { AuthContext } from '../../../context/AuthContext';
@@ -16,15 +17,40 @@ function Eventedit({ eventId }) {
   const [rulebook, setRulebook] = useState();
   const [problemstatement, setProblemstatement] = useState();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      position: 'bottom-right',
+      theme: 'dark',
+      autoClose: 6000,
+      type,
+    });
+
   const [clubevent, setClubevent] = useState();
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axiosInstance({
-        method: 'get',
-        url: '/event',
-      });
-      const d = res.data.data.filter((e) => e._id === eventId);
-      setClubevent(d[0]);
+      try {
+        setIsLoading(true);
+        const res = await axiosInstance({
+          method: 'get',
+          url: '/event',
+          withCredentials: false,
+        });
+        setIsLoading(false);
+        const d = res.data.data.filter((e) => e._id === eventId);
+        setClubevent(d[0]);
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg('No Internet connection');
+        } else if (err.response?.status === 400) {
+          setErrMsg(err.response.data.error);
+        } else if (err.response?.status === 401) {
+          setErrMsg('Unauthorized');
+        } else {
+          setErrMsg('Fetching Event Data Failed');
+        }
+      }
     };
 
     if (!user || (user && !user.admin)) {
@@ -41,10 +67,9 @@ function Eventedit({ eventId }) {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const ahandleSubmit = async (e) => {
     try {
+      setIsLoading(true);
       const formData = new FormData();
       if (problemstatement) {
         formData.append('problemstatement', problemstatement);
@@ -63,33 +88,62 @@ function Eventedit({ eventId }) {
         headers: {
           'content-type': 'multipart/form-data',
         },
+        withCredentials: false,
       };
       const res = await axiosInstance.patch(
         `/admin/update/event/${clubevent._id}`,
         formData,
         config,
       );
-
+      onToast({
+        msg: 'Event Updated Successfully',
+        type: 'success',
+      });
       router.push('/admin/events');
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Event Update Failed');
       }
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      clubevent.name === '' ||
+      clubevent.teamsize === '' ||
+      clubevent.desc === '' ||
+      clubevent.dateofevent === ''
+    ) {
+      setErrMsg('All the fields are must required');
+    } else {
+      ahandleSubmit();
+    }
+  };
+
   if (!clubevent) return <p>loading</p>;
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
+    setIsLoading(false);
+  }
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="eventRegister">
         <div className="heading">
           Edit Event <img src="img/line.svg" alt="" />
         </div>
-        <form encType="multipart/form-data">
+        <form encType="multipart/form-data" className="adminEventAddForm">
           <input
             onChange={handleChange}
             value={clubevent.name}
@@ -156,7 +210,14 @@ function Eventedit({ eventId }) {
               type="file"
             />
           </div>
-          <input type="submit" onClick={handleSubmit} value="Submit" />
+          <button
+            disabled={isLoading}
+            type="submit"
+            onClick={handleSubmit}
+            value="Submit"
+          >
+            {isLoading ? 'Loading...' : 'Submit'}
+          </button>
         </form>
       </div>
     </>

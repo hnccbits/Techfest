@@ -33,8 +33,8 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
@@ -42,17 +42,19 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
     if (
       value.email === '' ||
       value.password === '' ||
       value.cnfpassword === ''
     ) {
       setErrMsg('All the fields are required');
+      return;
+    }
+    if (value.cnfpassword !== value.password) {
+      setErrMsg('Passwords do not match');
     } else {
       try {
+        setIsLoading(true);
         const res = await axiosInstance({
           method: 'post',
           url: '/admin/register',
@@ -60,10 +62,13 @@ function Register() {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: false,
         });
+        onToast({
+          msg: 'Admin Logged In Successfully',
+          type: 'success',
+        });
         const { data } = res.data;
         login(data);
       } catch (err) {
-        setIsLoading(false);
         if (!err?.response) {
           setErrMsg('No Internet connection');
         } else if (err.response?.status === 400) {
@@ -89,6 +94,7 @@ function Register() {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>
@@ -102,22 +108,33 @@ function Register() {
           />
           <form>
             <div className="formLineBlock">
+              <h1 className="form_label">Select your club</h1>
+
               <select
                 defaultValue={value.name}
                 name="name"
                 onChange={handleChange}
               >
-                <option value="CES">Chemical Engineering Society</option>
+                <option value="HNCC">HnCC</option>
+                <option value="IETE">IETE</option>
+                <option value="ISTE">ISTE</option>
+                <option value="MODEL CLUB">Model Club</option>
+                <option value="SAE">SAE India</option>
                 <option value="PIES">
                   Production and Industrial Engineering Society
                 </option>
                 <option value="EES">Electrical Engineering Society</option>
-                <option value="HNCC">HnCC</option>
-                <option value="IETE">IETE</option>
-                <option value="ISTE">ISTE</option>
                 <option value="MES">Mechanical Engineering Society</option>
-                <option value="MC">Model Club</option>
-                <option value="SAE">SAE India</option>
+                <option value="ECES">
+                  Electronics and Communication Engineering Society
+                </option>
+                <option value="CSEIT">CSE and IT Society</option>
+                <option value="DHATVIKA">
+                  Metallurgical Engineering Society
+                </option>
+                <option value="QUMICA">Chemical Engineering Society</option>
+                <option value="SME">Mining Engineering Society</option>
+                <option value="ACE">Civil Engineering Society</option>
               </select>
             </div>
             <div className="formLineBlock">
@@ -130,16 +147,11 @@ function Register() {
                 placeholder="Enter your Club Email"
               />
             </div>
-            {/* <<<<<<< HEAD */}
-            {/* // ======= */}
-            {/* <ul className="field__rules">
-                <li>One lowercase character</li>
-                <li>One uppercase character</li>
-                <li>One number</li>
-                <li>One special character</li>
-                <li>9 characters minimum</li>
-              </ul> */}
-            {/* >>>>>>> f551e8a9f6360d1ce5e98f8cac4d3e63bce29254 */}
+
+            <ul className="field__rules">
+              <li>One lowercase, One uppercase, One number</li>
+              <li> One special character, 8 characters minimum</li>
+            </ul>
             <div className="formLineBlock">
               <input
                 required

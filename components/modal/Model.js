@@ -9,7 +9,9 @@ import axiosInstance from '../../api/axios';
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
   const { user } = useContext(AuthContext);
   const [captainname, setCaptainname] = useState('');
-  const [teamname, setTeamname] = useState('---');
+  const [teamname, setTeamname] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -27,22 +29,43 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
   });
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
   const handleAddMember = (e) => {
     e.preventDefault();
-
-    setParticipant([...participant, member]);
-    setMember({
-      name: '',
-      phone: '',
-      email: '',
-      whatsapp: '',
-      gender: 'M',
-    });
+    if (
+      member.name === '' ||
+      member.phone === '' ||
+      member.whatsapp === '' ||
+      member.email === ''
+    ) {
+      onToast({
+        msg: 'Invalid data entered. please check the input.',
+        type: 'warn',
+      });
+    } else if (member.phone.length !== 10 || member.whatsapp.length !== 10) {
+      onToast({
+        msg: 'Phone/whatsapp number cannot. be more than 10 digit',
+        type: 'warn',
+      });
+    } else {
+      setParticipant([...participant, member]);
+      setMember({
+        name: '',
+        phone: '',
+        email: '',
+        whatsapp: '',
+        gender: 'M',
+      });
+      const memberlength = participant.length + 2;
+      onToast({
+        msg: `Member ${memberlength} added successfully`,
+        type: 'success',
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -51,17 +74,10 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       [e.target.name]: e.target.value,
     });
   };
-  const [errMsg, setErrMsg] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (teamname === '') {
-      setErrMsg('Please Enter Team Name');
-      return;
-    }
-    setParticipant([...participant, member]);
-
+  const ahandleSubmit = async (e) => {
     try {
+      setIsLoading(true);
       const res = await axiosInstance({
         method: 'post',
         url: '/register/event',
@@ -69,15 +85,57 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
+      onToast({
+        msg: `You have successfully registered for the event`,
+        type: 'success',
+      });
+      setParticipant([]);
+      setIsLoading(false);
       handleModalToggle();
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Registration Failed');
       }
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (teamsize != 1) {
+      if (
+        member.name === '' ||
+        member.phone === '' ||
+        member.whatsapp === '' ||
+        member.email === ''
+      ) {
+        onToast({
+          msg: 'Invalid data entered. please check the input.',
+          type: 'danger',
+        });
+        return;
+      }
+      if (teamname === '') {
+        setErrMsg('Please Enter Team Name');
+        return;
+      }
+      if (member.phone.length !== 10 || member.whatsapp.length !== 10) {
+        onToast({
+          msg: 'Phone/whatsapp number cannot. be more than 10 digit',
+          type: 'warn',
+        });
+        return;
+      }
+      setParticipant([...participant, member]);
+      ahandleSubmit();
+    } else {
+      setTeamname('-----');
+      ahandleSubmit();
     }
   };
 
@@ -90,6 +148,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <div className={Styles.modelBg}>
@@ -99,102 +158,173 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         </div>
         <form>
           <div className={Styles.teamName}>
-            <div className={Styles.th}>Team Name</div>
-            <input
-              onChange={(e) => {
-                setTeamname(e.target.value);
-              }}
-              type="text"
-              placeholder="Team Name*"
-              className={Styles.tn}
-            />
-            <div className={Styles.th}>Team Captain</div>
-            <input
-              type="text"
-              disabled
-              value={captainname}
-              className={Styles.cpt}
-            />
+            {teamsize != 1 ? (
+              <>
+                <div className={Styles.th}>Team Name</div>
+                <input
+                  onChange={(e) => {
+                    setTeamname(e.target.value);
+                  }}
+                  type="text"
+                  placeholder="Team Name*"
+                  className={Styles.tn}
+                />
+              </>
+            ) : (
+              ''
+            )}
           </div>
           {teamsize == 1 ? (
             ''
           ) : (
-            <div className={Styles.teamMemberBox}>
-              <div className={Styles.teamMember}>
-                <div className={Styles.teamMemberHeading}>
-                  Member {participant.length + 2}
+            <>
+              <div className={Styles.th}>Captain : You</div>
+              <div className={Styles.th}>Member 1: You</div>
+              {participant.map((item, i) => {
+                return (
+                  <div className={Styles.teamMemberBox}>
+                    <div className={Styles.teamMember}>
+                      <div className={Styles.teamMemberHeading}>
+                        Member {i + 2}/{teamsize}
+                      </div>
+                      <div className={Styles.teamMemberTop}>
+                        <input
+                          name="name"
+                          defaultValue={item.name}
+                          disabled
+                          type="text"
+                          placeholder=""
+                          className={Styles.tn}
+                        />
+                        <select
+                          name="gender"
+                          disabled
+                          defaultValue={item.gender}
+                          className={Styles.tn}
+                        >
+                          <option value="M">Male</option>
+                          <option value="F">Female</option>
+                          <option value="O">Other</option>
+                        </select>
+                        <input
+                          name="phone"
+                          defaultValue={item.phone}
+                          disabled
+                          type="number"
+                          placeholder="Phone*"
+                          className={Styles.tn}
+                        />
+                      </div>
+                      <div className={Styles.teamMemberBottom}>
+                        <input
+                          disabled
+                          name="email"
+                          defaultValue={item.email}
+                          type="email"
+                          placeholder="Email Id*"
+                          className={Styles.tn}
+                        />
+                        <input
+                          name="whatsapp"
+                          defaultValue={item.whatsapp}
+                          type="number"
+                          placeholder="Whatsapp Number*"
+                          className={Styles.tn}
+                        />
+                      </div>
+                      {participant.length + 2 !== parseInt(teamsize, 10) ? (
+                        <button
+                          type="submit"
+                          onClick={handleAddMember}
+                          value="Add Member"
+                          className={Styles.regBtn}
+                        >
+                          Add more member
+                        </button>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+              <div className={Styles.teamMemberBox}>
+                <div className={Styles.teamMember}>
+                  <div className={Styles.teamMemberHeading}>
+                    Member {participant.length + 2}/{teamsize}
+                  </div>
+                  <div className={Styles.teamMemberTop}>
+                    <input
+                      name="name"
+                      value={member.name}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="Name*"
+                      className={Styles.tn}
+                    />
+                    <select
+                      onChange={handleChange}
+                      name="gender"
+                      value={member.gender}
+                      className={Styles.tn}
+                    >
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                      <option value="O">Other</option>
+                    </select>
+                    <input
+                      name="phone"
+                      value={member.phone}
+                      onChange={handleChange}
+                      type="number"
+                      placeholder="Phone*"
+                      className={Styles.tn}
+                    />
+                  </div>
+                  <div className={Styles.teamMemberBottom}>
+                    <input
+                      name="email"
+                      value={member.email}
+                      onChange={handleChange}
+                      type="email"
+                      placeholder="Email Id*"
+                      className={Styles.tn}
+                    />
+                    <input
+                      name="whatsapp"
+                      value={member.whatsapp}
+                      onChange={handleChange}
+                      type="number"
+                      placeholder="Whatsapp Number*"
+                      className={Styles.tn}
+                    />
+                  </div>
+                  {participant.length + 2 !== parseInt(teamsize, 10) ? (
+                    <button
+                      type="submit"
+                      onClick={handleAddMember}
+                      value="Add Member"
+                      className={Styles.regBtn}
+                    >
+                      Add more member
+                    </button>
+                  ) : (
+                    ''
+                  )}
                 </div>
-                <div className={Styles.teamMemberTop}>
-                  <input
-                    name="name"
-                    value={member.name}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="Name*"
-                    className={Styles.tn}
-                  />
-                  <select
-                    onChange={handleChange}
-                    name="gender"
-                    value={member.gender}
-                    className={Styles.tn}
-                  >
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="O">Other</option>
-                  </select>
-                  <input
-                    name="phone"
-                    value={member.phone}
-                    onChange={handleChange}
-                    type="number"
-                    placeholder="Phone*"
-                    className={Styles.tn}
-                  />
-                </div>
-                <div className={Styles.teamMemberBottom}>
-                  <input
-                    name="email"
-                    value={member.email}
-                    onChange={handleChange}
-                    type="email"
-                    placeholder="Email Id*"
-                    className={Styles.tn}
-                  />
-                  <input
-                    name="whatsapp"
-                    value={member.whatsapp}
-                    onChange={handleChange}
-                    type="number"
-                    placeholder="Whatsapp Number*"
-                    className={Styles.tn}
-                  />
-                </div>
-                {participant.length + 2 !== parseInt(teamsize, 10) ? (
-                  <input
-                    type="submit"
-                    onClick={handleAddMember}
-                    value="Add Member"
-                    className={Styles.tn}
-                  />
-                ) : (
-                  <input
-                    type="submit"
-                    onClick={handleSubmit}
-                    value="register"
-                    className={Styles.tn}
-                  />
-                )}
               </div>
-            </div>
+            </>
           )}
-          <input
+          <button
             type="submit"
+            disabled={isLoading}
             onClick={handleSubmit}
             value="Register"
             className={Styles.regBtn}
             // className={Styles.tn}
-          />
+          >
+            {isLoading ? 'Loading...' : 'Submit'}
+          </button>
         </form>
       </div>
     </div>

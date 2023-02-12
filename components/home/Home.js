@@ -11,7 +11,7 @@ import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
 import axiosInstance from '../../api/axios';
 
-function home() {
+const home = ({ events }) => {
   return (
     <>
       <div className={Styles.homeHero}>
@@ -24,8 +24,8 @@ function home() {
             <img src="img/uline.svg" alt="" className={Styles.homeHeroLine} />
           </div>
           <div className={Styles.homeHeroBtn}>
-            <Link href="/register" legacyBehavior>
-              <a>Register Now!</a>
+            <Link href="/event" legacyBehavior>
+              <a>View Events</a>
             </Link>
           </div>
           <div className={Styles.homeHeroSocial}>
@@ -44,7 +44,7 @@ function home() {
           </div>
         </div>
         <div className={Styles.homeHeroFrame}>
-          <img src="img/heroFrame.svg" alt="" />
+          <img src="img/heroframe.svg" alt="" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@ function home() {
             exhibitions, and other thrilling activities
           </div>
           <div className={Styles.homeBtn}>
-            <Link href="#" legacyBehavior>
+            <Link href="/about" legacyBehavior>
               <a>Know More</a>
             </Link>
           </div>
@@ -72,7 +72,7 @@ function home() {
       </div>
 
       <div className={Styles.homeSponser}>
-        <div className={Styles.homeNeonHeading}>Sponsers</div>
+        <div className={Styles.homeNeonHeading}>Sponsors</div>
         <div className={Styles.homeSponserWrapper}>
           <div className={Styles.homeSponserTop}>
             <img src="img/s3.svg" alt="" />
@@ -104,25 +104,6 @@ function home() {
           </div>
           {/* {events && ( */}
           <div className={Styles.homeEventMiddle}>
-            <Card />
-            <Card />
-            <Card />
-            {/* {events.map(
-              ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
-                return (
-                  <Card
-                    key={id}
-                    name={name}
-                    coverimg={coverimg}
-                    id={id}
-                    club={club}
-                    desc={desc}
-                    registrationopen={registrationopen}
-                  />
-                );
-              },
-            )} */}
-            {/* ...
             {events.map(
               ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
                 return (
@@ -138,7 +119,6 @@ function home() {
                 );
               },
             )}
-            ... */}
           </div>
           {/* {events && (
             <div className={Styles.homeEvent}>
@@ -174,7 +154,7 @@ function home() {
       </div>
     </>
   );
-}
+};
 
 export default home;
 

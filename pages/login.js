@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import axiosInstance from '../api/axios';
 // import Navbar from '../components/navbar/Navbar';
 import { AuthContext } from '../context/AuthContext';
-import '../components/login/login.module.css';
+import Styles from '../components/login/login.module.css';
 
 function LoginPage() {
   const history = useRouter();
@@ -30,34 +30,43 @@ function LoginPage() {
 
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      setIsLoading(true);
-      const res = await axiosInstance({
-        method: 'post',
-        url: '/login',
-        data: value,
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: false,
-      });
-      // eslint-disable-next-line react/destructuring-assignment
-      login(res.data.data);
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Internet connection');
-      } else if (err.response?.status === 400) {
-        setErrMsg(err.response.data.error);
-      } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
-      } else {
-        setErrMsg('Login Failed');
+    if (value.email === '' || value.password === '') {
+      setErrMsg('Must Fill All The Fields');
+    } else {
+      try {
+        setIsLoading(true);
+        const res = await axiosInstance({
+          method: 'post',
+          url: '/login',
+          data: value,
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: false,
+        });
+        // eslint-disable-next-line react/destructuring-assignment
+        setIsLoading(false);
+        login(res.data.data);
+        onToast({
+          msg: 'Logged In Successfully',
+          type: 'success',
+        });
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg('No Internet connection');
+        } else if (err.response?.status === 400) {
+          setErrMsg(err.response.data.error);
+        } else if (err.response?.status === 401) {
+          setErrMsg('Unauthorized');
+        } else {
+          setErrMsg('Login Failed');
+        }
       }
     }
   };
@@ -80,24 +89,24 @@ function LoginPage() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="RegisterForm">
-        <div className="formHeading">Sign In</div>
-        <div className="RegisterFormWrapper">
-          <img src="img/formImg.png" alt="" />
+      <div className={Styles.RegisterForm}>
+        <div className={Styles.formHeading}>Sign In</div>
+        <div className={Styles.RegisterFormWrapper}>
+          <img src="img/3d_logo.svg" alt="" />
           <form>
-            <div className="formLineBlock">
+            <div className={Styles.formLineBlock}>
               <input
                 value={value.email}
-                className="mail"
+                className={Styles.mail}
                 name="email"
                 type="email"
                 onChange={handleChange}
                 placeholder="Email id *"
               />
             </div>
-            <div className="formLineBlock">
+            <div className={Styles.formLineBlock}>
               <input
-                className="mail"
+                className={Styles.mail}
                 value={value.password}
                 type="password"
                 name="password"
@@ -108,17 +117,17 @@ function LoginPage() {
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="btn"
+              className={Styles.btn}
               type="submit"
             >
               {isLoading ? 'Loading...' : 'Submit'}
             </button>
-            <span className="Already">
-              Don&#39;t Have Account?
+            <br />
+            <button type="button" className={Styles.Already}>
               <Link href="/register" legacyBehavior>
                 <a>Register</a>
               </Link>
-            </span>
+            </button>
           </form>
         </div>
       </div>

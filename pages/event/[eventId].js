@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
@@ -10,10 +10,15 @@ import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
 function EventsPage({ event }) {
-  const Router = useRouter();
   const [modalopen, setModalopen] = useState(false);
   const { user } = useContext(AuthContext);
-
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      position: 'bottom-right',
+      theme: 'dark',
+      autoClose: 6000,
+      type,
+    });
   const {
     name,
     desc,
@@ -37,8 +42,10 @@ function EventsPage({ event }) {
     if (user) {
       handleModalToggle();
     } else {
-      // window.alert('You must need to register.');
-      Router.push('/register');
+      onToast({
+        msg: 'Sign Up to continue',
+        type: 'info',
+      });
     }
   };
   return (

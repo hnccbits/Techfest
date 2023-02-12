@@ -20,6 +20,7 @@ function Event() {
       const res = await axiosInstance({
         method: 'get',
         url: '/admin/get/event',
+        withCredentials: false,
       });
       setClubevent(res.data.data.event);
     };
