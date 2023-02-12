@@ -77,7 +77,7 @@ function AddEvent() {
         };
         await axiosInstance.post('/admin/add/event', formData, config);
         onToast({
-          msg: 'Event Added Successfully',
+          msg: 'Event Added Successfully, changes will take effect in under 15 minutes',
           type: 'success',
         });
         router.push('/admin/events');
@@ -97,7 +97,7 @@ function AddEvent() {
   if (errMsg) {
     onToast({
       msg: errMsg,
-      type: 'alert',
+      type: 'warning',
     });
     setErrMsg('');
     setIsLoading(false);

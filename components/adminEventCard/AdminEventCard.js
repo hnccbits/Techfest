@@ -121,7 +121,7 @@ function AdminEventCard({
   const handleCloseRegistration = async (e) => {
     try {
       e.preventDefault();
-
+      setIsLoading(true);
       const res = await axiosInstance({
         method: 'patch',
         url: `/admin/toggleacceptresponse/event/${id}`,
@@ -132,6 +132,14 @@ function AdminEventCard({
         withCredentials: false,
       });
       acceptingResponseHandler(id);
+      setIsLoading(false);
+      const ans = !registrationopen ? 'Open' : 'Closed';
+      if (res.status === 201) {
+        onToast({
+          msg: `Registration ${ans}`,
+          type: 'success',
+        });
+      }
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -158,20 +166,17 @@ function AdminEventCard({
   return (
     <div className="adminEventCard">
       <img src={img} alt="" />
+      <span>
+        {registrationopen ? 'Registration open' : 'Registration closed'}
+      </span>
       <h2>{name}</h2>
-      <div className="closeBtn">
-        <span>
-          {registrationopen ? 'Registration open' : 'Registration closed'}
-        </span>
-        <input
-          value={registrationopen}
-          onChange={handleCloseRegistration}
-          type="checkbox"
-          name="registrationopen"
-        />
+
+      <div onClick={handleCloseRegistration} className="toggleBtn">
+        Toogle
       </div>
+
       <div onClick={handleDeleteRequest} className="deleteBtn">
-        D
+        Delete
       </div>
 
       <CustomModal
@@ -180,7 +185,7 @@ function AdminEventCard({
         onCancel={handleCancel}
       />
       <div onClick={handleEdit} className="editBtn">
-        E
+        Edit
       </div>
       <button
         type="submit"
