@@ -177,73 +177,143 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
           {teamsize == 1 ? (
             ''
           ) : (
-            <div className={Styles.teamMemberBox}>
+            <>
               <div className={Styles.th}>Captain : You</div>
               <div className={Styles.th}>Member 1: You</div>
-              <div className={Styles.teamMember}>
-                <div className={Styles.teamMemberHeading}>
-                  Member {participant.length + 2}/{teamsize}
+              {participant.map((item, i) => {
+                return (
+                  <div className={Styles.teamMemberBox}>
+                    <div className={Styles.teamMember}>
+                      <div className={Styles.teamMemberHeading}>
+                        Member {i + 2}/{teamsize}
+                      </div>
+                      <div className={Styles.teamMemberTop}>
+                        <input
+                          name="name"
+                          defaultValue={item.name}
+                          disabled
+                          type="text"
+                          placeholder=""
+                          className={Styles.tn}
+                        />
+                        <select
+                          name="gender"
+                          disabled
+                          defaultValue={item.gender}
+                          className={Styles.tn}
+                        >
+                          <option value="M">Male</option>
+                          <option value="F">Female</option>
+                          <option value="O">Other</option>
+                        </select>
+                        <input
+                          name="phone"
+                          defaultValue={item.phone}
+                          disabled
+                          type="number"
+                          placeholder="Phone*"
+                          className={Styles.tn}
+                        />
+                      </div>
+                      <div className={Styles.teamMemberBottom}>
+                        <input
+                          disabled
+                          name="email"
+                          defaultValue={item.email}
+                          type="email"
+                          placeholder="Email Id*"
+                          className={Styles.tn}
+                        />
+                        <input
+                          name="whatsapp"
+                          defaultValue={item.whatsapp}
+                          type="number"
+                          placeholder="Whatsapp Number*"
+                          className={Styles.tn}
+                        />
+                      </div>
+                      {participant.length + 2 !== parseInt(teamsize, 10) ? (
+                        <button
+                          type="submit"
+                          onClick={handleAddMember}
+                          value="Add Member"
+                          className={Styles.regBtn}
+                        >
+                          Add more member
+                        </button>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+              <div className={Styles.teamMemberBox}>
+                <div className={Styles.teamMember}>
+                  <div className={Styles.teamMemberHeading}>
+                    Member {participant.length + 2}/{teamsize}
+                  </div>
+                  <div className={Styles.teamMemberTop}>
+                    <input
+                      name="name"
+                      value={member.name}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="Name*"
+                      className={Styles.tn}
+                    />
+                    <select
+                      onChange={handleChange}
+                      name="gender"
+                      value={member.gender}
+                      className={Styles.tn}
+                    >
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                      <option value="O">Other</option>
+                    </select>
+                    <input
+                      name="phone"
+                      value={member.phone}
+                      onChange={handleChange}
+                      type="number"
+                      placeholder="Phone*"
+                      className={Styles.tn}
+                    />
+                  </div>
+                  <div className={Styles.teamMemberBottom}>
+                    <input
+                      name="email"
+                      value={member.email}
+                      onChange={handleChange}
+                      type="email"
+                      placeholder="Email Id*"
+                      className={Styles.tn}
+                    />
+                    <input
+                      name="whatsapp"
+                      value={member.whatsapp}
+                      onChange={handleChange}
+                      type="number"
+                      placeholder="Whatsapp Number*"
+                      className={Styles.tn}
+                    />
+                  </div>
+                  {participant.length + 2 !== parseInt(teamsize, 10) ? (
+                    <button
+                      type="submit"
+                      onClick={handleAddMember}
+                      value="Add Member"
+                      className={Styles.regBtn}
+                    >
+                      Add more member
+                    </button>
+                  ) : (
+                    ''
+                  )}
                 </div>
-                <div className={Styles.teamMemberTop}>
-                  <input
-                    name="name"
-                    value={member.name}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="Name*"
-                    className={Styles.tn}
-                  />
-                  <select
-                    onChange={handleChange}
-                    name="gender"
-                    value={member.gender}
-                    className={Styles.tn}
-                  >
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="O">Other</option>
-                  </select>
-                  <input
-                    name="phone"
-                    value={member.phone}
-                    onChange={handleChange}
-                    type="number"
-                    placeholder="Phone*"
-                    className={Styles.tn}
-                  />
-                </div>
-                <div className={Styles.teamMemberBottom}>
-                  <input
-                    name="email"
-                    value={member.email}
-                    onChange={handleChange}
-                    type="email"
-                    placeholder="Email Id*"
-                    className={Styles.tn}
-                  />
-                  <input
-                    name="whatsapp"
-                    value={member.whatsapp}
-                    onChange={handleChange}
-                    type="number"
-                    placeholder="Whatsapp Number*"
-                    className={Styles.tn}
-                  />
-                </div>
-                {participant.length + 2 !== parseInt(teamsize, 10) ? (
-                  <button
-                    type="submit"
-                    onClick={handleAddMember}
-                    value="Add Member"
-                    className={Styles.regBtn}
-                  >
-                    Add more member
-                  </button>
-                ) : (
-                  ''
-                )}
               </div>
-            </div>
+            </>
           )}
           <button
             type="submit"
