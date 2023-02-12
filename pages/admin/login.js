@@ -50,7 +50,7 @@ function AdminLoginPage() {
         msg: 'Admin Logged In Successfully',
         type: 'success',
       });
-      
+
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
@@ -63,7 +63,6 @@ function AdminLoginPage() {
       } else {
         setErrMsg('Login Failed');
       }
-      
     }
   };
 

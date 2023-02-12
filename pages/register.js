@@ -58,7 +58,7 @@ function Register() {
       onToast({
         msg: 'Phone/whatsapp number should be 10 digit',
         type: 'warn',
-      }); 
+      });
     }
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
