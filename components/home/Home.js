@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
+import axiosInstance from '../../api/axios';
 
 const home = ({ events }) => {
   return (
@@ -28,18 +29,41 @@ const home = ({ events }) => {
             </Link>
           </div>
           <div className={Styles.homeHeroSocial}>
-            <i>
-              <FaFacebookSquare />
-            </i>
-            <i>
-              <FaInstagramSquare />
-            </i>
-            <i>
-              <FaLinkedin />
-            </i>
-            <i>
-              <FaTwitterSquare />
-            </i>
+            <Link
+              href="https://www.facebook.com/BITSindriDhanbad/"
+              legacyBehavior
+            >
+              <a>
+                <i>
+                  {' '}
+                  <FaFacebookSquare />
+                </i>
+              </a>
+            </Link>
+            <Link href="" legacyBehavior>
+              <a>
+                <i>
+                  <FaInstagramSquare />
+                </i>
+              </a>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/school/bit-sindri/"
+              legacyBehavior
+            >
+              <a>
+                <i>
+                  <FaLinkedin />
+                </i>
+              </a>
+            </Link>
+            <Link href="https://twitter.com/BITSindriDhn" legacyBehavior>
+              <a>
+                <i>
+                  <FaTwitterSquare />
+                </i>
+              </a>
+            </Link>
           </div>
         </div>
         <div className={Styles.homeHeroFrame}>
@@ -101,6 +125,7 @@ const home = ({ events }) => {
               <a>See All</a>
             </Link>
           </div>
+          {/* {events && ( */}
           <div className={Styles.homeEventMiddle}>
             {events.map(
               ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
@@ -118,6 +143,29 @@ const home = ({ events }) => {
               },
             )}
           </div>
+          {/* {events && (
+            <div className={Styles.homeEvent}>
+              ...
+              {events.map(
+                ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                  return (
+                    <Card
+                      key={id}
+                      name={name}
+                      coverimg={coverimg}
+                      id={id}
+                      club={club}
+                      desc={desc}
+                      registrationopen={registrationopen}
+                    />
+                  );
+                },
+              )}
+              ...
+            </div>
+          )} */}
+
+          {/* )} */}
           <div className={Styles.homeEventBottom}>
             <div className={Styles.homeBtn}>
               <Link href="#" legacyBehavior>
@@ -132,3 +180,18 @@ const home = ({ events }) => {
 };
 
 export default home;
+
+export async function getStaticProps() {
+  const res = await axiosInstance({
+    method: 'get',
+    url: '/event',
+    withCredentials: false,
+  });
+
+  return {
+    props: {
+      events: res.data.data,
+    },
+    revalidate: 1000,
+  };
+}

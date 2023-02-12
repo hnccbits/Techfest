@@ -16,7 +16,6 @@
   color: var(--primary-text);
 }
 
-
 @media (max-width: 1000px) {
   .navbar a {
     margin: 0 1.5rem;
@@ -38,19 +37,20 @@
 }
 
 @media (max-width: 900px) {
-  .navContainer{
+  .navContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .hamburger,.logo{
+  .hamburger,
+  .logo {
     display: block;
   }
-  .navbar{
+  .navbar {
     display: none;
   }
-  
-  .open{
+
+  .open {
     display: flex;
     width: 100vw;
     flex-direction: column;
@@ -116,7 +116,7 @@
   .hamburger {
     display: block;
   }
-  .logo{
+  .logo {
     display: block;
   }
 

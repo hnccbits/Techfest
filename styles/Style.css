@@ -531,18 +531,24 @@ input#pwd {
     font-size: 24px;
   }
   .RegisterFormWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .RegisterFormWrapper > div {
+    display: flex;
     flex-direction: column;
   }
   .formLineBlock {
-    width: 100%;
+    width: 80%;
   }
   .mail {
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
   }
   .btn {
-    width: 100%;
+    width: 80%;
     margin-top: 10px;
+    justify-content: center;
   }
   .Already {
     font-size: 14px;

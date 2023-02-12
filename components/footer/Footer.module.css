@@ -12,7 +12,7 @@
   background: #0b0a1c;
   display: flex;
   flex-direction: row;
-  /* gap: 4rem; */
+  gap: 4rem;
   padding: 2rem;
 }
 
@@ -53,7 +53,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.copyRight {
+  display: flex;
+}
 .copyRight a {
   margin: 0 1rem;
 }
