@@ -38,26 +38,36 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      setIsLoading(true);
-      const res = await axiosInstance({
-        method: 'post',
-        url: '/login',
-        data: value,
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: false,
-      });
-      // eslint-disable-next-line react/destructuring-assignment
-      login(res.data.data);
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Internet connection');
-      } else if (err.response?.status === 400) {
-        setErrMsg(err.response.data.error);
-      } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
-      } else {
-        setErrMsg('Login Failed');
+    setIsLoading(true);
+    if (value.email === '' || value.password === '') {
+      setErrMsg('Must Fill All The Fields');
+    } else {
+      try {
+        setIsLoading(true);
+        const res = await axiosInstance({
+          method: 'post',
+          url: '/login',
+          data: value,
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: false,
+        });
+        // eslint-disable-next-line react/destructuring-assignment
+        setIsLoading(false);
+        onToast({
+          msg: 'Logged In Successfully',
+          type: 'success',
+        });
+        login(res.data.data);
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg('No Internet connection');
+        } else if (err.response?.status === 400) {
+          setErrMsg(err.response.data.error);
+        } else if (err.response?.status === 401) {
+          setErrMsg('Unauthorized');
+        } else {
+          setErrMsg('Login Failed');
+        }
       }
     }
   };

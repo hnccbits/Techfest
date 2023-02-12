@@ -42,17 +42,18 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
     if (
       value.email === '' ||
       value.password === '' ||
       value.cnfpassword === ''
     ) {
       setErrMsg('All the fields are required');
+    }
+    if (value.cnfpassword !== value.password) {
+      setErrMsg('Passwords do not match');
     } else {
       try {
+        setIsLoading(true);
         const res = await axiosInstance({
           method: 'post',
           url: '/admin/register',
@@ -60,10 +61,13 @@ function Register() {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: false,
         });
+        onToast({
+          msg: 'Admin Logged In Successfully',
+          type: 'success',
+        });
         const { data } = res.data;
         login(data);
       } catch (err) {
-        setIsLoading(false);
         if (!err?.response) {
           setErrMsg('No Internet connection');
         } else if (err.response?.status === 400) {
@@ -89,6 +93,7 @@ function Register() {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>

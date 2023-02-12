@@ -93,7 +93,10 @@ function Eventedit({ eventId }) {
         formData,
         config,
       );
-      setIsLoading(false);
+      onToast({
+        msg: 'Event Updated Successfully',
+        type: 'success',
+      });
       router.push('/admin/events');
     } catch (err) {
       if (!err?.response) {

@@ -22,37 +22,17 @@ function ContactUs() {
               <div className={Styles.inputdata}>
                 <input
                   type="text"
-                  id="fname"
-                  placeholder="First Name*"
+                  id="name"
+                  placeholder="Name*"
                   className={Styles.inputbox}
                   required
                 />
               </div>
-              <div className={Styles.inputdata}>
-                <input
-                  type="text"
-                  id="lname"
-                  placeholder="Last Name*"
-                  className={Styles.inputbox}
-                  required
-                />
-              </div>
-            </div>
-            <div className={Styles.formrow}>
               <div className={Styles.inputdata}>
                 <input
                   type="email"
                   id="email"
                   placeholder="Email Id*"
-                  className={Styles.inputbox}
-                  required
-                />
-              </div>
-              <div className={Styles.inputdata}>
-                <input
-                  type="tel"
-                  id="phone"
-                  placeholder="Phone Number*"
                   className={Styles.inputbox}
                   required
                 />

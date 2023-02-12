@@ -43,9 +43,6 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
     if (
       value.name === '' ||
       value.email === '' ||
@@ -58,8 +55,12 @@ function Register() {
       value.whatsapp === ''
     ) {
       setErrMsg('All the fields are required');
+    }
+    if (value.cnfpassword !== value.password) {
+      setErrMsg('Passwords do not match');
     } else {
       try {
+        setIsLoading(true);
         const res = await axiosInstance({
           method: 'post',
           url: '/register',
@@ -67,9 +68,13 @@ function Register() {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: false,
         });
+        setIsLoading(false);
+        onToast({
+          msg: 'Logged In Successfully',
+          type: 'success',
+        });
         login(res.data.data);
       } catch (err) {
-        setIsLoading(false);
         if (!err?.response) {
           setErrMsg('No Internet connection');
         } else if (err.response?.status === 400) {
@@ -77,7 +82,7 @@ function Register() {
         } else if (err.response?.status === 401) {
           setErrMsg('Unauthorized');
         } else {
-          setErrMsg('Registration Failed');
+          setErrMsg('Login Failed');
         }
       }
     }
@@ -96,6 +101,7 @@ function Register() {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>
@@ -228,7 +234,9 @@ function Register() {
                 required
               />
             </div>
-            <input type="submit" onClick={handleSubmit} required />
+            <button type="submit" disabled={isLoading} onClick={handleSubmit}>
+              {isLoading ? 'Loading...' : 'Submit'}
+            </button>
             <span className="Already">
               Already Have Account?{' '}
               <Link href="/login" legacyBehavior>

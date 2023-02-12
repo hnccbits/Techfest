@@ -37,9 +37,7 @@ function AdminLoginPage() {
       type,
     });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const ahandleSubmit = async (e) => {
     try {
       setIsLoading(true);
       const res = await axiosInstance({
@@ -49,16 +47,22 @@ function AdminLoginPage() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
-      toast.success('Logged In Successfully');
+      onToast({
+        msg: 'Admin Logged In Successfully',
+        type: 'success',
+      });
+      // toast.success('Logged In Successfully');
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Login Failed');
       }
       // toast.error(errMsg);
     }
@@ -69,6 +73,15 @@ function AdminLoginPage() {
       ...value,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (value.email === '' || value.password === '') {
+      setErrMsg('Must Fill All the fields');
+    } else {
+      ahandleSubmit();
+    }
   };
   if (errMsg) {
     onToast({
@@ -109,8 +122,13 @@ function AdminLoginPage() {
                 placeholder="Password *"
               />
             </div>
-            <button onClick={handleSubmit} className="btn" type="submit">
-              Submit
+            <button
+              onClick={handleSubmit}
+              disabled={isLoading}
+              className="btn"
+              type="submit"
+            >
+              {isLoading ? 'Loading...' : 'Submit'}
             </button>
             <span className="Already">
               Don&#39;t Have Account?{' '}

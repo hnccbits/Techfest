@@ -9,7 +9,6 @@ import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
-// import axiosInstance from '../../api/axios';
 
 const home = () => {
   return (
@@ -136,18 +135,3 @@ const home = () => {
 };
 
 export default home;
-
-// export async function getStaticProps() {
-//   const res = await axiosInstance({
-//     method: 'get',
-//     url: '/event',
-//     withCredentials: false,
-//   });
-
-//   return {
-//     props: {
-//       events: res.data.data,
-//     },
-//     revalidate: 1000,
-//   };
-// }
