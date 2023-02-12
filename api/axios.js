@@ -6,6 +6,7 @@ const axiosInstance = axios.create({
   withCredentials: true,
   baseURL: 'https://techmahotsav.azurewebsites.net/api',
   // baseURL: 'http://localhost:5000/api',
+  // baseURL: 'http://192.168.0.113:5003/api',
 });
 
 axiosInstance.interceptors.request.use(

@@ -9,7 +9,6 @@ import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
-// import axiosInstance from '../../api/axios';
 
 const home = () => {
   return (
@@ -24,8 +23,8 @@ const home = () => {
             <img src="img/uline.svg" alt="" className={Styles.homeHeroLine} />
           </div>
           <div className={Styles.homeHeroBtn}>
-            <Link href="/" legacyBehavior>
-              <a>Register Now!</a>
+            <Link href="/event" legacyBehavior>
+              <a>View Events</a>
             </Link>
           </div>
           <div className={Styles.homeHeroSocial}>
@@ -44,7 +43,7 @@ const home = () => {
           </div>
         </div>
         <div className={Styles.homeHeroFrame}>
-          <img src="img/heroFrame.svg" alt="" />
+          <img src="img/heroframe.svg" alt="" />
         </div>
       </div>
 
@@ -59,7 +58,7 @@ const home = () => {
             exhibitions, and other thrilling activities
           </div>
           <div className={Styles.homeBtn}>
-            <Link href="#" legacyBehavior>
+            <Link href="/about" legacyBehavior>
               <a>Know More</a>
             </Link>
           </div>
@@ -72,7 +71,7 @@ const home = () => {
       </div>
 
       <div className={Styles.homeSponser}>
-        <div className={Styles.homeNeonHeading}>Sponsers</div>
+        <div className={Styles.homeNeonHeading}>Sponsors</div>
         <div className={Styles.homeSponserWrapper}>
           <div className={Styles.homeSponserTop}>
             <img src="img/s3.svg" alt="" />
@@ -136,18 +135,3 @@ const home = () => {
 };
 
 export default home;
-
-// export async function getStaticProps() {
-//   const res = await axiosInstance({
-//     method: 'get',
-//     url: '/event',
-//     withCredentials: false,
-//   });
-
-//   return {
-//     props: {
-//       events: res.data.data,
-//     },
-//     revalidate: 1000,
-//   };
-// }
