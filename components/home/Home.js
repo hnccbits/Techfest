@@ -9,8 +9,9 @@ import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
+import axiosInstance from '../../api/axios';
 
-const home = () => {
+function home() {
   return (
     <>
       <div className={Styles.homeHero}>
@@ -23,7 +24,7 @@ const home = () => {
             <img src="img/uline.svg" alt="" className={Styles.homeHeroLine} />
           </div>
           <div className={Styles.homeHeroBtn}>
-            <Link href="/" legacyBehavior>
+            <Link href="/register" legacyBehavior>
               <a>Register Now!</a>
             </Link>
           </div>
@@ -101,11 +102,67 @@ const home = () => {
               <a>See All</a>
             </Link>
           </div>
+          {/* {events && ( */}
           <div className={Styles.homeEventMiddle}>
             <Card />
             <Card />
             <Card />
+            {/* {events.map(
+              ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                return (
+                  <Card
+                    key={id}
+                    name={name}
+                    coverimg={coverimg}
+                    id={id}
+                    club={club}
+                    desc={desc}
+                    registrationopen={registrationopen}
+                  />
+                );
+              },
+            )} */}
+            {/* ...
+            {events.map(
+              ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                return (
+                  <Card
+                    key={id}
+                    name={name}
+                    coverimg={coverimg}
+                    id={id}
+                    club={club}
+                    desc={desc}
+                    registrationopen={registrationopen}
+                  />
+                );
+              },
+            )}
+            ... */}
           </div>
+          {/* {events && (
+            <div className={Styles.homeEvent}>
+              ...
+              {events.map(
+                ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                  return (
+                    <Card
+                      key={id}
+                      name={name}
+                      coverimg={coverimg}
+                      id={id}
+                      club={club}
+                      desc={desc}
+                      registrationopen={registrationopen}
+                    />
+                  );
+                },
+              )}
+              ...
+            </div>
+          )} */}
+
+          {/* )} */}
           <div className={Styles.homeEventBottom}>
             <div className={Styles.homeBtn}>
               <Link href="#" legacyBehavior>
@@ -117,6 +174,21 @@ const home = () => {
       </div>
     </>
   );
-};
+}
 
 export default home;
+
+export async function getStaticProps() {
+  const res = await axiosInstance({
+    method: 'get',
+    url: '/event',
+    withCredentials: false,
+  });
+
+  return {
+    props: {
+      events: res.data.data,
+    },
+    revalidate: 1000,
+  };
+}

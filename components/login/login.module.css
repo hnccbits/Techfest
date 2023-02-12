@@ -41,6 +41,8 @@
 @media only screen and (max-width: 600px) {
   .RegisterForm {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   .formHeading {
     font-size: 24px;

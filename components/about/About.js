@@ -83,12 +83,19 @@ function About() {
           <br /> ~ Anna Eshoo
         </div>
         <p>
-          We provide confirmation required to assure the quality, efficacy and
-          safety of products. Our experienced scientific research team
-          continuously involved in the process of developing novel nutraceutical
-          health supplements and expand innovative formulations to address
-          various healthcare needs. We thrive to providing highest quality, more
-          affordable healthcare supplements.
+          The themes and Problem Statements aim at accelerating research,
+          development, and demonstration (RD&D) in technology areas that could
+          provide significant benefits.
+          <br />
+          <br /> The future of a country lies in its students. The more
+          innovative the youth is today, the better will be the country&apos;s
+          future. Model Club is excited to announce the &quot;National Student
+          Innovation Festival&quot; for college students irrespective of year or
+          branch. Very meticulously designed, this challenge will give ample
+          scope to all the changemakers to ponder over and solve some real-world
+          needs. This innovation festival would surely be a window of
+          opportunity for your crazy ideas to turn into reality and transform
+          many lives.
         </p>
       </div>
       <div className={Styles.vision}>
@@ -132,32 +139,35 @@ function About() {
             <div className={Styles.paraSection}>
               <ul>
                 <li>
-                  All the student currently pursuing education from recognized
-                  institutes are allowed to take part in the event
+                  Group registration can be done with a maximum of five and a
+                  minimum of two participants.
                 </li>
                 <li>
-                  All Engineering & Non-engineering undergraduates are allowed
-                  to take part
+                  The platform is open to anyone who wants to present their
+                  idea, regardless of their institute as well as branch
+                  affiliation.
                 </li>
                 <li>
-                  All Engineering & Non-engineering undergraduates are allowed
-                  to take part
+                  Teams should have a unique name and will be assigned a Team ID
+                  for further communication and processces.
                 </li>
               </ul>
             </div>
             <div className={Styles.paraSection}>
               <ul>
                 <li>
-                  All the student currently pursuing education from recognized
-                  institutes are allowed to take part in the event
+                  Exploration of new scientific domains to drive business
+                  innovation.
                 </li>
                 <li>
-                  All Engineering & Non-engineering undergraduates are allowed
-                  to take part
+                  Finding talented individuals to work on development is a
+                  priority.
                 </li>
                 <li>
-                  All Engineering & Non-engineering undergraduates are allowed
-                  to take part
+                  The event provides students with the opportunity to evaluate
+                  their skills, work in a team, and network for potential
+                  employment opportunities while also promoting the brand to a
+                  tech-savvy local audience.
                 </li>
               </ul>
             </div>
