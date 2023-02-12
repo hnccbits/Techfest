@@ -110,6 +110,8 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         msg: `You have successfully registered for the event`,
         type: 'success',
       });
+      setIsLoading(false);
+
       handleModalToggle();
     } catch (err) {
       if (!err?.response) {
@@ -221,7 +223,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     value="Add Member"
                     className={Styles.tn}
                   >
-                    Add Member
+                    Add more member
                   </button>
                 ) : (
                   ''
@@ -231,6 +233,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
           )}
           <button
             type="submit"
+            disabled={isLoading}
             onClick={handleSubmit}
             value="Register"
             className={Styles.regBtn}

@@ -133,7 +133,7 @@ function AdminEventCard({
       });
       acceptingResponseHandler(id);
       setIsLoading(false);
-      const ans = !registrationopen ? 'Open' : 'Closed';
+      const ans = !registrationopen ? 'Opened' : 'Closed';
       if (res.status === 201) {
         onToast({
           msg: `Registration ${ans}`,
