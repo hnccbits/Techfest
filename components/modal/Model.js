@@ -1,5 +1,7 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
+import { MdDelete } from 'react-icons/md';
+
 import React, { useState, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
 import Styles from './Model.module.css';
@@ -169,23 +171,33 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                   placeholder="Team Name*"
                   className={Styles.tn}
                 />
+                <div className={Styles.th}>Captain : You</div>
+                <div className={Styles.th}>Member 1: You</div>
               </>
             ) : (
               ''
             )}
           </div>
           {teamsize == 1 ? (
-            ''
-          ) : (
             <>
               <div className={Styles.th}>Captain : You</div>
               <div className={Styles.th}>Member 1: You</div>
-              {participant.map((item, i) => {
-                return (
-                  <div className={Styles.teamMemberBox}>
+            </>
+          ) : (
+            <>
+              <div className={Styles.teamMemberBox}>
+                {participant.map((item, i) => {
+                  return (
                     <div className={Styles.teamMember}>
                       <div className={Styles.teamMemberHeading}>
-                        Member {i + 2}/{teamsize}
+                        <span>
+                          Member {i + 2}/{teamsize}
+                        </span>
+                        <span
+                          style={{ 'font-size': '1.32rem', cursor: 'pointer' }}
+                        >
+                          <MdDelete />
+                        </span>
                       </div>
                       <div className={Styles.teamMemberTop}>
                         <input
@@ -237,7 +249,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                           type="submit"
                           onClick={handleAddMember}
                           value="Add Member"
-                          className={Styles.regBtn}
                         >
                           Add more member
                         </button>
@@ -245,10 +256,8 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                         ''
                       )}
                     </div>
-                  </div>
-                );
-              })}
-              <div className={Styles.teamMemberBox}>
+                  );
+                })}
                 <div className={Styles.teamMember}>
                   <div className={Styles.teamMemberHeading}>
                     Member {participant.length + 2}/{teamsize}
@@ -301,10 +310,10 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                   </div>
                   {participant.length + 2 !== parseInt(teamsize, 10) ? (
                     <button
+                      className="AddMore"
                       type="submit"
                       onClick={handleAddMember}
                       value="Add Member"
-                      className={Styles.regBtn}
                     >
                       Add more member
                     </button>
@@ -313,6 +322,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                   )}
                 </div>
               </div>
+              {/* <div className="hello"></div> */}
             </>
           )}
           <button

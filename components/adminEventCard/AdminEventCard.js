@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import { MdDelete, MdEditNote } from 'react-icons/fa';
+import { MdDelete, MdEditNote } from 'react-icons/md';
+import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import FileDownload from 'js-file-download';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
@@ -176,11 +177,11 @@ function AdminEventCard({
         onClick={handleCloseRegistration}
         className="toggleBtn"
       >
-        Toogle
+        {registrationopen ? <BsToggleOn /> : <BsToggleOff />}
       </div>
 
       <div onClick={handleDeleteRequest} className="deleteBtn">
-        Delete
+        <MdDelete />
       </div>
 
       <CustomModal
@@ -189,7 +190,7 @@ function AdminEventCard({
         onCancel={handleCancel}
       />
       <div onClick={handleEdit} className="editBtn">
-        Edit
+        <MdEditNote />
       </div>
       <button
         type="submit"

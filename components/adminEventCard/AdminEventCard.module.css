@@ -32,3 +32,8 @@
 .b1{
     border-right: 2px solid rgb(157, 130, 208);
 }
+.adminEventCard .editBtn,
+.adminEventCard .editBtn{
+    line-height: 40px;
+    text-align: center;
+}
