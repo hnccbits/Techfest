@@ -18,6 +18,7 @@ function ContactUs() {
   const onToast = ({ msg, type }) =>
     toast(msg, {
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });

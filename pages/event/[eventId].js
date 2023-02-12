@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
@@ -10,10 +10,15 @@ import axiosInstance from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 
 function EventsPage({ event }) {
-  const Router = useRouter();
   const [modalopen, setModalopen] = useState(false);
   const { user } = useContext(AuthContext);
-
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      position: 'bottom-right',
+      theme: 'dark',
+      autoClose: 6000,
+      type,
+    });
   const {
     name,
     desc,
@@ -37,11 +42,10 @@ function EventsPage({ event }) {
     if (user) {
       handleModalToggle();
     } else {
-      // <<<<<<< HEAD
-      // =======
-      // window.alert('You must need to register.');
-      // >>>>>>> d64aca76be3b8c674c89c10707909320adf80c7d
-      Router.push('/register');
+      onToast({
+        msg: 'Login to register',
+        type: 'info',
+      });
     }
   };
   return (
@@ -76,16 +80,6 @@ function EventsPage({ event }) {
                   type="button"
                 >
                   {registrationopen ? 'Register' : 'Registration Closed'}
-                </button>
-
-                <button
-                  onClick={() => {
-                    Router.push('/register');
-                  }}
-                  className={Styles.cta}
-                  type="button"
-                >
-                  Continue to Login
                 </button>
 
                 <Link href={rulebk} target="_blank">

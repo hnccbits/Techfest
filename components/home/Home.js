@@ -10,7 +10,7 @@ import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
 
-const home = () => {
+const home = ({ events }) => {
   return (
     <>
       <div className={Styles.homeHero}>
@@ -102,7 +102,7 @@ const home = () => {
             </Link>
           </div>
           <div className={Styles.homeEventMiddle}>
-            {/* {events.map(
+            {events.map(
               ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
                 return (
                   <Card
@@ -116,10 +116,7 @@ const home = () => {
                   />
                 );
               },
-            )} */}
-            <Card />
-            <Card />
-            <Card />
+            )}
           </div>
           <div className={Styles.homeEventBottom}>
             <div className={Styles.homeBtn}>
