@@ -37,7 +37,6 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     if (value.email === '' || value.password === '') {
       setErrMsg('Must Fill All The Fields');
     } else {
