@@ -33,7 +33,7 @@ function About() {
           </div>
         </div>
         <div className={Styles.item2}>
-          <img className={Styles.image} src="img/logo.png" alt="" />
+          <img className={Styles.image} src="img/logo.svg" alt="" />
         </div>
       </div>
 
@@ -44,6 +44,7 @@ function About() {
           <img src="img/iste.svg" alt="" />
           <img src="img/iete.svg" alt="" />
           <img src="img/model.svg" alt="" />
+          <img src="img/sae.svg" alt="" />
         </div>
       </div>
 
