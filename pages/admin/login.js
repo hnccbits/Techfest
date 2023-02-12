@@ -47,13 +47,13 @@ function AdminLoginPage() {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
+      login(res.data.data);
       onToast({
         msg: 'Admin Logged In Successfully',
         type: 'success',
       });
 
       // eslint-disable-next-line react/destructuring-assignment
-      login(res.data.data);
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Internet connection');

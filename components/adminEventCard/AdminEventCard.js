@@ -92,7 +92,8 @@ function AdminEventCard({
   const handleEdit = () => {
     Router.push(`/admin/edit/${id}`);
   };
-  const handleDownloadResponse = async () => {
+  const handleDownloadResponse = async (e) => {
+    e.preventDefault();
     try {
       const res = await axiosInstance({
         method: 'post',
@@ -181,9 +182,13 @@ function AdminEventCard({
       <div onClick={handleEdit} className="editBtn">
         E
       </div>
-      <div onClick={handleDownloadResponse} className="bottomBtn">
-        Download Response
-      </div>
+      <button
+        type="submit"
+        onClick={handleDownloadResponse}
+        className="bottomBtn"
+      >
+        Download data
+      </button>
     </div>
   );
 }

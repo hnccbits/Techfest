@@ -43,7 +43,7 @@ function EventsPage({ event }) {
       handleModalToggle();
     } else {
       onToast({
-        msg: 'Login to register',
+        msg: 'Sign Up to continue',
         type: 'info',
       });
     }

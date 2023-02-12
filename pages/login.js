@@ -52,11 +52,11 @@ function LoginPage() {
         });
         // eslint-disable-next-line react/destructuring-assignment
         setIsLoading(false);
+        login(res.data.data);
         onToast({
           msg: 'Logged In Successfully',
           type: 'success',
         });
-        login(res.data.data);
       } catch (err) {
         if (!err?.response) {
           setErrMsg('No Internet connection');

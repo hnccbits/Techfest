@@ -40,9 +40,37 @@ function Register() {
       autoClose: 6000,
       type,
     });
+  const ahandleSubmit = async () => {
+    try {
+      setIsLoading(true);
+      const res = await axiosInstance({
+        method: 'post',
+        url: '/register',
+        data: value,
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: false,
+      });
+      setIsLoading(false);
+      login(res.data.data);
+      onToast({
+        msg: 'Logged In Successfully',
+        type: 'success',
+      });
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No Internet connection');
+      } else if (err.response?.status === 400) {
+        setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
+      } else {
+        setErrMsg('Login Failed');
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     if (
       value.name === '' ||
       value.email === '' ||
@@ -60,36 +88,18 @@ function Register() {
         msg: 'Phone/whatsapp number should be 10 digit',
         type: 'warn',
       });
-    }
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
+    } else if (value.cnfpassword !== value.password) {
+      onToast({
+        msg: 'Passwords do not match',
+        type: 'warn',
+      });
+    } else if (value.password.length < 7) {
+      onToast({
+        msg: 'Password should be atleast 7 characters',
+        type: 'warn',
+      });
     } else {
-      try {
-        setIsLoading(true);
-        const res = await axiosInstance({
-          method: 'post',
-          url: '/register',
-          data: value,
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: false,
-        });
-        setIsLoading(false);
-        onToast({
-          msg: 'Logged In Successfully',
-          type: 'success',
-        });
-        login(res.data.data);
-      } catch (err) {
-        if (!err?.response) {
-          setErrMsg('No Internet connection');
-        } else if (err.response?.status === 400) {
-          setErrMsg(err.response.data.error);
-        } else if (err.response?.status === 401) {
-          setErrMsg('Unauthorized');
-        } else {
-          setErrMsg('Login Failed');
-        }
-      }
+      ahandleSubmit();
     }
   };
 
@@ -203,13 +213,7 @@ function Register() {
                 placeholder="Enter Password"
                 required
               />
-              {/* <ul className="field__rules">
-                <li>One lowercase character</li>
-                <li>One uppercase character</li>
-                <li>One number</li>
-                <li>One special character</li>
-                <li>9 characters minimum</li>
-              </ul> */}
+
               <div id="pwd_strength_wrap">
                 <div id="passwordDescription">Password not entered</div>
                 <div id="passwordStrength" className="strength0" />
