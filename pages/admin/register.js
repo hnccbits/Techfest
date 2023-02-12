@@ -102,6 +102,8 @@ function Register() {
           />
           <form>
             <div className="formLineBlock">
+              <h1 className="form_label">Select your club</h1>
+
               <select
                 defaultValue={value.name}
                 name="name"

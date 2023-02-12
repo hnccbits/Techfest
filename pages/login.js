@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import axiosInstance from '../api/axios';
 // import Navbar from '../components/navbar/Navbar';
 import { AuthContext } from '../context/AuthContext';
-import '../components/login/login.module.css';
+import Styles from '../components/login/login.module.css';
 
 function LoginPage() {
   const history = useRouter();
@@ -80,24 +80,24 @@ function LoginPage() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="RegisterForm">
-        <div className="formHeading">Sign In</div>
-        <div className="RegisterFormWrapper">
-          <img src="img/formImg.png" alt="" />
+      <div className={Styles.RegisterForm}>
+        <div className={Styles.formHeading}>Sign In</div>
+        <div className={Styles.RegisterFormWrapper}>
+          <img src="img/3d_logo.svg" alt="" />
           <form>
-            <div className="formLineBlock">
+            <div className={Styles.formLineBlock}>
               <input
                 value={value.email}
-                className="mail"
+                className={Styles.mail}
                 name="email"
                 type="email"
                 onChange={handleChange}
                 placeholder="Email id *"
               />
             </div>
-            <div className="formLineBlock">
+            <div className={Styles.formLineBlock}>
               <input
-                className="mail"
+                className={Styles.mail}
                 value={value.password}
                 type="password"
                 name="password"
@@ -108,17 +108,17 @@ function LoginPage() {
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="btn"
+              className={Styles.btn}
               type="submit"
             >
               {isLoading ? 'Loading...' : 'Submit'}
             </button>
-            <span className="Already">
-              Don&#39;t Have Account?
+            <br />
+            <button type="button" className={Styles.Already}>
               <Link href="/register" legacyBehavior>
                 <a>Register</a>
               </Link>
-            </span>
+            </button>
           </form>
         </div>
       </div>
