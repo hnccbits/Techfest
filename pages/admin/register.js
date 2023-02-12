@@ -114,17 +114,26 @@ function Register() {
                 name="name"
                 onChange={handleChange}
               >
-                <option value="CES">Chemical Engineering Society</option>
+                <option value="HNCC">HnCC</option>
+                <option value="IETE">IETE</option>
+                <option value="ISTE">ISTE</option>
+                <option value="MODEL CLUB">Model Club</option>
+                <option value="SAE">SAE India</option>
                 <option value="PIES">
                   Production and Industrial Engineering Society
                 </option>
                 <option value="EES">Electrical Engineering Society</option>
-                <option value="HNCC">HnCC</option>
-                <option value="IETE">IETE</option>
-                <option value="ISTE">ISTE</option>
                 <option value="MES">Mechanical Engineering Society</option>
-                <option value="MC">Model Club</option>
-                <option value="SAE">SAE India</option>
+                <option value="ECES">
+                  Electronics and Communication Engineering Society
+                </option>
+                <option value="CSEIT">CSE and IT Society</option>
+                <option value="DHATVIKA">
+                  Metallurgical Engineering Society
+                </option>
+                <option value="QUMICA">Chemical Engineering Society</option>
+                <option value="SME">Mining Engineering Society</option>
+                <option value="ACE">Civil Engineering Society</option>
               </select>
             </div>
             <div className="formLineBlock">
