@@ -38,7 +38,7 @@ function About() {
       </div>
 
       <div className={Styles.assoc}>
-        <div className={Styles.title}>In Associated With</div>
+        <div className={Styles.title}>In Association With</div>
         <div className={Styles.imageTile}>
           <img src="img/hncc.svg" alt="" />
           <img src="img/iste.svg" alt="" />
@@ -69,7 +69,7 @@ function About() {
               </p>
             </div>
             <div className={Styles.cardBtn}>
-              <Link href="/EventsPage" legacyBehavior>
+              <Link href="https://www.bitsindri.ac.in/" legacyBehavior>
                 <button type="button">Know More</button>
               </Link>
             </div>
