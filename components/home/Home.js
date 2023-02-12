@@ -29,18 +29,41 @@ const home = ({ events }) => {
             </Link>
           </div>
           <div className={Styles.homeHeroSocial}>
-            <i>
-              <FaFacebookSquare />
-            </i>
-            <i>
-              <FaInstagramSquare />
-            </i>
-            <i>
-              <FaLinkedin />
-            </i>
-            <i>
-              <FaTwitterSquare />
-            </i>
+            <Link
+              href="https://www.facebook.com/BITSindriDhanbad/"
+              legacyBehavior
+            >
+              <a>
+                <i>
+                  {' '}
+                  <FaFacebookSquare />
+                </i>
+              </a>
+            </Link>
+            <Link href="" legacyBehavior>
+              <a>
+                <i>
+                  <FaInstagramSquare />
+                </i>
+              </a>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/school/bit-sindri/"
+              legacyBehavior
+            >
+              <a>
+                <i>
+                  <FaLinkedin />
+                </i>
+              </a>
+            </Link>
+            <Link href="https://twitter.com/BITSindriDhn" legacyBehavior>
+              <a>
+                <i>
+                  <FaTwitterSquare />
+                </i>
+              </a>
+            </Link>
           </div>
         </div>
         <div className={Styles.homeHeroFrame}>

@@ -79,7 +79,10 @@ export default function Footer() {
       <div className={Styles.footerCopyright}>
         <div className="copyLeft">© 2023 Techfest | Powered by HnCC</div>
         <div className={Styles.copyRight}>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://www.facebook.com/hnccbits?mibextid=ZbWKwL"
+            legacyBehavior
+          >
             <a>
               <i>
                 {' '}
@@ -87,21 +90,30 @@ export default function Footer() {
               </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://instagram.com/hnccbits?igshid=ZDdkNTZiNTM= "
+            legacyBehavior
+          >
             <a>
               <i>
                 <FaInstagramSquare />
               </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://www.linkedin.com/company/hnccbits/"
+            legacyBehavior
+          >
             <a>
               <i>
                 <FaLinkedin />
               </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://twitter.com/hnccbits?t=4Yt5VzPdz5-Khm18clM5EQ&s=09 "
+            legacyBehavior
+          >
             <a>
               <i>
                 <FaTwitterSquare />
