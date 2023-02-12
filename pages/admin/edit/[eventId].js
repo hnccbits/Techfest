@@ -35,6 +35,7 @@ function Eventedit({ eventId }) {
         const res = await axiosInstance({
           method: 'get',
           url: '/event',
+          withCredentials: false,
         });
         setIsLoading(false);
         const d = res.data.data.filter((e) => e._id === eventId);
@@ -87,6 +88,7 @@ function Eventedit({ eventId }) {
         headers: {
           'content-type': 'multipart/form-data',
         },
+        withCredentials: false,
       };
       const res = await axiosInstance.patch(
         `/admin/update/event/${clubevent._id}`,

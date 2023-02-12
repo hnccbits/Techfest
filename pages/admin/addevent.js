@@ -73,6 +73,7 @@ function AddEvent() {
           headers: {
             'content-type': 'multipart/form-data',
           },
+          withCredentials: false,
         };
         await axiosInstance.post('/admin/add/event', formData, config);
         onToast({
@@ -176,7 +177,7 @@ function AddEvent() {
             onClick={handleSubmit}
             value="Register Event"
           >
-            {isLoading ? 'Loading...' : 'Add Event'}
+            {isLoading ? 'Uploading...' : 'Add Event'}
           </button>
         </form>
       </div>
