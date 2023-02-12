@@ -173,18 +173,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
             ) : (
               ''
             )}
-            <div className={Styles.th}>Team Captain</div>
-            <input
-              type="text"
-              disabled
-              value={captainname}
-              className={Styles.cpt}
-            />
           </div>
           {teamsize == 1 ? (
             ''
           ) : (
             <div className={Styles.teamMemberBox}>
+              <div className={Styles.th}>Captain : You</div>
+              <div className={Styles.th}>Member 1: You</div>
               <div className={Styles.teamMember}>
                 <div className={Styles.teamMemberHeading}>
                   Member {participant.length + 2}/{teamsize}
@@ -240,7 +235,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                     type="submit"
                     onClick={handleAddMember}
                     value="Add Member"
-                    className={Styles.tn}
+                    className={Styles.regBtn}
                   >
                     Add more member
                   </button>
@@ -258,7 +253,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
             className={Styles.regBtn}
             // className={Styles.tn}
           >
-            {isLoading ? 'Loading...' : 'Register'}
+            {isLoading ? 'Loading...' : 'Submit'}
           </button>
         </form>
       </div>

@@ -48,6 +48,7 @@ function Register() {
       value.cnfpassword === ''
     ) {
       setErrMsg('All the fields are required');
+      return;
     }
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');
@@ -148,10 +149,8 @@ function Register() {
             </div>
 
             <ul className="field__rules">
-              <li>
-                One lowercase, One uppercase, One number, One special character
-              </li>
-              <li>8 characters minimum</li>
+              <li>One lowercase, One uppercase, One number</li>
+              <li> One special character, 8 characters minimum</li>
             </ul>
             <div className="formLineBlock">
               <input
