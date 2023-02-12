@@ -9,7 +9,9 @@ import axiosInstance from '../../api/axios';
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
   const { user } = useContext(AuthContext);
   const [captainname, setCaptainname] = useState('');
-  const [teamname, setTeamname] = useState('---');
+  const [teamname, setTeamname] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -27,22 +29,42 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
   });
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
       autoClose: 6000,
       type,
     });
   const handleAddMember = (e) => {
     e.preventDefault();
-
-    setParticipant([...participant, member]);
-    setMember({
-      name: '',
-      phone: '',
-      email: '',
-      whatsapp: '',
-      gender: 'M',
-    });
+    if (
+      member.name === '' ||
+      member.phone === '' ||
+      member.whatsapp === '' ||
+      member.email === ''
+    ) {
+      onToast({
+        msg: 'Invalid data entered. please check the input.',
+        type: 'warn',
+      });
+    } else if (member.phone.length !== 10 || member.whatsapp.length !== 10) {
+      onToast({
+        msg: 'Phone/whatsapp number cannot. be more than 10 digit',
+        type: 'warn',
+      });
+    } else {
+      setParticipant([...participant, member]);
+      setMember({
+        name: '',
+        phone: '',
+        email: '',
+        whatsapp: '',
+        gender: 'M',
+      });
+      const memberlength = participant.length + 2;
+      onToast({
+        msg: `Member ${memberlength} added successfully`,
+        type: 'success',
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -51,10 +73,23 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       [e.target.name]: e.target.value,
     });
   };
-  const [errMsg, setErrMsg] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      member.name === '' ||
+      member.phone === '' ||
+      member.phone.length !== 10 ||
+      member.whatsapp === '' ||
+      member.whatsapp.length !== 10 ||
+      member.email === ''
+    ) {
+      toast({
+        msg: 'Invalid data entered. please check the input.',
+        type: 'danger',
+      });
+      return;
+    }
     if (teamname === '') {
       setErrMsg('Please Enter Team Name');
       return;
@@ -62,6 +97,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
     setParticipant([...participant, member]);
 
     try {
+      setIsLoading(true);
       const res = await axiosInstance({
         method: 'post',
         url: '/register/event',
@@ -69,14 +105,20 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
+      onToast({
+        msg: `You have successfully registered for the event`,
+        type: 'success',
+      });
       handleModalToggle();
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Registration Failed');
       }
     }
   };
@@ -90,6 +132,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <div className={Styles.modelBg}>
@@ -122,7 +165,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
             <div className={Styles.teamMemberBox}>
               <div className={Styles.teamMember}>
                 <div className={Styles.teamMemberHeading}>
-                  Member {participant.length + 2}
+                  Member {participant.length + 2}/{teamsize}
                 </div>
                 <div className={Styles.teamMemberTop}>
                   <input
@@ -171,30 +214,29 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                   />
                 </div>
                 {participant.length + 2 !== parseInt(teamsize, 10) ? (
-                  <input
+                  <button
                     type="submit"
                     onClick={handleAddMember}
                     value="Add Member"
                     className={Styles.tn}
-                  />
+                  >
+                    Add Member
+                  </button>
                 ) : (
-                  <input
-                    type="submit"
-                    onClick={handleSubmit}
-                    value="register"
-                    className={Styles.tn}
-                  />
+                  ''
                 )}
               </div>
             </div>
           )}
-          <input
+          <button
             type="submit"
             onClick={handleSubmit}
             value="Register"
             className={Styles.regBtn}
             // className={Styles.tn}
-          />
+          >
+            Register
+          </button>
         </form>
       </div>
     </div>

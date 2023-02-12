@@ -35,7 +35,6 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
       autoClose: 6000,
       type,
@@ -55,6 +54,11 @@ function Register() {
       value.whatsapp === ''
     ) {
       setErrMsg('All the fields are required');
+    } else if (value.phone.length !== 10 || value.whatsapp.length !== 10) {
+      onToast({
+        msg: 'Phone/whatsapp number should be 10 digit',
+        type: 'warn',
+      }); 
     }
     if (value.cnfpassword !== value.password) {
       setErrMsg('Passwords do not match');

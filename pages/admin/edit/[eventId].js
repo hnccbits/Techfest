@@ -21,7 +21,6 @@ function Eventedit({ eventId }) {
 
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
       autoClose: 6000,
       type,

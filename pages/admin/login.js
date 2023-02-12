@@ -31,7 +31,6 @@ function AdminLoginPage() {
 
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
       autoClose: 6000,
       type,
@@ -51,7 +50,7 @@ function AdminLoginPage() {
         msg: 'Admin Logged In Successfully',
         type: 'success',
       });
-      // toast.success('Logged In Successfully');
+      
       // eslint-disable-next-line react/destructuring-assignment
       login(res.data.data);
     } catch (err) {
@@ -64,7 +63,7 @@ function AdminLoginPage() {
       } else {
         setErrMsg('Login Failed');
       }
-      // toast.error(errMsg);
+      
     }
   };
 

@@ -69,26 +69,24 @@ function EventsPage({ event }) {
               </div>
               <div className={Styles.eventDesMain}>{desc}</div>
               <div className={Styles.eventLinkBtn}>
-                {user ? (
-                  <button
-                    onClick={handleRegister}
-                    disabled={!registrationopen}
-                    className={Styles.cta}
-                    type="button"
-                  >
-                    {registrationopen ? 'Register' : 'Registration Closed'}
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      Router.push('/register');
-                    }}
-                    className={Styles.cta}
-                    type="button"
-                  >
-                    Continue to Login
-                  </button>
-                )}
+                <button
+                  onClick={handleRegister}
+                  disabled={!registrationopen}
+                  className={Styles.cta}
+                  type="button"
+                >
+                  {registrationopen ? 'Register' : 'Registration Closed'}
+                </button>
+
+                <button
+                  onClick={() => {
+                    Router.push('/register');
+                  }}
+                  className={Styles.cta}
+                  type="button"
+                >
+                  Continue to Login
+                </button>
 
                 <Link href={rulebk} target="_blank">
                   <button className={Styles.cta} type="button">

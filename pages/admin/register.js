@@ -33,7 +33,6 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
       autoClose: 6000,
       type,
