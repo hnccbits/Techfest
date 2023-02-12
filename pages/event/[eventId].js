@@ -37,6 +37,10 @@ function EventsPage({ event }) {
     if (user) {
       handleModalToggle();
     } else {
+      // <<<<<<< HEAD
+      // =======
+      // window.alert('You must need to register.');
+      // >>>>>>> d64aca76be3b8c674c89c10707909320adf80c7d
       Router.push('/register');
     }
   };

@@ -1,4 +1,9 @@
-import { FaFacebookSquare, FaInstagramSquare, FaLinkedin,FaTwitterSquare } from 'react-icons/fa';
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 
 import Link from 'next/link';
 import Styles from './home.module.css';

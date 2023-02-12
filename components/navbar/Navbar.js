@@ -11,22 +11,40 @@ export default function Navbar() {
     logout();
   };
   const [header, setHeader] = useState();
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const userloggedin = (
-    <div className={Styles.navbar}>
-      <Link href="/" legacyBehavior>
-        <a>Home</a>
-      </Link>
-      <Link href="/event" legacyBehavior>
-        <a>Events</a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a>About Us</a>
-      </Link>
-      <Link href="/contactus" legacyBehavior>
-        <a>Contact Us</a>
-      </Link>
-      <a onClick={exit}>Log out</a>
+    <div className={Styles.navContainer}>
+      <div className={Styles.logo}>
+        <img src="img/sm_logo.svg" alt="" />
+      </div>
+      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
+        <Link href="/" legacyBehavior>
+          <a>Home</a>
+        </Link>
+        <Link href="/event" legacyBehavior>
+          <a>Events</a>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <a>About Us</a>
+        </Link>
+        <Link href="/contactus" legacyBehavior>
+          <a>Contact Us</a>
+        </Link>
+        <a onClick={exit}>Log out</a>
+      </div>
+      <div className={Styles.hamburger}>
+        {!isNavOpen && (
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/hamburger.svg" alt="" />
+          </button>
+        )}
+        {isNavOpen && (
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/close.svg" alt="" />
+          </button>
+        )}
+      </div>
     </div>
   );
 
@@ -40,28 +58,45 @@ export default function Navbar() {
     </div>
   );
   const notloggedin = (
-    <div className={Styles.navbar}>
-      <Link href="/" legacyBehavior>
-        <a>Home</a>
-      </Link>
-      <Link href="/event" legacyBehavior>
-        <a>Events</a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a>About Us</a>
-      </Link>
-      <Link href="/contactus" legacyBehavior>
-        <a>Contact Us</a>
-      </Link>
-      <Link href="/login" legacyBehavior>
-        <a>Login</a>
-      </Link>
-      <Link href="/register" legacyBehavior>
-        <a>Register</a>
-      </Link>
-      <Link href="/admin/login" legacyBehavior>
-        <a>Admin Login</a>
-      </Link>
+    <div className={Styles.navContainer}>
+      <div className={Styles.logo}>
+        <img src="img/sm_logo.svg" alt="" />
+      </div>
+      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
+        <Link href="/" legacyBehavior>
+          <a>Home</a>
+        </Link>
+        <Link href="/event" legacyBehavior>
+          <a>Events</a>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <a>About Us</a>
+        </Link>
+        <Link href="/contactus" legacyBehavior>
+          <a>Contact Us</a>
+        </Link>
+        <Link href="/login" legacyBehavior>
+          <a>Login</a>
+        </Link>
+        <Link href="/register" legacyBehavior>
+          <a>Register</a>
+        </Link>
+        <Link href="/admin/login" legacyBehavior>
+          <a>Admin Login</a>
+        </Link>
+      </div>
+      <div className={Styles.hamburger}>
+        {!isNavOpen && (
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/hamburger.svg" alt="" />
+          </button>
+        )}
+        {isNavOpen && (
+          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
+            <img src="img/close.svg" alt="" />
+          </button>
+        )}
+      </div>
     </div>
   );
 
