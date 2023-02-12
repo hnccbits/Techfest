@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Styles from './home.module.css';
 import Card from '../card/Card';
 // import { FaFacebookSquare } from 'react-icons/fa';
+// import axiosInstance from '../../api/axios';
 
 const home = () => {
   return (
@@ -102,6 +103,21 @@ const home = () => {
             </Link>
           </div>
           <div className={Styles.homeEventMiddle}>
+            {/* {events.map(
+              ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                return (
+                  <Card
+                    key={id}
+                    name={name}
+                    coverimg={coverimg}
+                    id={id}
+                    club={club}
+                    desc={desc}
+                    registrationopen={registrationopen}
+                  />
+                );
+              },
+            )} */}
             <Card />
             <Card />
             <Card />
@@ -120,3 +136,18 @@ const home = () => {
 };
 
 export default home;
+
+// export async function getStaticProps() {
+//   const res = await axiosInstance({
+//     method: 'get',
+//     url: '/event',
+//     withCredentials: false,
+//   });
+
+//   return {
+//     props: {
+//       events: res.data.data,
+//     },
+//     revalidate: 1000,
+//   };
+// }
