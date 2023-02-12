@@ -130,12 +130,12 @@ function AdminLoginPage() {
             >
               {isLoading ? 'Loading...' : 'Submit'}
             </button>
-            <span className="Already">
-              Don&#39;t Have Account?{' '}
+            <br />
+            <button type="button" className="Already">
               <Link href="/admin/register" legacyBehavior>
                 <a>Register</a>
               </Link>
-            </span>
+            </button>
           </form>
         </div>
       </div>
