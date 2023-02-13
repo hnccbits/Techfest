@@ -90,11 +90,12 @@
 .eventLinkBtn {
   position: relative !important;
   display: flex;
+  flex-wrap: wrap;
   gap: .5rem;
 }
 
 .cta {
-  padding: .4rem .8rem;
-  font-size: 1rem;
+  padding: .4rem;
+  font-size: .9rem;
 }
 }

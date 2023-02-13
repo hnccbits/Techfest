@@ -7,7 +7,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4rem;
-  z-index: 1000000000;
+/* <<<<<<< HEAD */
+  z-index: 10000;
+/* ======= */
+  /* z-index: 1000000000; */
+/* >>>>>>> 47d06535fd42c8584335a1d58b7517c55bae1c94 */
 }
 .navContainer .logo img{
   width: 60px; height: 60px;
@@ -25,6 +29,9 @@
 }
 .navContainer .hamBurger{
   display: none;
+}
+.navContainer .hamBurger a{
+  color: #fff !important;
   font-size: 2rem;
   padding: 10px;
 }
