@@ -122,6 +122,9 @@ function Eventedit({ eventId }) {
       clubevent.dateofevent === ''
     ) {
       setErrMsg('All the fields are must required');
+    } else if (coverimg && !coverimg.type.includes('image')) {
+      setErrMsg('Upload image in Event Poster');
+      setCoverimg();
     } else {
       ahandleSubmit();
     }

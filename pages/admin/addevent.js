@@ -56,6 +56,9 @@ function AddEvent() {
     }
     if (!coverimg) {
       setErrMsg('Must Upload Event Poster');
+    } else if (!coverimg.type.includes('image')) {
+      setErrMsg('Upload image in Event Poster');
+      setCoverimg();
     } else {
       try {
         setIsLoading(true);
