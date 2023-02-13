@@ -218,6 +218,7 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <input
                     type="text"
+                    name="name"
                     id="name"
                     placeholder="Name*"
                     className={Styles.inputbox}
@@ -247,7 +248,7 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <input
                     type="email"
-                    id="email"
+                    name="email"
                     placeholder="Email Id*"
                     className={Styles.inputbox}
                     onChange={handleChange}
@@ -258,8 +259,8 @@ function Register() {
               <div className={Styles.formrow}>
                 <div className={Styles.inputdata}>
                   <input
-                    type="tel"
-                    id="phone"
+                    type="phone"
+                    name="phone"
                     placeholder="Phone Number*"
                     className={Styles.inputbox}
                     onChange={handleChange}
@@ -268,8 +269,8 @@ function Register() {
                 </div>
                 <div className={Styles.inputdata}>
                   <input
-                    type="tel"
-                    id="whatsappmobile"
+                    type="number"
+                    name="whatsapp"
                     placeholder="Whatsapp Number*"
                     className={Styles.inputbox}
                     onChange={handleChange}
@@ -281,7 +282,7 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <input
                     type="text"
-                    id="college"
+                    name="college"
                     placeholder="College Name*"
                     className={Styles.inputbox}
                     onChange={handleChange}
@@ -291,7 +292,7 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <input
                     type="text"
-                    id="city"
+                    name="city"
                     placeholder="College City*"
                     className={Styles.inputbox}
                     onChange={handleChange}
@@ -302,31 +303,27 @@ function Register() {
               <div className={Styles.formrow}>
                 <div className={Styles.inputdata}>
                   <select
-                    id="gender"
+                    name="year"
                     className={Styles.inputbox}
                     onChange={handleChange}
                     required
                   >
                     <option value="none" selected disabled hidden>
-                      Branch*
+                      Year*
                     </option>
-                    <option value="CSE">Computer Science</option>
-                    <option value="IT">Information Technology</option>
-                    <option value="ECE">Electronics and Communication</option>
-                    <option value="EE">Electrical</option>
-                    <option value="MECH">Mechanical</option>
-                    <option value="CHEM">Chemical</option>
-                    <option value="METAL">Metallurgy</option>
-                    <option value="CIVIL">Civil</option>
-                    <option value="MINING">Mining</option>
-                    <option value="PRODUCTION">Production</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="5">5th Year</option>
                   </select>
                 </div>
                 <div className={Styles.inputdata}>
                   <input
-                    type="number"
-                    id="batch"
-                    placeholder="Batch*"
+                    type="text"
+                    defaultValue={value.name}
+                    name="branch"
+                    placeholder="Enter your Branch*"
                     className={Styles.inputbox}
                     required
                   />

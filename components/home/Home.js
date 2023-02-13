@@ -23,11 +23,11 @@ const home = ({ events }) => {
             TECH MAHOTSAV &#39;23
             <img src="img/uline.svg" alt="" className={Styles.homeHeroLine} />
           </div>
-          <div className={Styles.homeHeroBtn}>
-            <Link href="/event" legacyBehavior>
+          <Link href="/event" legacyBehavior>
+            <div className={Styles.homeHeroBtn}>
               <a>View Events</a>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div className={Styles.homeHeroSocial}>
             <Link
               href="https://www.facebook.com/BITSindriDhanbad/"
