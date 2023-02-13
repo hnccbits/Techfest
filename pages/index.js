@@ -20,7 +20,7 @@ export async function getStaticProps() {
   });
   return {
     props: {
-      events: res.data.data.reverse().splice(0, 3),
+      events: res.data.data.reverse().splice(0, 4),
     },
     revalidate: 1000,
   };
