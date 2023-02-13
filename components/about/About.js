@@ -40,9 +40,9 @@ function About() {
       <div className={Styles.assoc}>
         <div className={Styles.title}>In Association With</div>
         <div className={Styles.imageTile}>
-          <img src="img/iete.svg" alt="" />
           <img src="img/hncc.svg" alt="" />
           <img src="img/iste.svg" alt="" />
+          <img src="img/iete.svg" alt="" />
           <img src="img/model.svg" alt="" />
           <img src="img/sae.svg" alt="" />
         </div>

@@ -187,7 +187,7 @@
 
 .homeEventMiddle {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     gap: 3rem;
 }
 

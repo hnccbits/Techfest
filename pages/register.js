@@ -230,7 +230,6 @@ function Register() {
                   <select
                     id="gender"
                     className={Styles.inputbox}
-                    defaultValue={value.name}
                     name="gender"
                     onChange={handleChange}
                     required
@@ -304,7 +303,6 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <select
                     name="year"
-                    defaultValue={value.name}
                     className={Styles.inputbox}
                     onChange={handleChange}
                     required
@@ -319,7 +317,6 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <input
                     type="text"
-                    defaultValue={value.name}
                     onChange={handleChange}
                     name="branch"
                     placeholder="Enter your Branch*"
