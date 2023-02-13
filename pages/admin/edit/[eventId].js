@@ -21,8 +21,8 @@ function Eventedit({ eventId }) {
 
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
@@ -35,6 +35,7 @@ function Eventedit({ eventId }) {
         const res = await axiosInstance({
           method: 'get',
           url: '/event',
+          withCredentials: false,
         });
         setIsLoading(false);
         const d = res.data.data.filter((e) => e._id === eventId);
@@ -87,13 +88,17 @@ function Eventedit({ eventId }) {
         headers: {
           'content-type': 'multipart/form-data',
         },
+        withCredentials: false,
       };
       const res = await axiosInstance.patch(
         `/admin/update/event/${clubevent._id}`,
         formData,
         config,
       );
-      setIsLoading(false);
+      onToast({
+        msg: 'Event Updated Successfully',
+        type: 'success',
+      });
       router.push('/admin/events');
     } catch (err) {
       if (!err?.response) {
@@ -117,6 +122,9 @@ function Eventedit({ eventId }) {
       clubevent.dateofevent === ''
     ) {
       setErrMsg('All the fields are must required');
+    } else if (coverimg && !coverimg.type.includes('image')) {
+      setErrMsg('Upload image in Event Poster');
+      setCoverimg();
     } else {
       ahandleSubmit();
     }

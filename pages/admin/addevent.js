@@ -32,11 +32,12 @@ function AddEvent() {
   const [coverimg, setCoverimg] = useState();
   const [rulebook, setRulebook] = useState();
   const [problemstatement, setProblemstatement] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
@@ -53,41 +54,56 @@ function AddEvent() {
       setErrMsg('All the fields are required');
       return;
     }
-
-    try {
-      const formData = new FormData();
-      formData.append('coverimg', coverimg);
-      formData.append('rulebook', rulebook);
-      if (problemstatement) {
-        formData.append('problemstatement', problemstatement);
-      }
-      formData.append('name', value.name);
-      formData.append('teamsize', value.teamsize);
-      formData.append('desc', value.desc);
-      formData.append('dateofevent', value.dateofevent);
-      const config = {
-        headers: {
-          'content-type': 'multipart/form-data',
-        },
-      };
-      await axiosInstance.post('/admin/add/event', formData, config);
-      router.push('/admin/events');
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Server Response');
-      } else if (err.response?.status === 400) {
-        setErrMsg(err.response.data.error);
-      } else {
-        setErrMsg('Unknown Error');
+    if (!coverimg) {
+      setErrMsg('Must Upload Event Poster');
+    } else if (!coverimg.type.includes('image')) {
+      setErrMsg('Upload image in Event Poster');
+      setCoverimg();
+    } else {
+      try {
+        setIsLoading(true);
+        const formData = new FormData();
+        formData.append('coverimg', coverimg);
+        formData.append('rulebook', rulebook);
+        if (problemstatement) {
+          formData.append('problemstatement', problemstatement);
+        }
+        formData.append('name', value.name);
+        formData.append('teamsize', value.teamsize);
+        formData.append('desc', value.desc);
+        formData.append('dateofevent', value.dateofevent);
+        const config = {
+          headers: {
+            'content-type': 'multipart/form-data',
+          },
+          withCredentials: false,
+        };
+        await axiosInstance.post('/admin/add/event', formData, config);
+        onToast({
+          msg: 'Event Added Successfully, changes will take effect in under 15 minutes',
+          type: 'success',
+        });
+        router.push('/admin/events');
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg('No Internet connection');
+        } else if (err.response?.status === 400) {
+          setErrMsg(err.response.data.error);
+        } else if (err.response?.status === 401) {
+          setErrMsg('Unauthorized');
+        } else {
+          setErrMsg('Login Failed');
+        }
       }
     }
   };
   if (errMsg) {
     onToast({
       msg: errMsg,
-      type: 'alert',
+      type: 'warning',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>
@@ -158,7 +174,14 @@ function AddEvent() {
               <span>Upload Problem Statement</span>
             </div>
           </div>
-          <input type="submit" onClick={handleSubmit} value="Register Event" />
+          <button
+            type="submit"
+            disabled={isLoading}
+            onClick={handleSubmit}
+            value="Register Event"
+          >
+            {isLoading ? 'Uploading...' : 'Add Event'}
+          </button>
         </form>
       </div>
     </>

@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 import Styles from './Footer.module.css';
 
 export default function Footer() {
@@ -11,8 +17,9 @@ export default function Footer() {
             <img src="img/line.svg" alt="" />
           </span>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Nisl in facilisis ultrices
-            rhoncus maecenas. Augue nunc gravida risus blandit mattis eget quam.
+            BIT Sindri&apos;s &ldquo;TECH MAOTSAV&rdquo; is a popular tech
+            festival with coding competition, development events, and
+            exhibitions.
           </p>
         </div>
         <div className={Styles.footerEvents}>
@@ -21,13 +28,13 @@ export default function Footer() {
           </span>
           <ul>
             <li>
-              <Link href="#" legacyBehavior>
-                <a>Workshop</a>
+              <Link href="/admin/register" legacyBehavior>
+                <a>Admin Register</a>
               </Link>
             </li>
             <li>
-              <Link href="#" legacyBehavior>
-                <a>Speaker</a>
+              <Link href="/admin/login" legacyBehavior>
+                <a>Admin Login</a>
               </Link>
             </li>
             <li>
@@ -39,9 +46,9 @@ export default function Footer() {
         </div>
         <div className={Styles.footerContact}>
           <span className={Styles.footerHeading}>
-            Contact us <img src="img/line.svg" alt="" />
+            BIT SINDRI <img src="img/line.svg" alt="" />
           </span>
-          <ul>
+          {/* <ul>
             <li>
               <Link href="#" legacyBehavior>
                 <a>Instagram</a>
@@ -62,30 +69,55 @@ export default function Footer() {
                 <a>Twitter</a>
               </Link>
             </li>
-          </ul>
+          </ul> */}
+          <p>
+            BIT Sindri, The Premier Engineering College of Jharkhand, Department
+            of Higher Technical Education, Government of Jharkhand.
+          </p>
         </div>
       </div>
       <div className={Styles.footerCopyright}>
-        <div className="copyLeft">© 2022 Techfest | Powered by BIT Sindri</div>
+        <div className="copyLeft">© 2023 Techfest | Powered by HnCC</div>
         <div className={Styles.copyRight}>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://www.facebook.com/hnccbits?mibextid=ZbWKwL"
+            legacyBehavior
+          >
             <a>
-              <i>F</i>
+              <i>
+                {' '}
+                <FaFacebookSquare />
+              </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://instagram.com/hnccbits?igshid=ZDdkNTZiNTM= "
+            legacyBehavior
+          >
             <a>
-              <i>I</i>
+              <i>
+                <FaInstagramSquare />
+              </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://www.linkedin.com/company/hnccbits/"
+            legacyBehavior
+          >
             <a>
-              <i>Y</i>
+              <i>
+                <FaLinkedin />
+              </i>
             </a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link
+            href="https://twitter.com/hnccbits?t=4Yt5VzPdz5-Khm18clM5EQ&s=09 "
+            legacyBehavior
+          >
             <a>
-              <i>T</i>
+              <i>
+                <FaTwitterSquare />
+              </i>
             </a>
           </Link>
         </div>

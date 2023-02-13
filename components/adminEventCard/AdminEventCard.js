@@ -1,7 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import { MdDelete, MdEditNote } from 'react-icons/md';
+import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import FileDownload from 'js-file-download';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import axiosInstance from '../../api/axios';
 import Styles from './AdminEventCard.module.css';
 
@@ -39,6 +42,15 @@ function AdminEventCard({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const Router = useRouter();
   const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onToast = ({ msg, type }) =>
+    toast(msg, {
+      position: 'bottom-right',
+      theme: 'dark',
+      autoClose: 6000,
+      type,
+    });
 
   const handleDeleteRequest = () => {
     setIsModalOpen(true);
@@ -52,16 +64,23 @@ function AdminEventCard({
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false,
       });
+
       if (res.status === 201) {
+        onToast({
+          msg: 'Event deleted Successfully',
+          type: 'success',
+        });
         deleteEventHandler(id);
       }
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg('No Internet connection');
       } else if (err.response?.status === 400) {
         setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
       } else {
-        setErrMsg('Unknown Error');
+        setErrMsg('Delete Failed');
       }
     }
     setIsModalOpen(false);
@@ -74,7 +93,8 @@ function AdminEventCard({
   const handleEdit = () => {
     Router.push(`/admin/edit/${id}`);
   };
-  const handleDownloadResponse = async () => {
+  const handleDownloadResponse = async (e) => {
+    e.preventDefault();
     try {
       const res = await axiosInstance({
         method: 'post',
@@ -102,7 +122,7 @@ function AdminEventCard({
   const handleCloseRegistration = async (e) => {
     try {
       e.preventDefault();
-
+      setIsLoading(true);
       const res = await axiosInstance({
         method: 'patch',
         url: `/admin/toggleacceptresponse/event/${id}`,
@@ -113,6 +133,14 @@ function AdminEventCard({
         withCredentials: false,
       });
       acceptingResponseHandler(id);
+      setIsLoading(false);
+      const ans = !registrationopen ? 'Opened' : 'Closed';
+      if (res.status === 201) {
+        onToast({
+          msg: `Registration ${ans}`,
+          type: 'success',
+        });
+      }
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -126,35 +154,51 @@ function AdminEventCard({
 
   const participantlength = participants.length;
   const img = `https://techmahotsav.blob.core.windows.net/data/${coverimg}`;
+
+  if (errMsg) {
+    onToast({
+      msg: errMsg,
+      type: 'alert',
+    });
+    setErrMsg('');
+    setIsLoading(false);
+  }
+
   return (
     <div className="adminEventCard">
       <img src={img} alt="" />
+      <span>
+        {registrationopen ? 'Registration open' : 'Registration closed'}
+      </span>
       <h2>{name}</h2>
-      <div className="closeBtn">
-        <span>
-          {registrationopen ? 'Registration open' : 'Registration closed'}
-        </span>
-        <input
-          value={registrationopen}
-          onChange={handleCloseRegistration}
-          type="checkbox"
-          name="registrationopen"
-        />
+
+      <div
+        alt="Open/Close Registration"
+        onClick={handleCloseRegistration}
+        className="toggleBtn"
+      >
+        {registrationopen ? <BsToggleOn /> : <BsToggleOff />}
       </div>
+
       <div onClick={handleDeleteRequest} className="deleteBtn">
-        D
+        <MdDelete />
       </div>
+
       <CustomModal
         isOpen={isModalOpen}
         onConfirm={handleConfirm}
         onCancel={handleCancel}
       />
       <div onClick={handleEdit} className="editBtn">
-        E
+        <MdEditNote />
       </div>
-      <div onClick={handleDownloadResponse} className="bottomBtn">
-        Download Response
-      </div>
+      <button
+        type="submit"
+        onClick={handleDownloadResponse}
+        className="bottomBtn"
+      >
+        Download data
+      </button>
     </div>
   );
 }

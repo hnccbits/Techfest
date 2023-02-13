@@ -75,14 +75,8 @@ export default function Navbar() {
         <Link href="/contactus" legacyBehavior>
           <a>Contact Us</a>
         </Link>
-        <Link href="/login" legacyBehavior>
-          <a>Login</a>
-        </Link>
         <Link href="/register" legacyBehavior>
           <a>Register</a>
-        </Link>
-        <Link href="/admin/login" legacyBehavior>
-          <a>Admin Login</a>
         </Link>
       </div>
       <div className={Styles.hamburger}>

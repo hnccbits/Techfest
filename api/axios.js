@@ -3,9 +3,8 @@ import axios from 'axios';
 let token;
 
 const axiosInstance = axios.create({
-  withCredentials: true,
   baseURL: 'https://techmahotsav.azurewebsites.net/api',
-  // baseURL: 'http://localhost:5000/api',
+  //  baseURL: 'http://localhost:5003/api',
 });
 
 axiosInstance.interceptors.request.use(

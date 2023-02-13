@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 // import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
+import Styles from '../components/signUp/signup.module.css';
 
 function Register() {
   const history = useRouter();
@@ -35,17 +36,42 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const onToast = ({ msg, type }) =>
     toast(msg, {
-      hideProgressBar: false,
       position: 'bottom-right',
+      theme: 'dark',
       autoClose: 6000,
       type,
     });
+  const ahandleSubmit = async () => {
+    try {
+      setIsLoading(true);
+      const res = await axiosInstance({
+        method: 'post',
+        url: '/register',
+        data: value,
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: false,
+      });
+      setIsLoading(false);
+      login(res.data.data);
+      onToast({
+        msg: 'Logged In Successfully',
+        type: 'success',
+      });
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No Internet connection');
+      } else if (err.response?.status === 400) {
+        setErrMsg(err.response.data.error);
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized');
+      } else {
+        setErrMsg('Login Failed');
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    if (value.cnfpassword !== value.password) {
-      setErrMsg('Passwords do not match');
-    }
     if (
       value.name === '' ||
       value.email === '' ||
@@ -58,28 +84,23 @@ function Register() {
       value.whatsapp === ''
     ) {
       setErrMsg('All the fields are required');
+    } else if (value.phone.length !== 10 || value.whatsapp.length !== 10) {
+      onToast({
+        msg: 'Phone/whatsapp number should be 10 digit',
+        type: 'warn',
+      });
+    } else if (value.cnfpassword !== value.password) {
+      onToast({
+        msg: 'Passwords do not match',
+        type: 'warn',
+      });
+    } else if (value.password.length < 7) {
+      onToast({
+        msg: 'Password should be atleast 7 characters',
+        type: 'warn',
+      });
     } else {
-      try {
-        const res = await axiosInstance({
-          method: 'post',
-          url: '/register',
-          data: value,
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: false,
-        });
-        login(res.data.data);
-      } catch (err) {
-        setIsLoading(false);
-        if (!err?.response) {
-          setErrMsg('No Internet connection');
-        } else if (err.response?.status === 400) {
-          setErrMsg(err.response.data.error);
-        } else if (err.response?.status === 401) {
-          setErrMsg('Unauthorized');
-        } else {
-          setErrMsg('Registration Failed');
-        }
-      }
+      ahandleSubmit();
     }
   };
 
@@ -96,16 +117,25 @@ function Register() {
       type: 'alert',
     });
     setErrMsg('');
+    setIsLoading(false);
   }
   return (
     <>
       {/* <Navbar /> */}
-      <div className="RegisterForm">
+      <main className={Styles.outerlayer}>
+        <div className={Styles.contactcontainer}>
+          <div className={Styles.Leftside}>
+            <img src="img/3d_logo.svg" alt="Astronaut" />
+          </div>
+          <div className={Styles.Rightside}>
+            <div className={Styles.headingtext}>Sign Up</div>
+            <form>
+              {/* <div className="RegisterForm">
         <div className="formHeading">Sign Up</div>
         <div className="RegisterFormWrapper">
           <img src="img/formImg.png" alt="" />
-          <form>
-            <div className="line1 formLine">
+          <form> */}
+              {/* <div className="line1 formLine">
               <input
                 name="name"
                 onChange={handleChange}
@@ -183,61 +213,184 @@ function Register() {
                 <option value="4">4th Year</option>
                 <option value="5">5th Year</option>
               </select>
-            </div>
-            <div className="line6 formLine">
-              <input
-                name="password"
-                onChange={handleChange}
-                type="password"
-                placeholder="Enter Password"
-                required
-              />
-              {/* <ul className="field__rules">
-                <li>One lowercase character</li>
-                <li>One uppercase character</li>
-                <li>One number</li>
-                <li>One special character</li>
-                <li>9 characters minimum</li>
-              </ul> */}
-              <div id="pwd_strength_wrap">
-                <div id="passwordDescription">Password not entered</div>
-                <div id="passwordStrength" className="strength0" />
-                <div id="pswd_info">
-                  <strong>Strong Password Tips:</strong>
-                  <ul>
-                    <li className="invalid" id="length">
-                      At least 6 characters
-                    </li>
-                    <li className="invalid" id="pnum">
-                      At least one number
-                    </li>
-                    <li className="invalid" id="capital">
-                      At least one lowercase &amp; one uppercase letter
-                    </li>
-                    <li className="invalid" id="spchar">
-                      At least one special character
-                    </li>
-                  </ul>
+            </div> */}
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className={Styles.inputdata}>
+                  <select
+                    id="gender"
+                    className={Styles.inputbox}
+                    defaultValue={value.name}
+                    name="gender"
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="none" selected disabled hidden>
+                      Gender*
+                    </option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Others</option>
+                  </select>
                 </div>
               </div>
-              <input
-                name="cnfpassword"
-                onChange={handleChange}
-                type="password"
-                placeholder="Confirm Password"
-                required
-              />
-            </div>
-            <input type="submit" onClick={handleSubmit} required />
-            <span className="Already">
-              Already Have Account?{' '}
-              <Link href="/login" legacyBehavior>
-                <a>Login</a>
-              </Link>
-            </span>
-          </form>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Id*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="phone"
+                    name="phone"
+                    placeholder="Phone Number*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="number"
+                    name="whatsapp"
+                    placeholder="Whatsapp Number*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="text"
+                    name="college"
+                    placeholder="College Name*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="College City*"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <select
+                    name="year"
+                    className={Styles.inputbox}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="none" selected disabled hidden>
+                      Year*
+                    </option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="5">5th Year</option>
+                  </select>
+                </div>
+                <div className={Styles.inputdata}>
+                  <input
+                    type="text"
+                    defaultValue={value.name}
+                    name="branch"
+                    placeholder="Enter your Branch*"
+                    className={Styles.inputbox}
+                    required
+                  />
+                </div>
+              </div>
+              <div className={Styles.inputdata}>
+                <input
+                  name="password"
+                  onChange={handleChange}
+                  type="password"
+                  placeholder="Enter Password"
+                  required
+                />
+
+                <div id="pwd_strength_wrap">
+                  <div id="passwordDescription">Password not entered</div>
+                  <div id="passwordStrength" className="strength0" />
+                  <div id="pswd_info">
+                    <strong>Strong Password Tips:</strong>
+                    <ul>
+                      <li className="invalid" id="length">
+                        At least 6 characters
+                      </li>
+                      <li className="invalid" id="pnum">
+                        At least one number
+                      </li>
+                      <li className="invalid" id="capital">
+                        At least one lowercase &amp; one uppercase letter
+                      </li>
+                      <li className="invalid" id="spchar">
+                        At least one special character
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <input
+                  name="cnfpassword"
+                  onChange={handleChange}
+                  type="password"
+                  placeholder="Confirm Password"
+                  required
+                  className={Styles.inputdata}
+                />
+              </div>
+              <div className={Styles.formrowbtn} id={Styles.submitbtn}>
+                <div className={Styles.inputdata}>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={handleSubmit}
+                  >
+                    {isLoading ? 'Loading...' : 'Submit'}
+                  </button>
+                  <div className={Styles.logintext}>
+                    <span className="Already">
+                      Already Have Account?{' '}
+                      <Link href="/login" legacyBehavior>
+                        <a>Login</a>
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

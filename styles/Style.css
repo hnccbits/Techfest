@@ -27,7 +27,8 @@ body {
 
 @font-face {
   font-family: 'Galano Grotesque Bold';
-  src: url('../components//assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
+  src: url('../components//assets/fonts/GalanoGrotesqueBold.otf')
+    format('truetype');
 }
 
 /* User Register Styling Open*/
@@ -39,7 +40,6 @@ body {
   border: 1.05682px solid #a3a3ab;
   box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
     4px 4px 18px rgba(226, 227, 252, 0.12);
-  border-radius: 8px;
   padding: 0 2rem 1.5rem 2rem;
 }
 
@@ -58,8 +58,12 @@ body {
   gap: 2rem;
 }
 
-.RegisterFormWrapper img {
-  width: 400px;
+.RegisterFormWrapper > img {
+  /* position: relative; */
+  width: 970px;
+  /* height: 392.06px; */
+  /* left: -137px; */
+  /* top: 17px; */
 }
 
 .RegisterFormWrapper form {
@@ -127,6 +131,8 @@ body {
   outline: none;
   border-radius: 0;
   cursor: pointer;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
 }
 
 .RegisterFormWrapper form button[type='submit'] {
@@ -185,14 +191,32 @@ body {
   z-index: -1;
 }
 
-.adminEventCard .closeBtn {
+/* .adminEventCard .closeBtn {
   position: absolute;
   top: 10px;
   left: 10px;
-}
+} */
 
-.adminEventCard .closeBtn span {
+/* .adminEventCard .closeBtn span {
   margin-left: 5px;
+} */
+
+.adminEventCard .toggleBtn {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  height: 35px;
+  width: 35px;
+  font-weight: bold;
+  background: #715ae2;
+  /* text-align: center; */
+  /* line-height: 35px; */
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .adminEventCard .deleteBtn {
@@ -203,24 +227,33 @@ body {
   width: 35px;
   font-weight: bold;
   background: #715ae2;
-  text-align: center;
-  line-height: 35px;
+  /* text-align: center; */
+  /* line-height: 35px; */
   border-radius: 50%;
   cursor: pointer;
+  font-size: 1.5rem;
+  /* padding: ; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .adminEventCard .editBtn {
   position: absolute;
-  top: 50px;
-  right: 10px;
+  top: 10px;
+  right: 150px;
   height: 35px;
   width: 35px;
   font-weight: bold;
   background: #715ae2;
-  text-align: center;
-  line-height: 35px;
+  /* text-align: center; */
+  /* line-height: 35px; */
   border-radius: 50%;
   cursor: pointer;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .adminEventCard .bottomBtn {
@@ -360,15 +393,15 @@ input#pwd {
   width: 150px;
 }
 
-
 /* Event Added By Admin CSS */
 
 .adminEventAddForm {
   padding: 2rem;
   margin: 2rem 0;
-  background: #0C0B20;
-  border: 1.05682px solid #A3A3AB;
-  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12), 4px 4px 18px rgba(226, 227, 252, 0.12);
+  background: #0c0b20;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -376,8 +409,7 @@ input#pwd {
 }
 .adminEventAddForm input,
 .adminEventAddForm textarea,
-.adminEventAddForm select
-{
+.adminEventAddForm select {
   padding: 0.5rem;
   background: #1f1d2e;
   backdrop-filter: blur(2.11364px);
@@ -385,20 +417,20 @@ input#pwd {
   margin: 0.5rem;
   outline: none;
 }
-.adminEventAddLine1{
+.adminEventAddLine1 {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
-.adminEventAddLine1 input{
+.adminEventAddLine1 input {
   flex: 50%;
 }
-.adminEventAddLine2{
+.adminEventAddLine2 {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
-.adminEventAddLine2 .fileInput{
+.adminEventAddLine2 .fileInput {
   position: relative;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -412,41 +444,43 @@ input#pwd {
   min-width: 150px;
   height: 150px;
 }
-.adminEventAddLine2 .fileInput input[type="file"]{
+.adminEventAddLine2 .fileInput input[type='file'] {
   cursor: pointer;
   position: absolute;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   margin: 0;
   opacity: 0;
 }
-.adminEventAddLine2 textarea{
+.adminEventAddLine2 textarea {
   width: 100%;
 }
-.adminEventAddLine3{
+.adminEventAddLine3 {
   display: flex;
 }
-.adminEventAddLine3 input{
+.adminEventAddLine3 input {
   flex: 1;
 }
-.adminEventAddLine3 .fileInput{
+.adminEventAddLine3 .fileInput {
   flex: 1;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
+  padding: 0.5rem;
   text-align: center;
   background: #1f1d2e;
   backdrop-filter: blur(2.11364px);
   border-radius: 3px;
   margin: 0.4rem;
 }
-.adminEventAddLine3 .fileInput input[type="file"]{
+.adminEventAddLine3 .fileInput input[type='file'] {
   cursor: pointer;
   position: absolute;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -502,18 +536,24 @@ input#pwd {
     font-size: 24px;
   }
   .RegisterFormWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .RegisterFormWrapper > div {
+    display: flex;
     flex-direction: column;
   }
   .formLineBlock {
-    width: 100%;
+    width: 80%;
   }
   .mail {
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
   }
   .btn {
-    width: 100%;
+    width: 80%;
     margin-top: 10px;
+    justify-content: center;
   }
   .Already {
     font-size: 14px;
@@ -764,9 +804,8 @@ input#pwd {
   margin-left: 10rem;
 }
 
-.RegisterFormWrapper form span.Already{
+.RegisterFormWrapper form span.Already {
   font-size: 0.8rem;
-
 }
 
 @media (max-width: 1100px) {
@@ -780,7 +819,7 @@ input#pwd {
   }
 }
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
   .RegisterFormWrapper form button.Already {
     margin-left: 8rem;
   }
@@ -798,7 +837,7 @@ input#pwd {
     /* flex-direction: row; */
     align-items: center;
   }
- 
+
   .formLineBlock {
     width: 50%;
   }
@@ -815,6 +854,180 @@ input#pwd {
   }
 }
 
-.formLineBlock .form_label{
- margin: 0.4rem;
+.formLineBlock .form_label {
+  margin: 0.4rem;
+}
+
+.outerlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+}
+.contactcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  background: #0c0b20;
+  width: 1200px;
+  max-width: 1200px;
+  padding: 30px 30px 30px 30px;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+}
+.Leftside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.Leftside img {
+  width: 482px;
+  height: 482px;
+}
+.Rightside {
+  width: 60%;
+  padding: 4px;
+}
+.Rightside .headingtext {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+  color: #f3f3ff;
+  margin: 0 8.5px;
+  text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4),
+    4px 4px 30px rgba(226, 227, 252, 0.4);
+}
+.contactcontainer form {
+  padding: 0px 0 0 0;
+}
+.contactcontainer form .formrow {
+  display: flex;
+  margin: 22px 0;
+}
+form .formrow .inputdata {
+  width: 100%;
+  height: 50px;
+  margin: 0 8.5px;
+  position: relative;
+}
+form .formrow #textarea {
+  height: 150px;
+}
+.inputdata input,
+#textarea textarea,
+.inputdata select {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 0.8px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 0.95rem;
+  background: #1f1d2e;
+  border-radius: 3px;
+  padding: 16px;
+}
+.inputdata select {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 0.8px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 0.95rem;
+  background: #1f1d2e;
+  border-radius: 3px;
+  padding: 16px;
+}
+#textarea textarea {
+  resize: none;
+  padding-top: 10px;
+}
+.inputdata input:focus,
+#textarea textarea:focus {
+  background-color: #0b0a1d;
+  border: 0.8px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 3px;
+}
+#submitbtn .inputdata {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#submitbtn button {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 8px 46px;
+}
+.contactcontainer form .formrowbtn {
+  display: flex;
+  margin: 0;
+}
+form .formrowbtn .inputdata {
+  width: 100%;
+  height: 50px;
+  margin: 10px 8.5px 0 8.5px;
+  position: relative;
+}
+.inputbox::placeholder {
+  color: #f6f6f7;
+  font-size: 0.95rem;
+}
+.logintext {
+  margin: 0 8.5px;
+}
+.logintext p {
+  padding: 4px;
+}
+
+@media (max-width: 1017px) {
+  .Leftside {
+    width: 100%;
+  }
+  .Rightside {
+    width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .contactcontainer .headingtext {
+    font-size: 2.2rem;
+  }
+  .contactcontainer form {
+    padding: 10px 0 0 0;
+  }
+  .contactcontainer form .formrow {
+    display: block;
+  }
+  form .formrow .inputdata {
+    margin: 35px 0 !important;
+  }
+}
+
+@media (max-width: 533px) {
+  form .inputdata input {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 463px) {
+  .outerlayer {
+    padding: 40px 20px 40px 20px;
+  }
+  .formrow #textarea {
+    height: 400px;
+  }
+}
+@media (max-width: 380px) {
+  .outerlayer {
+    padding: 30px 10px 30px 10px;
+  }
 }
