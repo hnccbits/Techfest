@@ -168,7 +168,10 @@ const home = ({ events }) => {
           {/* )} */}
           <div className={Styles.homeEventBottom}>
             <div className={Styles.homeBtn}>
-              <Link href="#" legacyBehavior>
+              <Link
+                href="https://techmahotsav.blob.core.windows.net/data/1676303218014"
+                legacyBehavior
+              >
                 <a>Download Brochure</a>
               </Link>
             </div>
