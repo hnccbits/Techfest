@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
@@ -121,6 +122,9 @@ function Register() {
   }
   return (
     <>
+      <Head>
+        <title>Sign Up</title>
+      </Head>
       {/* <Navbar /> */}
       <main className={Styles.outerlayer}>
         <div className={Styles.contactcontainer}>
@@ -325,23 +329,29 @@ function Register() {
                   />
                 </div>
               </div>
-              <div className={Styles.inputdata}>
-                <input
-                  name="password"
-                  onChange={handleChange}
-                  type="password"
-                  placeholder="Enter Password"
-                  required
-                />
-
-                <input
-                  name="cnfpassword"
-                  onChange={handleChange}
-                  type="password"
-                  placeholder="Confirm Password"
-                  required
-                  className={Styles.inputdata}
-                />
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    placeholder="Enter Password*"
+                    className={Styles.inputbox}
+                    required
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    name="cnfpassword"
+                    onChange={handleChange}
+                    type="password"
+                    placeholder="Confirm Password*"
+                    required
+                    className={Styles.inputbox}
+                  />
+                </div>
               </div>
               <div className={Styles.formrowbtn} id={Styles.submitbtn}>
                 <div className={Styles.inputdata}>
@@ -352,6 +362,10 @@ function Register() {
                   >
                     {isLoading ? 'Loading...' : 'Submit'}
                   </button>
+                </div>
+              </div>
+              <div className={Styles.formrowbtn} id={Styles.submitbtn}>
+                <div className={Styles.inputdata}>
                   <div className={Styles.logintext.submitRow}>
                     <span className={Styles.Already}>
                       Already Have Account?

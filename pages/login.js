@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
@@ -89,6 +90,9 @@ function LoginPage() {
   return (
     <>
       {/* <Navbar /> */}
+      <Head>
+        <title>Login</title>
+      </Head>
       <main className={Styles.outerlayer}>
         <div className={Styles.contactcontainer}>
           <div className={Styles.Leftside}>
@@ -101,7 +105,7 @@ function LoginPage() {
                 <div className={Styles.inputdata}>
                   <input
                     value={value.email}
-                    className={Styles.mail}
+                    className={(Styles.mail, Styles.inputbox)}
                     name="email"
                     type="email"
                     onChange={handleChange}
@@ -112,7 +116,7 @@ function LoginPage() {
               <div className={Styles.formrow}>
                 <div className={Styles.inputdata}>
                   <input
-                    className={Styles.mail}
+                    className={(Styles.mail, Styles.inputbox)}
                     value={value.password}
                     type="password"
                     name="password"
@@ -135,7 +139,7 @@ function LoginPage() {
               </div>
               <br />
               <button type="button" className={Styles.Already}>
-                Dont Have Account?
+                Don&apos;t have an account?
                 <Link href="/register" legacyBehavior>
                   <a> Register</a>
                 </Link>

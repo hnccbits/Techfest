@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
+import Head from 'next/head';
 import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -55,6 +56,9 @@ function Event() {
   return (
     <>
       {/* <Navbar /> */}
+      <Head>
+        <title>Admin Event Page</title>
+      </Head>
       <div className="adminEvent">
         <div className="heading">
           Admin Event Page

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
@@ -51,6 +52,9 @@ function EventsPage({ event }) {
   return (
     <>
       {/* <Navbar /> */}
+      <Head>
+        <title>{name}</title>
+      </Head>
       <Model
         open={modalopen}
         teamsize={teamsize}
