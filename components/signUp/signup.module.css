@@ -157,6 +157,15 @@ form .formrowbtn .inputdata {
   form .inputdata input {
     font-size: 1rem;
   }
+  .contactcontainer .Leftside img{
+    display: none;
+  }
+  form .inputdata input[type = 'password']{
+    margin: 2rem 0;
+  }
+  form .inputdata{
+    flex-direction: column;
+  }
 }
 @media (max-width: 463px) {
   .outerlayer {

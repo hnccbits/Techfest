@@ -1,9 +1,4 @@
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaLinkedin,
-  FaTwitterSquare,
-} from 'react-icons/fa';
+import { FaInstagramSquare } from 'react-icons/fa';
 
 import Link from 'next/link';
 import Styles from './home.module.css';
@@ -29,38 +24,10 @@ const home = ({ events }) => {
             </div>
           </Link>
           <div className={Styles.homeHeroSocial}>
-            <Link
-              href="https://www.facebook.com/BITSindriDhanbad/"
-              legacyBehavior
-            >
-              <a>
-                <i>
-                  {' '}
-                  <FaFacebookSquare />
-                </i>
-              </a>
-            </Link>
             <Link href="" legacyBehavior>
               <a>
                 <i>
                   <FaInstagramSquare />
-                </i>
-              </a>
-            </Link>
-            <Link
-              href="https://www.linkedin.com/school/bit-sindri/"
-              legacyBehavior
-            >
-              <a>
-                <i>
-                  <FaLinkedin />
-                </i>
-              </a>
-            </Link>
-            <Link href="https://twitter.com/BITSindriDhn" legacyBehavior>
-              <a>
-                <i>
-                  <FaTwitterSquare />
                 </i>
               </a>
             </Link>

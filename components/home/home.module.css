@@ -102,7 +102,7 @@
 .homeHeroSocial i {
     margin: 0 2rem;
     padding: 0 .5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .homeHeroFrame {
@@ -180,7 +180,7 @@
 
 .homeEventMiddle {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 3rem;
 }
 

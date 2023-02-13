@@ -355,8 +355,8 @@ function Register() {
                   >
                     {isLoading ? 'Loading...' : 'Submit'}
                   </button>
-                  <div className={Styles.logintext}>
-                    <span className="Already">
+                  <div className={Styles.logintext.submitRow}>
+                    <span className={Styles.Already}>
                       Already Have Account?
                       <Link href="/login" legacyBehavior>
                         <a>Login</a>
