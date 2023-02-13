@@ -32,8 +32,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       autoClose: 6000,
       type,
     });
-  const handleAddMember = (e) => {
-    e.preventDefault();
+  const handleAddMember = () => {
     if (
       member.name === '' ||
       member.phone === '' ||
