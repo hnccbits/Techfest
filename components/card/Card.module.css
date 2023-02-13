@@ -93,8 +93,39 @@
   color: #fff;
   font-size: 1rem;
 }
+@media (max-width: 550px) {
 
-@media (max-width: 700px) {
+  .eventheading {
+    font-size: .9rem;
+  }
+  .eventCard {
+    width: 120px !important; 
+    aspect-ratio: 1 / 1;
+    padding: .5rem !important;
+  }
+  .eventCard span {
+    line-height: .8rem;
+    font-size: .7rem;
+  }
+  .eventCard span.subStr {
+    display: none;
+  }
+  .eventCardBottom{
+    position: absolute;
+    bottom: .2rem;
+  }
+  .eventCard span.regOpen{
+    margin: .2rem 0;
+    font-weight: normal;
+    font-size: .8rem;
+  }
+  
+  .eventCard .cardBtn button {
+    padding: .05rem;
+    font-size: .7rem;
+  }
+}
+/* @media (max-width: 700px) {
   .eventCard {
     width: 270px;
   }
@@ -108,4 +139,4 @@
   .event {
     padding: 0 3rem;
   }
-}
+} */

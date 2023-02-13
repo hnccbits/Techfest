@@ -12,11 +12,13 @@ body {
   background-position: center;
   background-size: cover;
   padding: 0 6rem;
+  padding-top: 100px;
 }
 
 @media (max-width: 550px) {
   body {
     padding: 0 2rem;
+    padding-top: 100px;
   }
 }
 

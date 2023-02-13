@@ -32,7 +32,25 @@
     /* justify-content: space-around; */
     gap: 4rem;
   }
-
+  @media (max-width: 550px) {
+    .heading {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .heading img {
+      bottom: -.5rem;
+    }
+    
+    .subheading {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.5rem;
+    }
+    .eventCardSection {
+      gap: 1rem;
+    }
+  }
   /* @media (max-width: 1000px) {
     .event {
       padding: 0 3rem;

@@ -259,7 +259,7 @@ function Register() {
               <div className={Styles.formrow}>
                 <div className={Styles.inputdata}>
                   <input
-                    type="phone"
+                    type="number"
                     name="phone"
                     placeholder="Phone Number*"
                     className={Styles.inputbox}
@@ -304,13 +304,11 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <select
                     name="year"
+                    defaultValue={value.name}
                     className={Styles.inputbox}
                     onChange={handleChange}
                     required
                   >
-                    <option value="none" selected disabled hidden>
-                      Year*
-                    </option>
                     <option value="1">1st Year</option>
                     <option value="2">2nd Year</option>
                     <option value="3">3rd Year</option>
@@ -322,6 +320,7 @@ function Register() {
                   <input
                     type="text"
                     defaultValue={value.name}
+                    onChange={handleChange}
                     name="branch"
                     placeholder="Enter your Branch*"
                     className={Styles.inputbox}
@@ -338,27 +337,6 @@ function Register() {
                   required
                 />
 
-                <div id="pwd_strength_wrap">
-                  <div id="passwordDescription">Password not entered</div>
-                  <div id="passwordStrength" className="strength0" />
-                  <div id="pswd_info">
-                    <strong>Strong Password Tips:</strong>
-                    <ul>
-                      <li className="invalid" id="length">
-                        At least 6 characters
-                      </li>
-                      <li className="invalid" id="pnum">
-                        At least one number
-                      </li>
-                      <li className="invalid" id="capital">
-                        At least one lowercase &amp; one uppercase letter
-                      </li>
-                      <li className="invalid" id="spchar">
-                        At least one special character
-                      </li>
-                    </ul>
-                  </div>
-                </div>
                 <input
                   name="cnfpassword"
                   onChange={handleChange}
@@ -379,7 +357,7 @@ function Register() {
                   </button>
                   <div className={Styles.logintext}>
                     <span className="Already">
-                      Already Have Account?{' '}
+                      Already Have Account?
                       <Link href="/login" legacyBehavior>
                         <a>Login</a>
                       </Link>
