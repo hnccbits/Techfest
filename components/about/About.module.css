@@ -1,6 +1,3 @@
-.main{
-    margin: 2rem 10rem;
-}
 
 .mainContainer {
   display: flex;
@@ -15,13 +12,6 @@
 
 .item2{
     flex: 1;
-}
-
-@media(max-width: 1048px){
-    .mainContainer {
-      margin: 2rem 6rem;
-    }
-
 }
 
 .heading {
@@ -82,7 +72,8 @@
 
 .imageTile{
     display: flex;
-    gap: 122px;
+    flex-wrap: wrap;
+    gap: 65px;
     justify-content: center;
 }
 
@@ -185,6 +176,7 @@
     line-height: 3.625rem;
     letter-spacing: 0.01em;
     text-shadow: -4px -4px 19px rgba(226, 227, 252, 0.2), 4px 4px 18px rgba(226, 227, 252, 0.2);
+    margin-bottom: 5rem;
   }
 
   .section{
@@ -215,6 +207,7 @@
 
   .paraSection ul{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 24px;
     list-style-type: disc;
@@ -225,7 +218,113 @@
     font-feature-settings: 'salt' on, 'liga' off;
     color: #F9F9F9;
   }
+
+  @media(max-width:1000px){
+    .title{
+      font-size: 3rem;
+    }
+    .text{
+      margin-bottom: 11rem;
+    }
+    .imageTile img{
+      max-width: 15%;
+    }
+  }
   
+  @media(max-width:800px){
+    .mainContainer{
+      margin-bottom: 6rem;
+    }
+    .assoc{
+      margin-bottom: 6rem;
+    }
+    .title{
+      font-size: 2rem;
+      line-height: 60px;
+    }
+    .heading{
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .paraSection{
+      padding: 12px 10px 14px 28px;
+    }
+    .imageTile{
+      gap: 25px;
+    }
+    /* .imageTile img{
+      max-width: 15%;
+    } */
+    .vision{
+      flex-direction: column-reverse;
+      margin-bottom: 8rem;
+    }
+    .innovation{
+      padding: 3rem;
+      margin-bottom: 6rem;
+    }
+    .inovTitle{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .inovQuote{
+      font-size: 20px;
+    }
+    .innovation p{
+      font-size: 1rem;
+      text-align: left;
+    }
+    .vision .quote{
+      font-size: 3.5rem;
+    line-height: 5.125rem;
+    }
+    .first{
+      gap: 8.375rem;
+    }
+  }
+
+  @media(max-width:700px){
+    .mainContainer{
+      flex-direction: column-reverse;
+    }
+    .image{
+      margin-left: 2rem;
+      max-width: 70%;
+    }
+    /* .imageTile img{
+      max-width: 30%;
+    } */
+    .bitItem img{
+      max-width: 70%;
+    }
+    .section{
+      gap: 2rem;
+    }
+  }
+  @media(max-width:500px){
+    .image{
+      margin-left: 5rem;
+      max-width: 50%;
+    }
+    .bitItem img{
+      max-width: 60%;
+    }
+    .innovation{
+      padding: 2rem;
+    }
+    .vision{
+      gap: 5rem;
+    }
+    .vision .para{
+      padding: 3rem;
+      font-size: 1rem;
+    }
+    .vision .quote{
+      font-size: 2.5rem;
+      line-height: 3.125rem;
+    }
+  }
+
 /* 
   #timelineContent{
     margin-bottom: 9rem;

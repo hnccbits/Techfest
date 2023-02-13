@@ -114,9 +114,9 @@ function About() {
           <div className={Styles.text}>Benefits to participants</div>
         </div>
         <div className={Styles.sec}>
-          <div className={Styles.second}>
+          {/* <div className={Styles.second}>
             <img src="img/borderLine.svg" alt="" />
-          </div>
+          </div> */}
           <div className={Styles.third}>
             <div className={Styles.paraSection}>
               <ul>
