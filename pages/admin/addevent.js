@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+import Head from 'next/head';
 import { FaUpload } from 'react-icons/fa';
 
 import { useState, useEffect, useContext } from 'react';
@@ -108,6 +109,9 @@ function AddEvent() {
   return (
     <>
       {/* <Navbar /> */}
+      <Head>
+        <title>Add Event</title>
+      </Head>
       <div className="eventRegister">
         <div className="heading">
           Add Your Event <img src="img/line.svg" alt="" />

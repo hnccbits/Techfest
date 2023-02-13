@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
@@ -93,6 +94,9 @@ function AdminLoginPage() {
   return (
     <>
       {/* <Navbar /> */}
+      <Head>
+        <title>Admin Login</title>
+      </Head>
       <div className="RegisterForm">
         <div className="formHeading">Admin Login</div>
         <div className="RegisterFormWrapper">

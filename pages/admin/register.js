@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/destructuring-assignment */
+import Head from 'next/head';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
@@ -98,6 +99,9 @@ function Register() {
   }
   return (
     <>
+      <Head>
+        <title>Admin Register</title>
+      </Head>
       {/* <Navbar /> */}
       <div className="RegisterForm">
         <div className="formHeading">Admin Register</div>
