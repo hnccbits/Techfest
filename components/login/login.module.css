@@ -66,6 +66,9 @@
   .Already {
     font-size: 14px;
   }
+  .contactcontainer .Leftside img{
+    display: none;
+  }
 }
 
 /* styles for larger screens */

@@ -135,8 +135,9 @@ function LoginPage() {
               </div>
               <br />
               <button type="button" className={Styles.Already}>
+                Dont Have Account?
                 <Link href="/register" legacyBehavior>
-                  <a>Register</a>
+                  <a> Register</a>
                 </Link>
               </button>
             </form>
