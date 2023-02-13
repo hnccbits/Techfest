@@ -13,6 +13,26 @@ function Event({ events }) {
         <div className={Styles.heading}>
           Competitions <img src="img/line.svg" alt="" />
         </div>
+        <div className={Styles.subheading}>Day 0</div>
+        <div key={1} className={Styles.eventCardSection}>
+          {events
+            .filter((x) => x.dateofevent === 'day0')
+            .map(
+              ({ name, coverimg, registrationopen, club, desc, _id: id }) => {
+                return (
+                  <Card
+                    key={id}
+                    name={name}
+                    coverimg={coverimg}
+                    id={id}
+                    club={club}
+                    desc={desc}
+                    registrationopen={registrationopen}
+                  />
+                );
+              },
+            )}
+        </div>
         <div className={Styles.subheading}>Day 1</div>
         <div key={1} className={Styles.eventCardSection}>
           {events

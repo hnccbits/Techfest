@@ -24,11 +24,13 @@ const home = ({ events }) => {
             </div>
           </Link>
           <div className={Styles.homeHeroSocial}>
-            <Link href="" legacyBehavior>
+            <Link
+              href="https://www.instagram.com/techmahotsav.bits/"
+              legacyBehavior
+            >
               <a>
-                <i>
-                  <FaInstagramSquare />
-                </i>
+                <FaInstagramSquare size={30} />
+                Instagram
               </a>
             </Link>
           </div>
