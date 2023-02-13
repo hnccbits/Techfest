@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrClose } from 'react-icons/gr';
+
 import Link from 'next/link';
 import { AuthContext } from '../../context/AuthContext';
 import Styles from './Navbar.module.css';
@@ -12,18 +14,19 @@ export default function Navbar() {
     logout();
   };
   const [header, setHeader] = useState();
-  const [showNav, setShowNav] = useState(false);
+  const [toggleNav, settoggleNav] = useState(false);
+  // const [showNav, setShowNav] = useState(false);
 
-  const handleShowNavbar = () => {
-    setShowNav(!showNav);
-  };
+  // const handleShowNavbar = (prev) => {
+  //   setShowNav(!prev);
+  // };
 
   const userloggedin = (
     <div className={Styles.navContainer}>
       <div className={Styles.logo}>
         <img src="img/logo.svg" alt="" />
       </div>
-      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
+      <div className={Styles.navLinks}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -38,8 +41,10 @@ export default function Navbar() {
         </Link>
         <a onClick={exit}>Log out</a>
       </div>
-      <div className={Styles.hamBurger} onClick={handleShowNavbar}>
-        <GiHamburgerMenu />
+      <div className={Styles.hamBurger}>
+        <a onClick={() => settoggleNav((prev) => !prev)}>
+          {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
+        </a>
       </div>
     </div>
   );
@@ -49,14 +54,17 @@ export default function Navbar() {
       <div className={Styles.logo}>
         <img src="img/logo.svg" alt="" />
       </div>
-      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
+      <div className={Styles.navLinks}>
         <Link href="/admin/events" legacyBehavior>
           <a>Club Events</a>
         </Link>
         <a onClick={exit}>Log out</a>
       </div>
-      <div className={Styles.hamBurger} onClick={handleShowNavbar}>
-        <GiHamburgerMenu />
+      <div
+        className={Styles.hamBurger}
+        onClick={() => settoggleNav((prev) => !prev)}
+      >
+        {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
       </div>
     </div>
   );
@@ -66,7 +74,7 @@ export default function Navbar() {
       <div className={Styles.logo}>
         <img src="img/logo.svg" alt="" />
       </div>
-      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
+      <div className={Styles.navLinks}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -83,10 +91,11 @@ export default function Navbar() {
           <a>Register</a>
         </Link>
       </div>
-      <div className={Styles.hamBurger}>
-        <a onClick={handleShowNavbar}>
-          <GiHamburgerMenu />
-        </a>
+      <div
+        className={Styles.hamBurger}
+        onClick={() => settoggleNav((prev) => !prev)}
+      >
+        {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
       </div>
     </div>
   );

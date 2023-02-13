@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4rem;
+  z-index: 10000;
 }
 .navContainer .logo img{
   width: 60px; height: 60px;
@@ -24,6 +25,9 @@
 }
 .navContainer .hamBurger{
   display: none;
+}
+.navContainer .hamBurger a{
+  color: #fff !important;
   font-size: 2rem;
   padding: 10px;
 }
