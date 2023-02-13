@@ -89,48 +89,60 @@ function LoginPage() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className={Styles.RegisterForm}>
-        <div className={Styles.formHeading}>Sign In</div>
-        <div className={Styles.RegisterFormWrapper}>
-          <img src="img/3d_logo.svg" alt="" />
-          <form>
-            <div className={Styles.formLineBlock}>
-              <input
-                value={value.email}
-                className={Styles.mail}
-                name="email"
-                type="email"
-                onChange={handleChange}
-                placeholder="Email id *"
-              />
-            </div>
-            <div className={Styles.formLineBlock}>
-              <input
-                className={Styles.mail}
-                value={value.password}
-                type="password"
-                name="password"
-                onChange={handleChange}
-                placeholder="Password *"
-              />
-            </div>
-            <button
-              onClick={handleSubmit}
-              disabled={isLoading}
-              className={Styles.btn}
-              type="submit"
-            >
-              {isLoading ? 'Loading...' : 'Submit'}
-            </button>
-            <br />
-            <button type="button" className={Styles.Already}>
-              <Link href="/register" legacyBehavior>
-                <a>Register</a>
-              </Link>
-            </button>
-          </form>
+      <main className={Styles.outerlayer}>
+        <div className={Styles.contactcontainer}>
+          <div className={Styles.Leftside}>
+            <img src="img/3d_logo.svg" alt="Astronaut" />
+          </div>
+          <div className={Styles.Rightside}>
+            <div className={Styles.headingtext}>Sign Up</div>
+            <form>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    value={value.email}
+                    className={Styles.mail}
+                    name="email"
+                    type="email"
+                    onChange={handleChange}
+                    placeholder="Email id *"
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrow}>
+                <div className={Styles.inputdata}>
+                  <input
+                    className={Styles.mail}
+                    value={value.password}
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    placeholder="Password *"
+                  />
+                </div>
+              </div>
+              <div className={Styles.formrowbtn} id={Styles.submitbtn}>
+                <div className={Styles.inputdata}>
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isLoading}
+                    className={Styles.btn}
+                    type="submit"
+                  >
+                    {isLoading ? 'Loading...' : 'Submit'}
+                  </button>
+                </div>
+              </div>
+              <br />
+              <button type="button" className={Styles.Already}>
+                <Link href="/register" legacyBehavior>
+                  <a>Register</a>
+                </Link>
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
