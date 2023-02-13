@@ -175,6 +175,7 @@ function Eventedit({ eventId }) {
             value={clubevent.dateofevent}
             name="dateofevent"
           >
+            <option value="day0">Day 0 (25th Feb)</option>
             <option value="day1">Day 1 (26th Feb)</option>
             <option value="day2">Day 2 (27th Feb)</option>
             <option value="day3">Day 3 (28th Feb)</option>

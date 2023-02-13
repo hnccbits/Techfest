@@ -48,7 +48,7 @@ function Footer() {
         </div>
       </div>
       <div className={Styles.copyrighttext}>
-        <p>© 2023 Techfest | Powered by HnCC</p>
+        <p>© 2023 Techfest | BIT Sindri</p>
         <a href="https://www.instagram.com/techmahotsav.bits/ ">
           <BsInstagram />
         </a>
