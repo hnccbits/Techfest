@@ -87,8 +87,11 @@ export default function Navbar() {
         <Link href="/contactus" legacyBehavior>
           <a>Contact Us</a>
         </Link>
+        <Link href="/login" legacyBehavior>
+          <a>Sign in</a>
+        </Link>
         <Link href="/register" legacyBehavior>
-          <a>Register</a>
+          <a>Sign up</a>
         </Link>
       </div>
       <div

@@ -43,7 +43,7 @@ function About() {
           <img src="img/hncc.svg" alt="" />
           <img src="img/iste.svg" alt="" />
           <img src="img/iete.svg" alt="" />
-          <img className={Styles.model} src="img/model.png" alt="" />
+          <img src="img/model.svg" alt="" />
           <img src="img/sae.svg" alt="" />
         </div>
       </div>
