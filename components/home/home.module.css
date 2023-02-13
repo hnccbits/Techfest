@@ -99,10 +99,10 @@
     display: flex;
 }
 
-.homeHeroSocial i {
-    margin: 0 2rem;
-    padding: 0 .5rem;
-    font-size: 2rem;
+.homeHeroSocial a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .homeHeroFrame {
@@ -110,10 +110,14 @@
     bottom: -4rem;
     left: 0;
     width: 100vw;
+    z-index: -1;
+}
+.homeHeroFrame img{
+    width: 100%;
 }
 
 .homeAbout {
-    margin-top: calc(100vh + 4rem);
+    margin-top: calc(100vh + 8rem);
     display: flex;
     margin-bottom: 4rem;
 }
@@ -123,6 +127,9 @@
     border: 1.31429px solid #4936A7;
     backdrop-filter: blur(1.98424px);
     margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .homeRightAboutImg {
@@ -180,7 +187,7 @@
 
 .homeEventMiddle {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     gap: 3rem;
 }
 
@@ -244,7 +251,6 @@
     .homeRightAboutImg img {
         width: 90%;
         height: 90%;
-        margin-left: 2rem !important;
     }
     .homeSponser {
         margin: 2rem 0;
