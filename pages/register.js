@@ -238,9 +238,9 @@ function Register() {
                     <option value="none" selected disabled hidden>
                       Gender*
                     </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Transgender">Others</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Others</option>
                   </select>
                 </div>
               </div>
