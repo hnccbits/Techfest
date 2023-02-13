@@ -178,33 +178,52 @@
     line-height: 3.625rem;
     letter-spacing: 0.01em;
     text-shadow: -4px -4px 19px rgba(226, 227, 252, 0.2), 4px 4px 18px rgba(226, 227, 252, 0.2);
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
   }
 
 .section {
   display: flex;
   gap: 5rem;
-  margin-bottom: 9rem;
+  flex-direction: column;
+  /* margin-bottom: 9rem; */
 }
 .first {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 4.375rem;
 }
 
 .sec {
   display: flex;
+  gap: 4.375rem;
 }
+
 .third {
   display: flex;
-  flex-direction: column;
   gap: 4.375rem;
+  /* flex-direction: column;
+  gap: 4.375rem; */
+}
+
+@media(min-width:1400px){
+  .sec .paraSection{
+    margin-left: 2rem;
+  }
+  .third .paraSection{
+    margin-left: 3rem;
+  }
+}
+@media(max-width:1200px){
+  .first .paraSection{
+    margin-left: 2rem;
+  }
 }
 .paraSection {
   padding: 22px 95px 22px 32px;
   background: rgba(31, 29, 46, 0.8);
   backdrop-filter: blur(1.04691px);
   border-radius: 12px;
+  max-width: 80%;
 }
 
   .paraSection ul{
@@ -225,11 +244,11 @@
     .title{
       font-size: 3rem;
     }
-    .text{
-      margin-bottom: 11rem;
-    }
     .imageTile img{
       max-width: 15%;
+    }
+    .first .paraSection{
+      margin-left: 2rem;
     }
   }
   
@@ -247,6 +266,9 @@
     .heading{
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
+    }
+    .first .paraSection{
+      margin-left: 0;
     }
     .paraSection{
       padding: 12px 10px 14px 28px;
@@ -280,9 +302,7 @@
       font-size: 3.5rem;
     line-height: 5.125rem;
     }
-    .first{
-      gap: 8.375rem;
-    }
+    
   }
 
   @media(max-width:700px){
@@ -299,8 +319,18 @@
     .bitItem img{
       max-width: 70%;
     }
-    .section{
-      gap: 2rem;
+    
+    .first{
+      flex-direction: column;
+    }
+    .sec{
+      flex-direction: column;
+    }
+    .third{
+      flex-direction: column;
+    }
+    .text{
+      font-size: 2rem;
     }
   }
   @media(max-width:500px){
@@ -324,6 +354,21 @@
     .vision .quote{
       font-size: 2.5rem;
       line-height: 3.125rem;
+    }
+    .first{
+      gap: 2rem;
+    }
+    .sec{
+      gap: 2rem;
+    }
+    .third{
+      gap: 2rem;
+    }
+    .text{
+      font-size: 1.75rem;
+    }
+    .paraSection ul li{
+      font-size: 1rem;
     }
   }
 
@@ -390,7 +435,7 @@
 }
  */
 /* For screens up to 1048px */
-@media (max-width: 1048px) {
+/* @media (max-width: 1048px) {
   .main {
     margin: 2rem 5rem;
   }
@@ -425,10 +470,10 @@
   .vision .para {
     padding: 3rem;
   }
-}
+} */
 
 /* For screens up to 640px */
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .main {
     margin: 2rem 2rem;
   }
@@ -459,4 +504,4 @@
     font-size: 1.5rem;
     line-height: 2.5rem;
   }
-}
+} */

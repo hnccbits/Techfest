@@ -117,14 +117,71 @@ function About() {
       <div className={Styles.section}>
         <div className={Styles.first}>
           <div className={Styles.text}>Who can participate</div>
-          <div className={Styles.text}>Team Composition</div>
-          <div className={Styles.text}>Benefits to participants</div>
+          <div className={Styles.paraSection}>
+            <ul>
+              <li>
+                All the student currently pursuing education from recognized
+                institutes are allowed to take part in the event
+              </li>
+              <li>
+                All Engineering & Non-engineering undergraduates are allowed to
+                take part
+              </li>
+            </ul>
+          </div>
         </div>
         <div className={Styles.sec}>
-          {/* <div className={Styles.second}>
+          <div className={Styles.text}>Team Composition</div>
+          <div className={Styles.paraSection}>
+            <ul>
+              <li>
+                Group registration can be done with a maximum of five and a
+                minimum of two participants.
+              </li>
+              <li>
+                The platform is open to anyone who wants to present their idea,
+                regardless of their institute as well as branch affiliation.
+              </li>
+              <li>
+                Teams should have a unique name and will be assigned a Team ID
+                for further communication and processces.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={Styles.third}>
+          <div className={Styles.text}>Benefits to participants</div>
+          <div className={Styles.paraSection}>
+            <ul>
+              <li>
+                Exploration of new scientific domains to drive business
+                innovation.
+              </li>
+              <li>
+                Finding talented individuals to work on development is a
+                priority.
+              </li>
+              <li>
+                The event provides students with the opportunity to evaluate
+                their skills, work in a team, and network for potential
+                employment opportunities while also promoting the brand to a
+                tech-savvy local audience.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* <div className={Styles.section}>
+        <div className={Styles.first}>
+          <div className={Styles.text}>Who can participate</div>
+          <div className={Styles.text}>Team Composition</div>
+          <div className={Styles.text}>Team Composition</div>
+        </div>
+        <div className={Styles.sec}> */}
+      {/* <div className={Styles.second}>
             <img src="img/borderLine.svg" alt="" />
           </div> */}
-          <div className={Styles.third}>
+      {/* <div className={Styles.third}>
             <div className={Styles.paraSection}>
               <ul>
                 <li>
@@ -174,7 +231,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div id={Styles.timelineContent}>
       <div className={Styles.timeline}>
