@@ -65,3 +65,36 @@
   background: rgba(73, 54, 167, 0.2);
   border: 1px solid #4936a7;
 }
+@media (max-width: 550px) {
+  .eventTitle {
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  
+  .eventTitle p {
+    font-size: 1.5rem;
+    margin: .4rem 0 .8rem 0;
+  }
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 90vw;
+  }
+  .eventDescription {
+    gap: 1rem;
+  }
+.container img {
+  height: 280px;
+  width: 280px;
+}
+.eventLinkBtn {
+  position: relative !important;
+  display: flex;
+  gap: .5rem;
+}
+
+.cta {
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+}

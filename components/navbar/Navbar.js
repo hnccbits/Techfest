@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import Link from 'next/link';
 import { AuthContext } from '../../context/AuthContext';
 import Styles from './Navbar.module.css';
@@ -11,14 +12,18 @@ export default function Navbar() {
     logout();
   };
   const [header, setHeader] = useState();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNav(!showNav);
+  };
 
   const userloggedin = (
     <div className={Styles.navContainer}>
       <div className={Styles.logo}>
-        <img src="img/sm_logo.svg" alt="" />
+        <img src="img/logo.svg" alt="" />
       </div>
-      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
+      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -33,36 +38,35 @@ export default function Navbar() {
         </Link>
         <a onClick={exit}>Log out</a>
       </div>
-      <div className={Styles.hamburger}>
-        {!isNavOpen && (
-          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <img src="img/hamburger.svg" alt="" />
-          </button>
-        )}
-        {isNavOpen && (
-          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <img src="img/close.svg" alt="" />
-          </button>
-        )}
+      <div className={Styles.hamBurger} onClick={handleShowNavbar}>
+        <GiHamburgerMenu />
       </div>
     </div>
   );
 
   const adminloggedin = (
-    <div className={Styles.navbar}>
-      <Link href="/admin/events" legacyBehavior>
-        <a>Club Events</a>
-      </Link>
-
-      <a onClick={exit}>Log out</a>
+    <div className={Styles.navContainer}>
+      <div className={Styles.logo}>
+        <img src="img/logo.svg" alt="" />
+      </div>
+      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
+        <Link href="/admin/events" legacyBehavior>
+          <a>Club Events</a>
+        </Link>
+        <a onClick={exit}>Log out</a>
+      </div>
+      <div className={Styles.hamBurger} onClick={handleShowNavbar}>
+        <GiHamburgerMenu />
+      </div>
     </div>
   );
+
   const notloggedin = (
     <div className={Styles.navContainer}>
       <div className={Styles.logo}>
-        <img src="img/sm_logo.svg" alt="" />
+        <img src="img/logo.svg" alt="" />
       </div>
-      <div className={`${Styles.navbar} ${isNavOpen ? Styles.open : ''}`}>
+      <div className={showNav ? Styles.mobilenavLinks : Styles.navLinks}>
         <Link href="/" legacyBehavior>
           <a>Home</a>
         </Link>
@@ -79,17 +83,10 @@ export default function Navbar() {
           <a>Register</a>
         </Link>
       </div>
-      <div className={Styles.hamburger}>
-        {!isNavOpen && (
-          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <img src="img/hamburger.svg" alt="" />
-          </button>
-        )}
-        {isNavOpen && (
-          <button type="button" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <img src="img/close.svg" alt="" />
-          </button>
-        )}
+      <div className={Styles.hamBurger}>
+        <a onClick={handleShowNavbar}>
+          <GiHamburgerMenu />
+        </a>
       </div>
     </div>
   );
