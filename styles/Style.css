@@ -42,7 +42,6 @@ body {
   border: 1.05682px solid #a3a3ab;
   box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
     4px 4px 18px rgba(226, 227, 252, 0.12);
-  border-radius: 8px;
   padding: 0 2rem 1.5rem 2rem;
 }
 
@@ -61,8 +60,12 @@ body {
   gap: 2rem;
 }
 
-.RegisterFormWrapper img {
-  width: 400px;
+.RegisterFormWrapper > img {
+  /* position: relative; */
+  width: 970px;
+  /* height: 392.06px; */
+  /* left: -137px; */
+  /* top: 17px; */
 }
 
 .RegisterFormWrapper form {
@@ -130,6 +133,8 @@ body {
   outline: none;
   border-radius: 0;
   cursor: pointer;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
 }
 
 .RegisterFormWrapper form button[type='submit'] {
@@ -853,4 +858,178 @@ input#pwd {
 
 .formLineBlock .form_label {
   margin: 0.4rem;
+}
+
+.outerlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+}
+.contactcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  background: #0c0b20;
+  width: 1200px;
+  max-width: 1200px;
+  padding: 30px 30px 30px 30px;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+}
+.Leftside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.Leftside img {
+  width: 482px;
+  height: 482px;
+}
+.Rightside {
+  width: 60%;
+  padding: 4px;
+}
+.Rightside .headingtext {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+  color: #f3f3ff;
+  margin: 0 8.5px;
+  text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4),
+    4px 4px 30px rgba(226, 227, 252, 0.4);
+}
+.contactcontainer form {
+  padding: 0px 0 0 0;
+}
+.contactcontainer form .formrow {
+  display: flex;
+  margin: 22px 0;
+}
+form .formrow .inputdata {
+  width: 100%;
+  height: 50px;
+  margin: 0 8.5px;
+  position: relative;
+}
+form .formrow #textarea {
+  height: 150px;
+}
+.inputdata input,
+#textarea textarea,
+.inputdata select {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 0.8px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 0.95rem;
+  background: #1f1d2e;
+  border-radius: 3px;
+  padding: 16px;
+}
+.inputdata select {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 0.8px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 0.95rem;
+  background: #1f1d2e;
+  border-radius: 3px;
+  padding: 16px;
+}
+#textarea textarea {
+  resize: none;
+  padding-top: 10px;
+}
+.inputdata input:focus,
+#textarea textarea:focus {
+  background-color: #0b0a1d;
+  border: 0.8px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 3px;
+}
+#submitbtn .inputdata {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#submitbtn button {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  padding: 8px 46px;
+}
+.contactcontainer form .formrowbtn {
+  display: flex;
+  margin: 0;
+}
+form .formrowbtn .inputdata {
+  width: 100%;
+  height: 50px;
+  margin: 10px 8.5px 0 8.5px;
+  position: relative;
+}
+.inputbox::placeholder {
+  color: #f6f6f7;
+  font-size: 0.95rem;
+}
+.logintext {
+  margin: 0 8.5px;
+}
+.logintext p {
+  padding: 4px;
+}
+
+@media (max-width: 1017px) {
+  .Leftside {
+    width: 100%;
+  }
+  .Rightside {
+    width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .contactcontainer .headingtext {
+    font-size: 2.2rem;
+  }
+  .contactcontainer form {
+    padding: 10px 0 0 0;
+  }
+  .contactcontainer form .formrow {
+    display: block;
+  }
+  form .formrow .inputdata {
+    margin: 35px 0 !important;
+  }
+}
+
+@media (max-width: 533px) {
+  form .inputdata input {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 463px) {
+  .outerlayer {
+    padding: 40px 20px 40px 20px;
+  }
+  .formrow #textarea {
+    height: 400px;
+  }
+}
+@media (max-width: 380px) {
+  .outerlayer {
+    padding: 30px 10px 30px 10px;
+  }
 }

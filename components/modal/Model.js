@@ -1,33 +1,29 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable eqeqeq */
-/* eslint-disable no-unused-vars */
 import { MdDelete } from 'react-icons/md';
-
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Styles from './Model.module.css';
-import { AuthContext } from '../../context/AuthContext';
 import axiosInstance from '../../api/axios';
 
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
-  const { user } = useContext(AuthContext);
-  const [captainname, setCaptainname] = useState('');
+  const [inputBoxActive, setInputBoxActive] = useState(false);
   const [teamname, setTeamname] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      setCaptainname(user.name);
-    }
-  }, [user]);
-
   const [participant, setParticipant] = useState([]);
+  const ahandleModalToggle = () => {
+    setParticipant([]);
+    handleModalToggle();
+  };
+
   const [member, setMember] = useState({
     name: '',
     phone: '',
     email: '',
     whatsapp: '',
     gender: 'M',
+    id: Date.now(),
   });
   const onToast = ({ msg, type }) =>
     toast(msg, {
@@ -36,8 +32,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       autoClose: 6000,
       type,
     });
-  const handleAddMember = (e) => {
-    e.preventDefault();
+  const handleAddMember = () => {
     if (
       member.name === '' ||
       member.phone === '' ||
@@ -61,12 +56,14 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
         email: '',
         whatsapp: '',
         gender: 'M',
+        id: Date.now(),
       });
       const memberlength = participant.length + 2;
       onToast({
         msg: `Member ${memberlength} added successfully`,
         type: 'success',
       });
+      setInputBoxActive(false);
     }
   };
 
@@ -77,10 +74,15 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
     });
   };
 
-  const ahandleSubmit = async (e) => {
+  const handleRemoveMember = (i) => {
+    setParticipant(participant.filter((item) => item.id !== i));
+  };
+
+  const ahandleSubmit = async () => {
     try {
+      setTeamname('-----');
       setIsLoading(true);
-      const res = await axiosInstance({
+      await axiosInstance({
         method: 'post',
         url: '/register/event',
         data: { teamname, participant, _id: id },
@@ -93,7 +95,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       });
       setParticipant([]);
       setIsLoading(false);
-      handleModalToggle();
+      ahandleModalToggle();
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Internet connection');
@@ -109,36 +111,27 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      member.name !== '' ||
+      member.phone !== '' ||
+      member.whatsapp !== '' ||
+      member.email !== ''
+    ) {
+      handleAddMember();
+    }
     if (teamsize != 1) {
-      if (
-        member.name === '' ||
-        member.phone === '' ||
-        member.whatsapp === '' ||
-        member.email === ''
-      ) {
-        onToast({
-          msg: 'Invalid data entered. please check the input.',
-          type: 'danger',
-        });
-        return;
-      }
       if (teamname === '') {
         setErrMsg('Please Enter Team Name');
         return;
       }
-      if (member.phone.length !== 10 || member.whatsapp.length !== 10) {
-        onToast({
-          msg: 'Phone/whatsapp number cannot. be more than 10 digit',
-          type: 'warn',
-        });
-        return;
-      }
-      setParticipant([...participant, member]);
       ahandleSubmit();
     } else {
-      setTeamname('-----');
       ahandleSubmit();
     }
+  };
+
+  const handleIputBoxActive = () => {
+    setInputBoxActive(true);
   };
 
   if (!open) {
@@ -147,7 +140,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
   if (errMsg) {
     onToast({
       msg: errMsg,
-      type: 'alert',
+      type: 'danger',
     });
     setErrMsg('');
     setIsLoading(false);
@@ -155,7 +148,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
   return (
     <div className={Styles.modelBg}>
       <div className={Styles.modelBox}>
-        <div onClick={handleModalToggle} className={Styles.modelCloseBtn}>
+        <div onClick={ahandleModalToggle} className={Styles.modelCloseBtn}>
           +
         </div>
         <form>
@@ -175,28 +168,27 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                 <div className={Styles.th}>Member 1: You</div>
               </>
             ) : (
-              ''
+              <div className={Styles.th}>Click submit to participate</div>
             )}
           </div>
           {teamsize == 1 ? (
-            <>
-              <div className={Styles.th}>Captain : You</div>
-              <div className={Styles.th}>Member 1: You</div>
-            </>
+            ''
           ) : (
             <>
               <div className={Styles.teamMemberBox}>
                 {participant.map((item, i) => {
                   return (
-                    <div className={Styles.teamMember}>
+                    <div key={item.id} className={Styles.teamMember}>
                       <div className={Styles.teamMemberHeading}>
                         <span>
                           Member {i + 2}/{teamsize}
                         </span>
                         <span
-                          style={{ 'font-size': '1.32rem', cursor: 'pointer' }}
+                          style={{ fontSize: '1.32rem', cursor: 'pointer' }}
                         >
-                          <MdDelete />
+                          <MdDelete
+                            onClick={() => handleRemoveMember(item.id)}
+                          />
                         </span>
                       </div>
                       <div className={Styles.teamMemberTop}>
@@ -239,91 +231,102 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                         <input
                           name="whatsapp"
                           defaultValue={item.whatsapp}
+                          disabled
                           type="number"
                           placeholder="Whatsapp Number*"
                           className={Styles.tn}
                         />
                       </div>
-                      {participant.length + 2 !== parseInt(teamsize, 10) ? (
-                        <button
-                          type="submit"
-                          onClick={handleAddMember}
-                          value="Add Member"
-                        >
-                          Add more member
-                        </button>
-                      ) : (
-                        ''
-                      )}
                     </div>
                   );
                 })}
-                <div className={Styles.teamMember}>
-                  <div className={Styles.teamMemberHeading}>
-                    Member {participant.length + 2}/{teamsize}
+                {inputBoxActive ? (
+                  <div className={Styles.teamMember}>
+                    <div className={Styles.teamMemberHeading}>
+                      Member {participant.length + 2}/{teamsize}
+                      <span style={{ fontSize: '1.32rem', cursor: 'pointer' }}>
+                        <MdDelete
+                          onClick={() => setInputBoxActive(!inputBoxActive)}
+                        />
+                      </span>
+                    </div>
+                    <div className={Styles.teamMemberTop}>
+                      <input
+                        name="name"
+                        value={member.name}
+                        onChange={handleChange}
+                        type="text"
+                        placeholder="Name*"
+                        className={Styles.tn}
+                      />
+                      <select
+                        onChange={handleChange}
+                        name="gender"
+                        value={member.gender}
+                        className={Styles.tn}
+                      >
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                      </select>
+                      <input
+                        name="phone"
+                        value={member.phone}
+                        onChange={handleChange}
+                        type="number"
+                        placeholder="Phone*"
+                        className={Styles.tn}
+                      />
+                    </div>
+                    <div className={Styles.teamMemberBottom}>
+                      <input
+                        name="email"
+                        value={member.email}
+                        onChange={handleChange}
+                        type="email"
+                        placeholder="Email Id*"
+                        className={Styles.tn}
+                      />
+                      <input
+                        name="whatsapp"
+                        value={member.whatsapp}
+                        onChange={handleChange}
+                        type="number"
+                        placeholder="Whatsapp Number*"
+                        className={Styles.tn}
+                      />
+                    </div>
                   </div>
-                  <div className={Styles.teamMemberTop}>
-                    <input
-                      name="name"
-                      value={member.name}
-                      onChange={handleChange}
-                      type="text"
-                      placeholder="Name*"
-                      className={Styles.tn}
-                    />
-                    <select
-                      onChange={handleChange}
-                      name="gender"
-                      value={member.gender}
-                      className={Styles.tn}
-                    >
-                      <option value="M">Male</option>
-                      <option value="F">Female</option>
-                      <option value="O">Other</option>
-                    </select>
-                    <input
-                      name="phone"
-                      value={member.phone}
-                      onChange={handleChange}
-                      type="number"
-                      placeholder="Phone*"
-                      className={Styles.tn}
-                    />
-                  </div>
-                  <div className={Styles.teamMemberBottom}>
-                    <input
-                      name="email"
-                      value={member.email}
-                      onChange={handleChange}
-                      type="email"
-                      placeholder="Email Id*"
-                      className={Styles.tn}
-                    />
-                    <input
-                      name="whatsapp"
-                      value={member.whatsapp}
-                      onChange={handleChange}
-                      type="number"
-                      placeholder="Whatsapp Number*"
-                      className={Styles.tn}
-                    />
-                  </div>
-                  {participant.length + 2 !== parseInt(teamsize, 10) ? (
-                    <button
-                      className="AddMore"
-                      type="submit"
-                      onClick={handleAddMember}
-                      value="Add Member"
-                    >
-                      Add more member
-                    </button>
-                  ) : (
-                    ''
-                  )}
-                </div>
+                ) : (
+                  ''
+                )}
               </div>
               {/* <div className="hello"></div> */}
             </>
+          )}
+          {inputBoxActive ? (
+            <button
+              className="AddMore"
+              type="submit"
+              onClick={handleAddMember}
+              value="Add Member"
+            >
+              Save member
+            </button>
+          ) : (
+            ''
+          )}
+          {!inputBoxActive && teamsize != 1 ? (
+            <button
+              className="AddMore"
+              type="submit"
+              onClick={handleIputBoxActive}
+              value="Add Member"
+            >
+              Add more member
+            </button>
+          ) : (
+            ''
           )}
           <button
             type="submit"
