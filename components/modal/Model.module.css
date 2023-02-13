@@ -1,0 +1,149 @@
+.modelBg {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* height: 100vh; */
+  /* padding-top: vh; */
+  z-index: 100000;
+  /* overflow: auto; */
+}
+
+.modelBg .modelBox {
+  position: relative;
+  top: 5vh;
+  margin: 0 auto;
+  width: 320px;
+  max-height: 90vh;
+  /* overflow: auto; */
+  background: #0c0b20;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 8px;
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+.modelBox form {
+  background: none;
+  margin: 0 2rem;
+  position: relative;
+  max-height: 90vh;
+  padding: 0;
+  padding-bottom: 2rem;
+  overflow: auto;
+  /* padding: 7.5rem 0 4rem 0; */
+  color: white;
+}
+
+.modelBox form .teamName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px dashed #edfcff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0c0b20;
+  z-index: 100;
+}
+.modelBox form .th {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.modelBox form input,
+.modelBox form select {
+  background: #1f1d2e;
+  backdrop-filter: blur(2.11364px);
+  border-radius: 3px;
+  outline: none;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+  width: 100%;
+}
+.modelBox form input[type='submit'] {
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  border-radius: 0px;
+  outline: none;
+  padding: 0.4rem;
+  margin: .5rem 0;
+}
+.modelBox form button[type='submit'] {
+  /* background: rgba(73, 54, 167, 0.2); */
+  background: #0c0b20;
+
+  border: 1px solid #4936a7;
+  border-radius: 0px;
+  outline: none;
+  padding: 0.4rem;
+  margin: .5rem 0;
+  width: 100%;
+}
+.modelBox form .regBtn {
+  position: sticky;
+  bottom: .5rem;
+  left: 0; width: 100%;
+  /* transform: translateX(-50%); */
+  text-align: center;
+  background: #0c0b20;
+  z-index: 10000;
+}
+.modelBox .modelCloseBtn {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  transform: rotate(45deg);
+  font-size: 2rem;
+  cursor: pointer;
+}
+.modelBox form .teamMemberBox {
+  /* height: 90%; */
+  /* margin-bottom: 2rem; */
+  width: 100%;
+  overflow: auto;
+}.modelBox form::-webkit-scrollbar {
+  width: 2px;
+}
+.modelBox form .teamMemberBox::-webkit-scrollbar {
+  width: 2.5px;
+}
+.modelBox form .teamMemberBox::-webkit-scrollbar-track {
+  background: none;
+}
+.modelBox form .teamMemberBox::-webkit-scrollbar-thumb {
+  background-color: #eee;
+}
+.modelBox form .teamMemberBox .teamMember {
+  border-bottom: 1px dashed #edfcff;
+}
+.modelBox form .teamMemberBox .teamMemberHeading {
+  margin: 1rem 0 0.5rem 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modelBox form .teamMemberBox .teamMemberTop {
+  display: flex;
+  flex-direction: column;
+}
+.modelBox form .teamMemberBox .teamMemberBottom {
+  display: flex;
+  flex-direction: column;
+}
+/* .addMore{
+  position: relative;
+} */
+.tn,
+.regBtn,
+.cpt {
+  color: white;
+}

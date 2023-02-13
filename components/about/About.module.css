@@ -1,0 +1,382 @@
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 9rem;
+}
+
+.item1 {
+  flex: 2;
+}
+
+.item2 {
+  flex: 1;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.875rem;
+  letter-spacing: 0.12em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.heading img {
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 110%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 90px;
+  letter-spacing: 0.01em;
+}
+
+.title span {
+  text-transform: uppercase;
+}
+
+.image {
+  background: rgba(11, 10, 28, 0.75);
+  border: 1.4px solid #4936a7;
+  backdrop-filter: blur(2.11364px);
+  max-width: 100%;
+  height: auto;
+}
+
+.img {
+  background: rgba(11, 10, 28, 0.75);
+  border: 1.4px solid #4936a7;
+  backdrop-filter: blur(2.11364px);
+}
+
+.assoc {
+  margin-bottom: 9rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.assoc .title {
+  margin-bottom: 4rem;
+}
+
+.imageTile{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 65px;
+    justify-content: center;
+}
+
+.cardBtn button {
+  padding: 0.4rem 2rem;
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.bitItem {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 10, 28, 0.75);
+  border: 1.4px solid #4936a7;
+  backdrop-filter: blur(2.11364px);
+}
+
+.bitAbout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.innovation {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(11, 10, 28, 0.75);
+  border: 1.05682px solid #4936a7;
+  backdrop-filter: blur(2.11364px);
+  margin-bottom: 11.25rem;
+}
+
+.inovTitle {
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 3.625rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.inovQuote {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  /* or 150% */
+
+  text-align: center;
+  font-feature-settings: 'salt' on, 'liga' off;
+  margin-bottom: 1.25rem;
+}
+
+.innovation p {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  text-align: center;
+  font-feature-settings: 'salt' on, 'liga' off;
+}
+
+.vision {
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  margin-bottom: 13rem;
+}
+
+.vision .para {
+  padding: 5rem;
+  flex: 2;
+  background: #080716;
+  border: 1.05682px solid #a3a3ab;
+  box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.12),
+    4px 4px 18px rgba(226, 227, 252, 0.12);
+  border-radius: 5px;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.04em;
+  font-feature-settings: 'salt' on, 'liga' off;
+}
+.vision .quote {
+  flex: 1;
+  font-weight: 600;
+  font-size: 4.5rem;
+  line-height: 6.125rem;
+  text-align: center;
+  letter-spacing: 0.01em;
+  text-shadow: -4px -4px 30px rgba(226, 227, 252, 0.4),
+    4px 4px 30px rgba(226, 227, 252, 0.4);
+}
+
+  .text{
+    font-weight: 600;
+    font-size: 2.25rem;
+    line-height: 3.625rem;
+    letter-spacing: 0.01em;
+    text-shadow: -4px -4px 19px rgba(226, 227, 252, 0.2), 4px 4px 18px rgba(226, 227, 252, 0.2);
+    /* margin-bottom: 5rem; */
+  }
+
+.section {
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+  /* margin-bottom: 9rem; */
+}
+.first {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 4.375rem;
+}
+
+.sec {
+  display: flex;
+  gap: 4.375rem;
+}
+
+.third {
+  display: flex;
+  gap: 4.375rem;
+  /* flex-direction: column;
+  gap: 4.375rem; */
+}
+
+@media(min-width:1400px){
+  .sec .paraSection{
+    margin-left: 2rem;
+  }
+  .third .paraSection{
+    margin-left: 3rem;
+  }
+}
+@media(max-width:1200px){
+  .first .paraSection{
+    margin-left: 2rem;
+  }
+}
+.paraSection {
+  padding: 22px 95px 22px 32px;
+  background: rgba(31, 29, 46, 0.8);
+  backdrop-filter: blur(1.04691px);
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+  .paraSection ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 24px;
+    list-style-type: disc;
+  }
+  .paraSection ul li{
+    font-size: 19.6549px;
+    line-height: 30px;
+    font-feature-settings: 'salt' on, 'liga' off;
+    color: #F9F9F9;
+  }
+
+  @media(max-width:1130px){
+    .imageTile{
+      gap: 15px;
+    }
+  }
+
+  @media(max-width:1000px){
+    .title{
+      font-size: 3rem;
+    }
+    .imageTile img{
+      max-width: 15%;
+    }
+    .first .paraSection{
+      margin-left: 2rem;
+    }
+    .imageTile{
+      gap: 10px;
+    }
+  }
+  
+  @media(max-width:800px){
+    .mainContainer{
+      margin-bottom: 6rem;
+    }
+    .assoc{
+      margin-bottom: 6rem;
+    }
+    .title{
+      font-size: 2rem;
+      line-height: 60px;
+    }
+    .heading{
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .first .paraSection{
+      margin-left: 0;
+    }
+    .paraSection{
+      padding: 12px 10px 14px 28px;
+    }
+    /* .imageTile{
+      gap: 25px;
+    } */
+    /* .imageTile img{
+      max-width: 15%;
+    } */
+    .vision{
+      flex-direction: column-reverse;
+      margin-bottom: 8rem;
+    }
+    .innovation{
+      padding: 3rem;
+      margin-bottom: 6rem;
+    }
+    .inovTitle{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .inovQuote{
+      font-size: 20px;
+    }
+    .innovation p{
+      font-size: 1rem;
+      text-align: left;
+    }
+    .vision .quote{
+      font-size: 3.5rem;
+    line-height: 5.125rem;
+    }
+    
+  }
+
+  @media(max-width:700px){
+    .mainContainer{
+      flex-direction: column-reverse;
+    }
+    .image{
+      margin-left: 2rem;
+      max-width: 70%;
+    }
+    /* .imageTile img{
+      max-width: 30%;
+    } */
+    .bitItem img{
+      max-width: 70%;
+    }
+    
+    .first{
+      flex-direction: column;
+    }
+    .sec{
+      flex-direction: column;
+    }
+    .third{
+      flex-direction: column;
+    }
+    .text{
+      font-size: 2rem;
+    }
+  }
+  @media(max-width:500px){
+    .image{
+      margin-left: 5rem;
+      max-width: 50%;
+    }
+    .bitItem img{
+      max-width: 60%;
+    }
+    .innovation{
+      padding: 2rem;
+    }
+    .vision{
+      gap: 5rem;
+    }
+    .vision .para{
+      padding: 3rem;
+      font-size: 1rem;
+    }
+    .vision .quote{
+      font-size: 2.5rem;
+      line-height: 3.125rem;
+    }
+    .first{
+      gap: 2rem;
+    }
+    .sec{
+      gap: 2rem;
+    }
+    .third{
+      gap: 2rem;
+    }
+    .text{
+      font-size: 1.75rem;
+    }
+    .paraSection ul li{
+      font-size: 1rem;
+    }
+  }

@@ -1,0 +1,39 @@
+.modalOverlay{
+    position: absolute;
+    background: #2b1a7f;
+    height: 100%;
+    text-align: center;
+    /* padding-top: 25%; */
+    z-index: 10;
+}
+
+.modalContent{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    background: #3a31e3;
+    border-radius: 2rem;
+    margin-top: 2rem;
+    width: 75%;
+}
+
+.modalButtons button{
+    width: 75%;
+    padding: 1rem;
+}
+
+.b1{
+    border-right: 2px solid rgb(157, 130, 208);
+}
+.adminEventCard .editBtn,
+.adminEventCard .editBtn{
+    line-height: 40px;
+    text-align: center;
+}

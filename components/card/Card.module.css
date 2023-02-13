@@ -1,9 +1,11 @@
+@font-face {
+  font-family: 'Galano Grotesque bold';
+  src: url('../assets/fonts/GalanoGrotesqueBold.otf') format('truetype');
+}
+
 .cardBtn a {
   text-decoration: none;
   color: var(--primary-text);
-}
-.event {
-  padding: 0 6rem;
 }
 
 .heading {
@@ -29,77 +31,112 @@
 }
 
 .eventheading {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: 'Galano Grotesque bold';
+  font-size: 1.5rem;
   margin: 0.5rem 0 0.25rem 0;
 }
-.prizeheading {
-  font-size: 1.8rem;
-  font-weight: 700;
-}
+
 .eventCardSection {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 80px;
 }
+
 .eventCard {
-    position: relative;
-    margin: 1rem;
-    width: 280px;
-    border: 1px solid #4936a7;
-    padding: 1.5rem;
-    max-width: 100%;
-    height: -webkit-fill-available;
+  position: relative;
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #4936a7;
+  padding: 1.5rem;
+  /* height: -webkit-fill-available; */
+}
+
+.eventCard img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.eventCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 10, 28, 0.5);
+  z-index: -1;
+}
+
+.eventCard span {
+  display: block;
+  line-height: 1.2rem;
+}
+
+.eventCardBottom{
+  position: absolute;
+  bottom: 2rem;
+}
+.eventCard span.regOpen{
+  margin: .5rem;
+  font-weight: bold;
+}
+
+.eventCard .cardBtn button {
+  padding: 0.2rem 1.8rem;
+  background: rgba(73, 54, 167, 0.2);
+  border: 1px solid #4936a7;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+}
+@media (max-width: 550px) {
+
+  .eventheading {
+    font-size: .9rem;
   }
-  .eventCard img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-  }
-  .eventCard::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(11, 10, 28, 0.75);
-    z-index: -1;
+  .eventCard {
+    width: 140px !important; 
+    aspect-ratio: 1 / 1;
+    padding: .5rem !important;
   }
   .eventCard span {
-    display: block;
+    line-height: .8rem;
+    font-size: .7rem;
   }
-  
-  .eventCard .prize {
-    margin: 4rem 0;
+  .eventCard span.subStr {
+    display: none;
+  }
+  .eventCardBottom{
+    position: absolute;
+    bottom: .2rem;
+  }
+  .eventCard span.regOpen{
+    margin: .2rem 0;
+    font-weight: normal;
+    font-size: .8rem;
   }
   
   .eventCard .cardBtn button {
-    padding: 0.4rem 2rem;
-    background: rgba(73, 54, 167, 0.2);
-    border: 1px solid #4936a7;
-    display: inline-block;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1rem;
+    padding: .05rem;
+    font-size: .7rem;
+  }
+}
+/* @media (max-width: 700px) {
+  .eventCard {
+    width: 270px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .eventCard {
+    width: 270px;
   }
 
-  @media (max-width: 700px) {
-    .eventCard {
-      width: 270px;
-    }
+  .event {
+    padding: 0 3rem;
   }
-  
-  @media (max-width: 1000px) {
-    .eventCard {
-      width: 270px;
-    }
-    .event {
-      padding: 0 3rem;
-    }
-  }
-  
+} */
