@@ -80,6 +80,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
 
   const ahandleSubmit = async () => {
     try {
+      setTeamname('-----');
       setIsLoading(true);
       await axiosInstance({
         method: 'post',
@@ -125,7 +126,6 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       }
       ahandleSubmit();
     } else {
-      setTeamname('-----');
       ahandleSubmit();
     }
   };
@@ -168,7 +168,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
                 <div className={Styles.th}>Member 1: You</div>
               </>
             ) : (
-              ''
+              <div className={Styles.th}>Click submit to participate</div>
             )}
           </div>
           {teamsize == 1 ? (
@@ -316,7 +316,7 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
           ) : (
             ''
           )}
-          {!inputBoxActive ? (
+          {!inputBoxActive && teamsize != 1 ? (
             <button
               className="AddMore"
               type="submit"
