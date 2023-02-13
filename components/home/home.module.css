@@ -100,7 +100,7 @@
 }
 
 .homeHeroSocial i {
-    margin: 0 .5rem;
+    margin: 0 2rem;
     padding: 0 .5rem;
     font-size: 1.5rem;
 }
@@ -109,7 +109,7 @@
     position: absolute;
     bottom: -4rem;
     left: 0;
-    width: 100%;
+    width: 100vw;
 }
 
 .homeAbout {
@@ -225,9 +225,11 @@
         padding: .32rem 1rem;
         font-size: .9rem;
     }
-
+    .homeHeroFrame {
+        bottom: 0rem;
+    }
     .homeAbout {
-        margin-top: calc(100vh);
+        margin-top: 90vh;
         flex-direction: column;
     }
 
@@ -236,9 +238,14 @@
     }
 
     .homeRightAbout {
-        margin-left: 0rem;
+        margin-left: 0rem !important;
     }
-
+    
+    .homeRightAboutImg img {
+        width: 90%;
+        height: 90%;
+        margin-left: 2rem !important;
+    }
     .homeSponser {
         margin: 2rem 0;
     }
