@@ -372,136 +372,27 @@
     }
   }
 
-/* 
-  #timelineContent{
-    margin-bottom: 9rem;
+.model{
+  max-width: 15%;
 }
-
-.timeline{
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  border: 0;
-  border-left: 1px solid #FFFFFF; */
-/* box-shadow: -4px -4px 19px rgba(226, 227, 252, 0.3) ; */
-/* margin: 50px auto;  
-  letter-spacing: 0.5px;   
-  position: relative;
-  padding: 50px;   
-  max-width: 80%; 
+@media(min-width:1000px){
+  .model{
+    max-width: 16%;
+  }
+  
 }
-
-.paraT{
-  padding: 22px 95px 22px 32px;
-  background: rgba(31, 29, 46, 0.8);
-  backdrop-filter: blur(1.04691px);
-  border-radius: 12px;
-  position: relative;
-  list-style-type: disc;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+@media(min-width:1100px){
+  .model{
+    max-width: 15%;
+  }
 }
-.paraT li{
-  font-size: 19.6549px;
-  line-height: 30px;
-  font-feature-settings: 'salt' on, 'liga' off;
-  color: #F9F9F9;
+@media(min-width:1160px){
+  .model{
+    max-width: 14%;
+  }
 }
-
-.paraT::before {
-  position: absolute;
-    display: block;
-    top: 0;
-  left: -350px;       
-  content: attr(data-desc);
-  font-weight: 600;
-  font-size: 2.25rem;
-  line-height: 3.625rem;
-  letter-spacing: 0.01em;
-  text-shadow: -4px -4px 19px rgba(226, 227, 252, 0.2), 4px 4px 18px rgba(226, 227, 252, 0.2);
+@media(min-width:1240px){
+  .model{
+    max-width: 11%;
+  }
 }
-.paraT::after {
-  content: "";
-  position: relative;
-  border-radius: 50%;  
-  border: 1px solid #FFFFFF;
-  height: 25px;
-  width: 25px;
-  top: -190px;
-  left: -95px;
-  display: block;
-  background: #080716;
-}
- */
-/* For screens up to 1048px */
-/* @media (max-width: 1048px) {
-  .main {
-    margin: 2rem 5rem;
-  }
-  .mainContainer {
-    flex-direction: column;
-    margin-bottom: 6rem;
-    gap: 2rem;
-    align-items: center;
-  }
-  .item1,
-  .item2 {
-    flex: 1;
-    width: 100%;
-  }
-  .title {
-    font-size: 3rem;
-    line-height: 4.5rem;
-  }
-  .imageTile {
-    gap: 6rem;
-    flex-direction: column;
-  }
-  .bitItem {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-  .vision {
-    flex-direction: column;
-    gap: 6rem;
-  }
-  .vision .para {
-    padding: 3rem;
-  }
-} */
-
-/* For screens up to 640px */
-/* @media (max-width: 640px) {
-  .main {
-    margin: 2rem 2rem;
-  }
-  .mainContainer {
-    margin-bottom: 4rem;
-    gap: 1rem;
-  }
-  .title {
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-  .imageTile {
-    gap: 3rem;
-  }
-  .bitAbout {
-    gap: 1rem;
-  }
-  .vision .quote {
-    font-size: 3rem;
-    line-height: 4.5rem;
-  }
-  .vision .para {
-    padding: 2rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .text {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-  }
-} */
