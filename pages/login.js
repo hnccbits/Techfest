@@ -95,7 +95,7 @@ function LoginPage() {
             <img src="img/3d_logo.svg" alt="Astronaut" />
           </div>
           <div className={Styles.Rightside}>
-            <div className={Styles.headingtext}>Sign Up</div>
+            <div className={Styles.headingtext}>Sign In</div>
             <form>
               <div className={Styles.formrow}>
                 <div className={Styles.inputdata}>
