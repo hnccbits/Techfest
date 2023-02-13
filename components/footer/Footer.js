@@ -12,8 +12,8 @@ export default function Footer() {
             <img src="img/line.svg" alt="" />
           </span>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Nisl in facilisis ultrices
-            rhoncus maecenas. Augue nunc gravida risus blandit mattis eget quam.
+            BIT Sindri&apos;s Tech Mahotsav is a popular tech festival with
+            coding competition, development events, and exhibitions.
           </p>
         </div>
         <div className={Styles.footerEvents}>
