@@ -1,6 +1,6 @@
 // import Navbar from '../components/navbar/Navbar';
 // import Link from 'next/link';
-
+import Head from 'next/head';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import axiosInstance from '../api/axios';
@@ -76,7 +76,9 @@ function ContactUs() {
   return (
     <>
       {/* <Navbar /> */}
-
+      <Head>
+        <title>Contact Us</title>
+      </Head>
       <main className={Styles.outerlayer}>
         <div className={Styles.contactcontainer}>
           <div className={Styles.headingtext}>Contact Us</div>

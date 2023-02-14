@@ -1,14 +1,21 @@
+import Head from 'next/head';
 import Home from '../components/home/Home';
+
 // import ComingSoon from '../components/coming_soon/ComingSoon';
 // import Navbar from '../components/navbar/Navbar';
 import axiosInstance from '../api/axios';
 
 export default function home({ events }) {
   return (
-    <div>
-      {/* <Navbar /> */}
-      <Home events={events} />
-    </div>
+    <>
+      <Head>
+        <title>Tech Mahotsav</title>
+      </Head>
+      <div>
+        {/* <Navbar /> */}
+        <Home events={events} />
+      </div>
+    </>
   );
 }
 

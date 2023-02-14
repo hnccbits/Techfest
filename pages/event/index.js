@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Card from '../../components/card/Card';
 // import Navbar from '../../components/navbar/Navbar';
 // import Styles from '../components/card/EventCardSection.module.css';
@@ -8,6 +9,9 @@ import axiosInstance from '../../api/axios';
 function Event({ events }) {
   return (
     <>
+      <Head>
+        <title>Events</title>
+      </Head>
       {/* <Navbar /> */}
       <div className={Styles.event}>
         <div className={Styles.heading}>
