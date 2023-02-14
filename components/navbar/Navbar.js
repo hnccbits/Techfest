@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { GrClose } from 'react-icons/gr';
 
 import Link from 'next/link';
 import { AuthContext } from '../../context/AuthContext';
@@ -14,7 +12,7 @@ export default function Navbar() {
     logout();
   };
   const [header, setHeader] = useState();
-  const [toggleNav, settoggleNav] = useState(false);
+  // const [toggleNav, settoggleNav] = useState(false);
   // const [showNav, setShowNav] = useState(false);
 
   // const handleShowNavbar = (prev) => {
@@ -36,15 +34,12 @@ export default function Navbar() {
         <Link href="/about" legacyBehavior>
           <a>About Us</a>
         </Link>
-        <Link href="/contactus" legacyBehavior>
-          <a>Contact Us</a>
-        </Link>
-        <a onClick={exit}>Log out</a>
-      </div>
-      <div className={Styles.hamBurger}>
-        <a onClick={() => settoggleNav((prev) => !prev)}>
-          {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
-        </a>
+        <div className={Styles.contact}>
+          <Link href="/contactus" legacyBehavior>
+            <a>Contact Us</a>
+          </Link>
+        </div>
+        <a onClick={exit}>Sign out</a>
       </div>
     </div>
   );
@@ -55,16 +50,7 @@ export default function Navbar() {
         <img src="img/logo.svg" alt="" />
       </div>
       <div className={Styles.navLinks}>
-        <Link href="/admin/events" legacyBehavior>
-          <a>Club Events</a>
-        </Link>
         <a onClick={exit}>Log out</a>
-      </div>
-      <div
-        className={Styles.hamBurger}
-        onClick={() => settoggleNav((prev) => !prev)}
-      >
-        {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
       </div>
     </div>
   );
@@ -84,21 +70,21 @@ export default function Navbar() {
         <Link href="/about" legacyBehavior>
           <a>About Us</a>
         </Link>
-        <Link href="/contactus" legacyBehavior>
-          <a>Contact Us</a>
-        </Link>
-        <Link href="/login" legacyBehavior>
-          <a>Sign in</a>
-        </Link>
+
+        <div className={Styles.contact}>
+          <Link href="/contactus" legacyBehavior>
+            <a>Contact Us</a>
+          </Link>
+        </div>
+
+        <div className={Styles.login}>
+          <Link href="/login" legacyBehavior>
+            <a>Sign in</a>
+          </Link>
+        </div>
         <Link href="/register" legacyBehavior>
           <a>Sign up</a>
         </Link>
-      </div>
-      <div
-        className={Styles.hamBurger}
-        onClick={() => settoggleNav((prev) => !prev)}
-      >
-        {toggleNav ? <GrClose /> : <GiHamburgerMenu />}
       </div>
     </div>
   );

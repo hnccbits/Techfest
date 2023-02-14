@@ -1,78 +1,78 @@
-.navContainer{
+.navContainer {
   position: fixed;
-  top: 0; left: 0;
-  height: 80px; width: 100%;
-  background: rgba(0, 0, 0, .4);
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 4rem;
-/* <<<<<<< HEAD */
+  /* <<<<<<< HEAD */
   z-index: 10000;
-/* ======= */
+  /* ======= */
   /* z-index: 1000000000; */
-/* >>>>>>> 47d06535fd42c8584335a1d58b7517c55bae1c94 */
+  /* >>>>>>> 47d06535fd42c8584335a1d58b7517c55bae1c94 */
 }
-.navContainer .logo img{
-  width: 60px; height: 60px;
+.navContainer .logo img {
+  width: 60px;
+  height: 60px;
 }
-.navContainer .navLinks{
+.navContainer .navLinks {
   display: flex;
 }
-.navContainer .mobilenavLinks{
+.navContainer .mobilenavLinks {
   display: none;
 }
-.navLinks a{
+.navLinks a {
   margin: 0 1.5rem;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   cursor: pointer;
 }
-.navContainer .hamBurger{
+.navContainer .hamBurger {
   display: none;
 }
-.navContainer .hamBurger a{
+.navContainer .hamBurger a {
   color: #fff !important;
   font-size: 2rem;
   padding: 10px;
 }
 @media (max-width: 900px) {
-  .navContainer .navLinks{
-    display: none;
-  }
-  .navContainer .mobilenavLinks{
+  
+
+  .navContainer {
+
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+ 
+}
+  .navContainer .navLinks {
     display: flex;
     position: absolute;
-    top: 100%; right: 0%;
-    width: 250px; height: calc(100vh - 80px);
-    flex-direction: column;
-    background: rgba(0, 0, 0, .4);
+    top: 0%;
+    right: 0%;
+ 
+    flex-direction: row;
+   
   }
-  .mobilenavLinks a{
+
+   .navContainer .navLinks .login{
+    display: none;
+  }
+   .navContainer .navLinks .contact{
+    display: none;
+  }
+
+  .navLinks a {
     margin: 0;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(70, 70, 70, 0.664);
+    padding: 12px;
   }
-  .navContainer .hamBurger{
-    display: initial;
+  .navContainer .logo {
+    display: none;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* .navContainer{
   z-index: 100000;

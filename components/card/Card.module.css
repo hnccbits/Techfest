@@ -99,7 +99,7 @@
     font-size: .9rem;
   }
   .eventCard {
-    width: 150px !important; 
+    width: 160px !important; 
     aspect-ratio: 1 / 1;
     padding: .5rem !important;
   }
@@ -121,8 +121,8 @@
   }
   
   .eventCard .cardBtn button {
-    padding: .05rem;
-    font-size: .7rem;
+    padding: .07rem;
+    font-size: .8rem;
   }
 }
 /* @media (max-width: 700px) {

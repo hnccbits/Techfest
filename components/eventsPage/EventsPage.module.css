@@ -84,8 +84,8 @@
     gap: 1rem;
   }
 .container img {
-  height: 280px;
-  width: 280px;
+  width: 100%;
+  aspect-ratio: 1/1;
 }
 .eventLinkBtn {
   position: relative !important;
