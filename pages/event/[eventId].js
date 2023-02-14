@@ -55,6 +55,7 @@ function EventsPage({ event }) {
       <Head>
         <title>{name}</title>
         <meta name="description" content={desc} key="desc" />
+        <meta property="og:image" content={img} />
       </Head>
       <Model
         open={modalopen}
