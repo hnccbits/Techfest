@@ -54,6 +54,7 @@ function EventsPage({ event }) {
       {/* <Navbar /> */}
       <Head>
         <title>{name}</title>
+        <meta name="description" content={desc} key="desc" />
       </Head>
       <Model
         open={modalopen}
