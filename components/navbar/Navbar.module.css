@@ -40,14 +40,22 @@
 }
 @media (max-width: 900px) {
   
+
+  .navContainer {
+
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+ 
+}
   .navContainer .navLinks {
     display: flex;
     position: absolute;
     top: 0%;
     right: 0%;
-    height:50px;
+ 
     flex-direction: row;
-    background: rgba(0, 0, 0, 0.4);
+   
   }
 
    .navContainer .navLinks .login{
@@ -59,8 +67,7 @@
 
   .navLinks a {
     margin: 0;
-    padding: 10px;
-    border-bottom: 1px solid rgba(70, 70, 70, 0.664);
+    padding: 12px;
   }
   .navContainer .logo {
     display: none;

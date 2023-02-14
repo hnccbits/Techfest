@@ -238,9 +238,6 @@ function Register() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="none" selected disabled hidden>
-                      Gender*
-                    </option>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                     <option value="O">Others</option>
