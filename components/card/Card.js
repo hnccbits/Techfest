@@ -10,7 +10,9 @@ function Card({ name, coverimg, club, registrationopen, desc, id }) {
       <img src={img} alt="" />
       <div className={Styles.eventheading}>{name}</div>
       <div className={Styles.des}>
-        <span className={Styles.subStr}>{desc?.substring(0, 30)}</span>
+        <span className={Styles.subStr}>
+          {desc?.substring(0, 50).concat('...')}
+        </span>
         <span>
           By <b>{club}</b>
         </span>
