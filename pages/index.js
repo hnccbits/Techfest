@@ -9,7 +9,20 @@ export default function home({ events }) {
   return (
     <>
       <Head>
-        <title>Tech Mahotsav</title>
+        <title>Tech Mahotsav 23 | BIT Sindri</title>
+        <meta
+          name="description"
+          content='The "TECH MAHOTSAV", BIT Sindri&apos;s main technology
+              festival, draws numerous attendees from various universities and
+              colleges across the nation. It features many technical festivals,
+              including coding competitions, development events, testing,
+              exhibitions, and other thrilling activities. It offers a terrific
+              platform where participants from all regions of the country have
+              the chance to advance and display their technological expertise.
+              On a single platform, participants demonstrate their management
+              and technical talents'
+          key="desc"
+        />
       </Head>
       <div>
         {/* <Navbar /> */}
