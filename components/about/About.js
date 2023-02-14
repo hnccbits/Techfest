@@ -20,7 +20,7 @@ function About() {
               <br /> <span>Tech mahotsav &apos;23</span>
             </div>
             <p>
-              The &quot;TECH MAHOTSAV,&quot; BIT Sindri&apos;s main technology
+              The &quot;TECH MAHOTSAV&quot;, BIT Sindri&apos;s main technology
               festival, draws numerous attendees from various universities and
               colleges across the nation. It features many technical festivals,
               including coding competitions, development events, testing,

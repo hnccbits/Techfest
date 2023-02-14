@@ -19,7 +19,7 @@ function Card({ name, coverimg, club, registrationopen, desc, id }) {
       </div>
       <div className={Styles.eventCardBottom}>
         <span className={Styles.regOpen}>
-          {registrationopen ? 'Registration open' : 'Registration closed'}
+          {registrationopen ? '' : 'Registration closed'}
         </span>
         <div className={Styles.cardBtn}>
           <Link href={url} legacyBehavior>
