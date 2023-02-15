@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
+import { events } from '../../lib/ga';
 // import Navbar from '../../components/navbar/Navbar';
 import Styles from '../../components/eventsPage/EventsPage.module.css';
 import Model from '../../components/modal/Model';
@@ -39,6 +40,12 @@ function EventsPage({ event }) {
     setModalopen(!modalopen);
   };
   const handleRegister = (e) => {
+    events({
+      action: 'register',
+      params: {
+        register_term: 'registration',
+      },
+    });
     e.preventDefault();
     if (user) {
       handleModalToggle();

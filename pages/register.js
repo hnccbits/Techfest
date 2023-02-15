@@ -233,6 +233,7 @@ function Register() {
                 <div className={Styles.inputdata}>
                   <select
                     id="gender"
+                    defaultValue="M"
                     className={Styles.inputbox}
                     name="gender"
                     onChange={handleChange}
@@ -332,7 +333,7 @@ function Register() {
                     name="password"
                     onChange={handleChange}
                     type="password"
-                    placeholder="Enter Password*"
+                    placeholder="Create Password*"
                     className={Styles.inputbox}
                     required
                   />

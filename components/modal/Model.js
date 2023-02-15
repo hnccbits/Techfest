@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Styles from './Model.module.css';
 import axiosInstance from '../../api/axios';
+import { events } from '../../lib/ga';
 
 export default function Modal({ handleModalToggle, open, teamsize, id }) {
   const [inputBoxActive, setInputBoxActive] = useState(false);
@@ -96,6 +97,13 @@ export default function Modal({ handleModalToggle, open, teamsize, id }) {
       setParticipant([]);
       setIsLoading(false);
       ahandleModalToggle();
+
+      events({
+        action: 'register',
+        params: {
+          register_term: 'final_registration',
+        },
+      });
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Internet connection');
