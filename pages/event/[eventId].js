@@ -147,5 +147,6 @@ export async function getStaticProps({ params }) {
     props: {
       event: d[0],
     },
+    revalidate: 1000,
   };
 }
